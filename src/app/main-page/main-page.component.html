@@ -1,0 +1,56 @@
+  
+  <mat-toolbar class="mat-elevation-z3">
+    <button mat-icon-button (click)="collapsed.set(!collapsed())">
+        <mat-icon>menu</mat-icon>
+    </button>
+    <img [width]="180" [height]="40" src="academy.png" alt=""/>
+    <span class="example-spacer"></span>
+    
+    <!-- Notifications Button with Dropdown -->
+    <!-- <button mat-icon-button class="example-icon" [matMenuTriggerFor]="notificationsMenu" aria-label="Notifications">
+        <mat-icon matBadgeColor="accent" matBadge="3">notifications</mat-icon>
+    </button>
+
+    <mat-menu #notificationsMenu="matMenu">
+        <mat-list>
+            <mat-list-item>
+                <p matLine>No Classes on January 27</p>
+            </mat-list-item>
+            <mat-list-item>
+                <p matLine>Card Day on February 14</p>
+            </mat-list-item>
+            <mat-list-item>
+                <p matLine>May libreng kape</p>
+            </mat-list-item>
+        </mat-list>
+    </mat-menu> -->
+
+    <!-- Profile Button with Dropdown -->
+    <button mat-icon-button class="example-icon circle-btn ms-2" [matMenuTriggerFor]="profileMenu">
+        <img src="profile.png" class="prof-image" />
+    </button>
+    
+    <!-- Profile Dropdown Menu -->
+    <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item [routerLink]="['/main-page/account/acc-homepage']">
+            <mat-icon>settings</mat-icon>
+            <span>Account Settings</span>
+        </button>
+        <button mat-menu-item [routerLink]="['login']">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>Logout</span>
+        </button>
+    </mat-menu>
+
+</mat-toolbar> 
+
+<mat-sidenav-container>
+    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()"> 
+        <app-custom-sidenav [collapsed]="collapsed()" />
+    </mat-sidenav>
+
+    <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>

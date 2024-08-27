@@ -25,7 +25,7 @@
     border: 1px solid #ccc;
     border-radius: 3px;
     box-sizing: border-box;
-    margin-right: 10px;
+    /* margin-right: 10px; */
   }
 
   .search-bar button {

@@ -9,13 +9,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-uploadpage',
+  selector: 'app-rostering',
   standalone: true,
   imports: [MatIconModule, MatButtonModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
-  templateUrl: './uploadpage.component.html',
-  styleUrl: './uploadpage.component.css'
+  templateUrl: './rostering.component.html',
+  styleUrl: './rostering.component.css'
 })
-export class UploadpageComponent {
+export class RosteringComponent {
   classes: string[] = [
     'Grade 7',
     'Grade 8',

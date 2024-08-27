@@ -1,66 +1,54 @@
-body {
-  background-color: #43c6df;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  height: 100vh;
-}
 
-.student-account {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+  body {
+    background-color: #43c6df;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+  }
 
-.search-bar {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
+  .student-account {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
 
-.search-bar input[type="text"] {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-  box-sizing: border-box;
-  margin-right: 10px;
-}
+  .search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+  }
 
-.search-bar button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  /* margin-left: 10px; */
-}
+  .search-bar input[type="text"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    margin-right: 10px;
+  }
 
-.search-bar select {
-  margin-left: 10px;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
+  .search-bar button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
 
-th, td {
-  text-align: center; /* Center align table content */
-  padding: 8px;
-  border-bottom: 1px solid #ddd;
-}
+  th, td {
+    text-align: center; /* Center align table content */
+    padding: 8px;
+    border-bottom: 1px solid #ddd;
+  }
 
-th {
-  background-color: #f0f0f0;
-}
-
-.fa-upload {
-  font-size: 20px; /* Adjust size of the upload icon */
-  color: #4CAF50; /* Color of the upload icon */
-  cursor: pointer; /* Change cursor to pointer */
-}
+  th {
+    background-color: #f0f0f0;
+  }

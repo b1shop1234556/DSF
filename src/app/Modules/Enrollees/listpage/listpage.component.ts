@@ -1,14 +1,47 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatSelectModule } from '@angular/material/select';
+import { RouterOutlet, RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-listpage',
   standalone: true,
-  imports: [CommonModule,RouterOutlet,RouterLink,RouterLinkActive],
+  imports: [MatIconModule, MatButtonModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
   templateUrl: './listpage.component.html',
   styleUrl: './listpage.component.css'
 })
 export class ListpageComponent {
+  classes: string[] = [
+    'Grade 7',
+    'Grade 8',
+    'Grade 9',
+    'Grade 10',
+    'Grade 11',
+    'Grade 12',
+  ];
 
+  sections: string[] = [
+    'Emerald',
+    'Diamond',
+    'Pearl',
+    'Sapphire',
+    'Amethyst',
+    'A',
+    'B',
+    'C',
+  ];
+
+  strands: string[] = [
+    'STEM',
+    'ABM',
+    'HUMSS',
+  ];
+
+  enrolees: string[] = ['Victoria Nueman', 'John Lander', 'Jessie Train', 'Queen Maeve', 'Chace Deep'];
 }

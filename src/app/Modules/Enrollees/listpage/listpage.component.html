@@ -1,46 +1,116 @@
 <!-- <p>listpage works!</p> -->
 <p class="h4">LIST OF ENROLLEES</p>
 
-
 <div class="student-account">
   <div class="search-bar">
     <input type="text" id="search-input" placeholder="Search...">
     <button type="submit">Search</button>
+    
+    <!-- Filter by Grade Level -->
+    <select id="grade-filter" onchange="filterByGrade()">
+      <option value="">Select Grade Level</option>
+      <option value="Grade 7">Grade 7</option>
+      <option value="Grade 8">Grade 8</option>
+      <option value="Grade 9">Grade 9</option>
+      <option value="Grade 10">Grade 10</option>
+      <option value="Grade 11">Grade 11</option>
+      <option value="Grade 12">Grade 12</option>
+    </select>
+    <button type="button" onclick="filterByGrade()">Filter</button>
   </div>
   <table>
     <thead>
       <tr>
+        <th>LRN</th>
         <th>Name</th>
+        <th>Gender</th>
         <th>Grade Level</th>
+        <th>Contact No.</th>
         <th>Enrollment Date</th>
         <!-- <th>Action</th> -->
       </tr>
     </thead>
-    <tbody>
+    <tbody id="enrollee-table-body">
       <tr>
-        <td>Juan dela Cruz</td>
-        <td>11th Grade</td>
-        <td>2023-08-01</td>
-        
+        <td>1234567890</td>
+        <td>Liza Perez</td>
+        <td>Female</td>
+        <td>Grade 9</td>
+        <td>09123456789</td>
+        <td>2023-08-15</td>
       </tr>
       <tr>
+        <td>1234567891</td>
+        <td>Carlos Reyes</td>
+        <td>Male</td>
+        <td>Grade 10</td>
+        <td>09987654321</td>
+        <td>2023-09-15</td>
+      </tr>
+      <tr>
+        <td>1234567892</td>
         <td>Ana Santos</td>
-        <td>12th Grade</td>
+        <td>Female</td>
+        <td>Grade 12</td>
+        <td>09123456789</td>
         <td>2023-07-15</td>
-        
       </tr>
       <tr>
-        <td>Maria Clara</td>
-        <td>11th Grade</td>
-        <td>2023-08-20</td>
-        
+        <td>1234567893</td>
+        <td>Juana Dela Paz</td>
+        <td>Female</td>
+        <td>Grade 7</td>
+        <td>09987654321</td>
+        <td>2023-06-15</td>
       </tr>
       <tr>
+        <td>1234567894</td>
+        <td>Juan dela Cruz</td>
+        <td>Male</td>
+        <td>Grade 11</td>
+        <td>09123456789</td>
+        <td>2023-08-01</td>
+      </tr>
+      <tr>
+        <td>1234567895</td>
         <td>Jose Rizal</td>
-        <td>12th Grade</td>
+        <td>Male</td>
+        <td>Grade 12</td>
+        <td>09987654321</td>
         <td>2023-09-01</td>
-       
+      </tr>
+      <tr>
+        <td>1234567896</td>
+        <td>Maria Clara</td>
+        <td>Female</td>
+        <td>Grade 11</td>
+        <td>09123456789</td>
+        <td>2023-08-20</td>
+      </tr>
+      <tr>
+        <td>1234567897</td>
+        <td>Miguel Gomez</td>
+        <td>Male</td>
+        <td>Grade 8</td>
+        <td>09987654321</td>
+        <td>2023-07-01</td>
       </tr>
     </tbody>
   </table>
 </div>
+
+<script>
+  function filterByGrade() {
+    const filterValue = document.getElementById("grade-filter").value;
+    const tableBody = document.getElementById("enrollee-table-body");
+    const rows = tableBody.getElementsByTagName("tr");
+
+    for (let i = 0; i < rows.length; i++) {
+      const gradeCell = rows[i].getElementsByTagName("td")[3]; // Grade Level is the 4th column (index 3)
+      if (gradeCell) {
+        const gradeText = gradeCell.textContent || gradeCell.innerText;
+        rows[i].style.display = (filterValue === "" || gradeText === filterValue) ? "" : "none";
+      }
+    }
+  }
+</script>

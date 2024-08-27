@@ -51,7 +51,7 @@ export class CustomSidenavComponent {
         },
         {
           icon: 'check',
-          label: 'Approve',
+          label: 'Approval',
           route: 'enrollees/homepage/approve',
         },
         // {

@@ -1,4 +1,4 @@
-body {
+/* body {
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
     margin: 0;
@@ -27,11 +27,11 @@ h2 {
 .total {
     font-weight: bold;
     margin-top: 15px;
-    color: #d9534f; /* Bootstrap danger color */
+    color: #d9534f; 
 }
 .footer {
     text-align: center;
     margin-top: 20px;
     font-size: 12px;
     color: #777;
-}
+} */

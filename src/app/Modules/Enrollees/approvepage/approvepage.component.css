@@ -1,142 +1,66 @@
 body {
-    background-color: #43c6df;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-    background-color: #d8f0ff;
-    padding: 20px;
-    border-right: 1px solid #d8f0ff;
-    height: 100vh;
-    overflow-y: auto;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 1;
-  }
-    
-    .container {
-      display: flex;
-      height: 100%;
-    }
-    
-    .sidebar h2 {
-      margin-bottom: 20px;
-    }
-    
-    .sidebar a {
-      display: block;
-      padding: 10px;
-      text-decoration: none;
-      color: #333;
-      border-bottom: 1px solid #eee;
-    }
-    
-    .sidebar a:hover {
-      background-color: #eee;
-    }
-    
-    .content {
-      margin-left: 200px;
-      padding: 20px;
-      height: 100%;
-    }
-    
-    .content h1 {
-      margin-bottom: 20px;
-    }
-    
-    .student-account {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 5px;
-      box-shadow: 0
-    }
-    
-    .student-account table {
-      width: 100%;
-      border-collapse: collapse;
-    }
-    
-    .student-account th,
-    .student-account td {
-      text-align: left;
-      padding: 8px;
-      border-bottom: 1px solid #ddd;
-    }
-    
-    .student-account th {
-      background-color: #f0f0f0;
-    }
-    
-    .search-bar {
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-    }
-    
-    .search-bar label {
-      margin-right: 10px;
-    }
-    
-    .search-bar input[type="text"] {
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 3px;
-      box-sizing: border-box;
-    }
-    
-    .search-bar button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-    
-    .upload-button {
-      margin-top: 10px;
-      display: block;
-      width: auto;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 3px;
-      background-color: #4CAF50;
-      color: white;
-      cursor: pointer;
-    }
-    
-    /* Add the following styles to move the logout button to the bottom */
-    .sidebar a:last-child {
-      margin-bottom: 20px;
-    }
+  background-color: #43c6df;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
 
-    .action-buttons {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 10px;
-    }
-    
-    .action-buttons button {
-      background-color: #4CAF50;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 3px;
-      cursor: pointer;
-      margin-left: 10px;
-    }
-    
-    .action-buttons button.pending-btn {
-      background-color: #f44336;
-    }
-    
-    
+.student-account {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input[type="text"] {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-right: 10px;
+}
+
+.search-bar button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  /* margin-left: 10px; */
+}
+
+.search-bar select {
+  margin-left: 10px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  text-align: center; /* Center align table content */
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+.fa-eye, .fa-thumbs-up {
+  font-size: 20px; /* Adjust size of the icons */
+  color: #4CAF50; /* Color of the icons */
+  cursor: pointer; /* Change cursor to pointer */
+}

@@ -6,7 +6,7 @@
     <button type="submit">Search</button>
   </div>
   
-  <!--filter-->
+  <!-- Filter -->
   <div class="d-flex align-items-center">
     <mat-form-field class="me-2">
       <mat-label>Class</mat-label>
@@ -45,8 +45,8 @@
         <th>Gender</th>
         <th>Grade Level</th>
         <th>Contact No.</th>
-        <th>Enrollment Date</th>
-        <!-- <th>Action</th> -->
+        <th>Address</th> <!-- New Address Column -->
+        <th>Approval Date</th> <!-- Changed from Enrollment Date to Approval Date -->
       </tr>
     </thead>
     <tbody id="enrollee-table-body">
@@ -56,7 +56,8 @@
         <td>Female</td>
         <td>Grade 9</td>
         <td>09123456789</td>
-        <td>2023-08-15</td>
+        <td>Barangay Masaya, Quezon City, Metro Manila</td> <!-- Example Address -->
+        <td>2023-08-15 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567891</td>
@@ -64,7 +65,8 @@
         <td>Male</td>
         <td>Grade 10</td>
         <td>09987654321</td>
-        <td>2023-09-15</td>
+        <td>Barangay Mabuhay, Davao City, Davao del Sur</td> <!-- Example Address -->
+        <td>2023-09-15 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567892</td>
@@ -72,7 +74,8 @@
         <td>Female</td>
         <td>Grade 12</td>
         <td>09123456789</td>
-        <td>2023-07-15</td>
+        <td>Barangay Maligaya, Cebu City, Cebu</td> <!-- Example Address -->
+        <td>2023-07-15 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567893</td>
@@ -80,7 +83,8 @@
         <td>Female</td>
         <td>Grade 7</td>
         <td>09987654321</td>
-        <td>2023-06-15</td>
+        <td>Barangay Magsaysay, Iloilo City, Iloilo</td> <!-- Example Address -->
+        <td>2023-06-15 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567894</td>
@@ -88,7 +92,8 @@
         <td>Male</td>
         <td>Grade 11</td>
         <td>09123456789</td>
-        <td>2023-08-01</td>
+        <td>Barangay Malvar, Batangas City, Batangas</td> <!-- Example Address -->
+        <td>2023-08-01 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567895</td>
@@ -96,7 +101,8 @@
         <td>Male</td>
         <td>Grade 12</td>
         <td>09987654321</td>
-        <td>2023-09-01</td>
+        <td>Barangay Malinao, Albay, Bicol Region</td> <!-- Example Address -->
+        <td>2023-09-01 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567896</td>
@@ -104,7 +110,8 @@
         <td>Female</td>
         <td>Grade 11</td>
         <td>09123456789</td>
-        <td>2023-08-20</td>
+        <td>Barangay Mambaling, Cebu City, Cebu</td> <!-- Example Address -->
+        <td>2023-08-20 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
       <tr>
         <td>1234567897</td>
@@ -112,7 +119,8 @@
         <td>Male</td>
         <td>Grade 8</td>
         <td>09987654321</td>
-        <td>2023-07-01</td>
+        <td>Barangay Mandaluyong, Mandaluyong City, Metro Manila</td> <!-- Example Address -->
+        <td>2023-07-01 <i class="fas fa-check approval-icon" title="Approved"></i></td> <!-- Example Approval Date with Icon -->
       </tr>
     </tbody>
   </table>
@@ -139,4 +147,3 @@
     });
   });
 </script>
-

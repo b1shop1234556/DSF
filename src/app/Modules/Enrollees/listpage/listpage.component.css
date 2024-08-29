@@ -52,3 +52,10 @@
   th {
     background-color: #f0f0f0;
   }
+
+
+  /* Add your existing styles here */
+  .approval-icon {
+    color: green; /* Color of the approval icon */
+    margin-left: 5px; /* Add some spacing between the date and icon */
+  }

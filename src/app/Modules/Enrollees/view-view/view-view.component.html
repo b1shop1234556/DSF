@@ -1,4 +1,3 @@
-<!-- <p>view-view works!</p> -->
 <div class="receipt-container">
     <h2>Official Receipt</h2>
     <p><strong>Date:</strong> 2023-09-01</p>
@@ -19,5 +18,10 @@
         <p>For any inquiries, please contact us.</p>
         <p style="margin-top: 40px;">______________________</p>
         <p>Authorized Signature</p>
+    </div>
+    
+    <div class="button-container" style="margin-top: 20px;">
+        <button onclick="window.history.back();" style="margin-right: 10px;" [routerLink]="['/main-page/enrollees/homepage/approve']">Back</button>
+        <button onclick="window.print();">Print</button>
     </div>
 </div>

@@ -61,16 +61,16 @@ export class CustomSidenavComponent {
         // },
       ]
     },
-    // {
-    //   icon: 'home',
-    //   label: 'Student Account',
-    //   route: 'home'
-    // },
     {
       icon: 'list',
       label: 'Student Account',
       route: 'student'
     }
+    // {
+    //   icon: 'home',
+    //   label: 'Student Account',
+    //   route: 'home'
+    // },
     // {
     //   icon: 'account_circle',
     //   label: 'My Account',

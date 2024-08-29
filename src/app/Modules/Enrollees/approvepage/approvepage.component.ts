@@ -8,6 +8,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
+import { ViewViewComponent } from '../view-view/view-view.component';
+import { MatDialog } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-approvepage',
@@ -17,5 +20,14 @@ import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.c
   styleUrl: './approvepage.component.css'
 })
 export class ApprovepageComponent {
+
+  constructor(private dialog: MatDialog){}
+
+  openDialog(): void{
+    const dialogRef = this.dialog.open(ViewViewComponent, {
+      height: '800px',
+      width: '800px'
+    });
+  }
 
 }

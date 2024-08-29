@@ -9,6 +9,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-view-view',
@@ -18,5 +19,6 @@ import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.c
   styleUrl: './view-view.component.css'
 })
 export class ViewViewComponent {
+  constructor(public dialogRef:MatDialogRef<ViewViewComponent>){}
 
 }

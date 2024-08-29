@@ -30,12 +30,12 @@
         <td>₱40,000</td>
         <td>
           ₱10,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567890')" [routerLink]="['/main-page/enrollees/homepage/view']"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567890')" ></i>
         </td>
         <td>2023-09-01</td>
         <td>₱30,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" [routerLink]="['/main-page/enrollees/homepage/viewdetails']" onclick="viewDetails('1234567890')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567890')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567890')"></i>
         </td>
       </tr>
@@ -48,12 +48,12 @@
         <td>₱40,000</td>
         <td>
           ₱20,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567891')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567891')"></i>
         </td>
         <td>2023-09-15</td>
         <td>₱20,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567891')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567891')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567891')"></i>
         </td>
       </tr>
@@ -66,12 +66,12 @@
         <td>₱40,000</td>
         <td>
           ₱15,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567892')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567892')"></i>
         </td>
         <td>2023-08-15</td>
         <td>₱25,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567892')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567892')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567892')"></i>
         </td>
       </tr>
@@ -84,12 +84,12 @@
         <td>₱40,000</td>
         <td>
           ₱40,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567893')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567893')"></i>
         </td>
         <td>2023-07-30</td>
         <td>₱0</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567893')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567893')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567893')"></i>
         </td>
       </tr>
@@ -102,12 +102,12 @@
         <td>₱40,000</td>
         <td>
           ₱25,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567894')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567894')"></i>
         </td>
         <td>2023-07-15</td>
         <td>₱15,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567894')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567894')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567894')"></i>
         </td>
       </tr>
@@ -120,12 +120,12 @@
         <td>₱40,000</td>
         <td>
           ₱30,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567895')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567895')"></i>
         </td>
         <td>2023-09-01</td>
         <td>₱10,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567895')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567895')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567895')"></i>
         </td>
       </tr>
@@ -138,12 +138,12 @@
         <td>₱40,000</td>
         <td>
           ₱20,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567896')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567896')"></i>
         </td>
         <td>2023-09-30</td>
         <td>₱20,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567896')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567896')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567896')"></i>
         </td>
       </tr>
@@ -156,12 +156,12 @@
         <td>₱40,000</td>
         <td>
           ₱5,000 
-          <i class="fa fa-eye" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567897')"></i>
+          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567897')"></i>
         </td>
         <td>2023-07-01</td>
         <td>₱35,000</td>
         <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567897')"></i>
+          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567897')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
           <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567897')"></i>
         </td>
       </tr>

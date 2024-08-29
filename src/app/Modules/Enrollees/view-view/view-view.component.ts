@@ -19,6 +19,8 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './view-view.component.css'
 })
 export class ViewViewComponent {
-  constructor(public dialogRef:MatDialogRef<ViewViewComponent>){}
+  constructor(public dialogRef:MatDialogRef<ViewViewComponent>){
+    
+  }
 
 }

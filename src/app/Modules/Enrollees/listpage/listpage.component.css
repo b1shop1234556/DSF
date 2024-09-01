@@ -1,61 +1,101 @@
+   body {
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
 
-  body {
-    background-color: #43c6df;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    height: 100vh;
-  }
+        .student-account {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
+            max-width: 1200px; /* Max width for larger screens */
+            margin: auto; /* Centering the container */
+        }
 
-  .student-account {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  }
+        .search-bar {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 3px;
+        }
 
-  .search-bar {
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-  }
+        .search-bar input[type="text"] {
+            padding: 8px;
+            border: none;
+            box-sizing: border-box;
+            margin-right: 10px;
+            flex-grow: 1;
+        }
 
-  .search-bar input[type="text"] {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    box-sizing: border-box;
-    /* margin-right: 10px; */
-  }
+        .search-bar button {
+            background-color: #007bff;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
 
-  .search-bar button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 8px 16px;
-    border: none;
-    border-radius: 3px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+        .filter-container {
+            display: flex;
+            align-items: center;
+        }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-  }
+        .filter-container mat-form-field {
+            margin-right: 10px;
+        }
 
-  th, td {
-    text-align: center; /* Center align table content */
-    padding: 8px;
-    border-bottom: 1px solid #ddd;
-  }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            overflow: hidden; /* Prevents border-radius from being cut off */
+        }
 
-  th {
-    background-color: #f0f0f0;
-  }
+        th {
+            background-color: #007bff;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 2px solid #007bff;
+        }
 
+        tbody {
+            display: block; /* Make tbody block for scrolling */
+            max-height: 400px; /* Set max height for scrolling */
+            overflow-y: auto; /* Enable vertical scrolling */
+            width: 100%;
+            border: 1px solid #ddd; /* Optional border around tbody */
+        }
 
-  /* Add your existing styles here */
-  .approval-icon {
-    color: green; /* Color of the approval icon */
-    margin-left: 5px; /* Add some spacing between the date and icon */
-  }
+        tr {
+            display: table; /* Make rows behave like table rows */
+            width: 100%;
+            table-layout: fixed; /* Prevents columns from resizing */
+            border-bottom: 1px solid #ddd; /* Add border to rows */
+        }
+
+        td {
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5; /* Highlight on hover */
+        }
+
+        /* Icon Styles */
+        .fa-eye, .fa-thumbs-up {
+            font-size: 18px;
+            color: #007bff;
+            cursor: pointer;
+            margin-right: 10px;
+        }

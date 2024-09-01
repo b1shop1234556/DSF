@@ -12,4 +12,8 @@ export class PostService {
   getstudent(){
     return this.http.get(this.url + 'studentview.php');
   }
+
+  getlist(){
+    return this.http.get(this.url + 'listview.php');
+  }
 }

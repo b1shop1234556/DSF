@@ -1,11 +1,10 @@
-<p class="h4">LIST OF ENROLLEES APPROVED</p>
-
 <div class="student-account">
+  <p class="h4">LIST OF ENROLLEES APPROVED</p>
   <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search...">
-    <button type="submit">Search</button>
+      <input type="text" id="search-input" placeholder="Search...">
+      <button type="submit">Search</button>
   </div>
-  
+
   <!-- Filter -->
   <div class="d-flex align-items-center">
     <mat-form-field class="me-2">
@@ -36,143 +35,49 @@
       </mat-select>
     </mat-form-field> -->
   </div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>#</th> <!-- Number Label Column -->
-        <th>LRN</th>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Grade Level</th>
-        <th>Contact No.</th>
-        <th>Address</th>
-        <th>Approval Date</th>
-      </tr>
-    </thead>
-    <tbody id="enrollee-table-body">
-      <tr>
-        <td>1</td> <!-- Number Label -->
-        <td>1234567890</td>
-        <td>Liza Perez</td>
-        <td>Female</td>
-        <td>Grade 9</td>
-        <td>09123456789</td>
-        <td>Barangay Masaya, Quezon City, Metro Manila</td>
-        <td>2023-08-15 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>1234567891</td>
-        <td>Carlos Reyes</td>
-        <td>Male</td>
-        <td>Grade 10</td>
-        <td>09987654321</td>
-        <td>Barangay Mabuhay, Davao City, Davao del Sur</td>
-        <td>2023-09-15 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>1234567892</td>
-        <td>Ana Santos</td>
-        <td>Female</td>
-        <td>Grade 12</td>
-        <td>09123456789</td>
-        <td>Barangay Maligaya, Cebu City, Cebu</td>
-        <td>2023-07-15 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td>1234567893</td>
-        <td>Juana Dela Paz</td>
-        <td>Female</td>
-        <td>Grade 7</td>
-        <td>09987654321</td>
-        <td>Barangay Magsaysay, Iloilo City, Iloilo</td>
-        <td>2023-06-15 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>5</td>
-        <td>1234567894</td>
-        <td>Juan dela Cruz</td>
-        <td>Male</td>
-        <td>Grade 11</td>
-        <td>09123456789</td>
-        <td>Barangay Malvar, Batangas City, Batangas</td>
-        <td>2023-08-01 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>6</td>
-        <td>1234567895</td>
-        <td>Jose Rizal</td>
-        <td>Male</td>
-        <td>Grade 12</td>
-        <td>09987654321</td>
-        <td>Barangay Malinao, Albay, Bicol Region</td>
-        <td>2023-09-01 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>7</td>
-        <td>1234567896</td>
-        <td>Maria Clara</td>
-        <td>Female</td>
-        <td>Grade 11</td>
-        <td>09123456789</td>
-        <td>Barangay Mambaling, Cebu City, Cebu</td>
-        <td>2023-08-20 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>8</td>
-        <td>1234567897</td>
-        <td>Miguel Gomez</td>
-        <td>Male</td>
-        <td>Grade 8</td>
-        <td>09987654321</td>
-        <td>Barangay Mandaluyong, Mandaluyong City, Metro Manila</td>
-        <td>2023-07-01 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>9</td>
-        <td>1234567898</td>
-        <td>Juanita Reyes</td>
-        <td>Female</td>
-        <td>Grade 9</td>
-        <td>09123456789</td>
-        <td>Barangay Marikina, Marikina City, Metro Manila</td>
-        <td>2023-08-22 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-      <tr>
-        <td>10</td>
-        <td>1234567899</td>
-        <td>Pedro Gomez</td>
-        <td>Male</td>
-        <td>Grade 10</td>
-        <td>09987654321</td>
-        <td>Barangay Malabon, Malabon City, Metro Manila</td>
-        <td>2023-09-10 <i class="fas fa-check approval-icon" title="Approved"></i></td>
-      </tr>
-    </tbody>
-  </table>
+  
+  <div class="table-container">
+      <table>
+          <thead>
+              <tr>
+                  <th scope="col" class="text-center">#</th>  
+                  <th scope="col" class="text-center">LRN</th>  
+                  <th scope="col" class="text-center">NAME</th> 
+                  <th scope="col" class="text-center">GENDER</th> 
+                  <th scope="col" class="text-center">CONTACT #</th>  
+                  <th scope="col" class="text-center">GRADE LEVEL</th>
+                  <th scope="col" class="text-center">ADDRESS</th>
+                  <th scope="col" class="text-center">APPROVAL DATE</th>
+              </tr>
+          </thead>
+          <tbody>
+              @for(c of student; track c.student){
+                  <tr>
+                      <td class="text-center">{{ c.we}}</td>
+                      <td class="text-center">{{ c.LRN}}</td>
+                      <td>{{ c.Name}} {{ c.suffix}}</td>
+                      <td class="text-center">{{ c.gender }}</td>
+                      <td class="text-center">{{ c.contact_no }}</td>
+                      <td class="text-center">{{ c.GRADELEVEL }}</td>
+                      <td class="text-center">{{ c.address }}</td>
+                      <td class="text-center">{{ c.date_register }}</td>
+                  </tr>
+              }                 
+          </tbody>
+      </table>
+  </div>
 </div>
 
 <script>
-  // Keep the search functionality if needed
-  document.getElementById("search-input").addEventListener("keyup", function() {
-    const filter = this.value.toUpperCase();
-    const rows = document.querySelectorAll("#enrollee-table-body tr");
+function viewDetails(lrn) {
+  alert("Viewing details for LRN: " + lrn);
+}
 
-    rows.forEach(row => {
-      const cells = row.getElementsByTagName("td");
-      let found = false;
+function approveEnrollment(lrn) {
+  alert("Enrollment approved for LRN: " + lrn);
+}
 
-      for (let i = 0; i < cells.length; i++) {
-        if (cells[i].textContent.toUpperCase().indexOf(filter) > -1) {
-          found = true;
-          break;
-        }
-      }
-
-      row.style.display = found ? "" : "none";
-    });
-  });
+function viewProofOfPayment(lrn) {
+  alert("Viewing proof of payment for LRN: " + lrn);
+}
 </script>

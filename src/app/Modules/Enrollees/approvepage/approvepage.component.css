@@ -50,7 +50,7 @@ table {
 }
 
 th, td {
-  text-align: center; /* Center align table content */
+  /* text-align: center;  */
   padding: 8px;
   border-bottom: 1px solid #ddd;
 }

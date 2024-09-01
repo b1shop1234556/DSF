@@ -8,163 +8,39 @@
   <table>
     <thead>
       <tr>
-        <th>LRN</th>
-        <th>Name</th>
-        <th>Contact No.</th>
-        <th>Grade Level</th>
-        <th>Enrollment Date</th>
-        <th>Tuition</th>
-        <th>Payment</th>
-        <th>Date of Payment</th>
-        <th>Balance</th>
-        <th>Action</th> <!-- New Action Column -->
+        
+        <th scope="col" class="text-center">LRN</th>  
+        <th scope="col" class="text-center">NAME</th>  
+        <th scope="col" class="text-center">CONTACT #</th>  
+        <th scope="col" class="text-center">GRADE LEVEL</th>
+        <th scope="col" class="text-center">ENROLLMENT DATE</th>
+        <th scope="col" class="text-center">TUITION</th>
+        <th scope="col" class="text-center">PAYMENT</th>
+        <th scope="col" class="text-center">DATE OF PAYMENT</th>
+        <th scope="col" class="text-center">BALANCE</th>
+        <th scope="col" class="text-center">ACTION</th>
+        
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1234567890</td>
-        <td>Maria Clara</td>
-        <td>09123456789</td>
-        <td>Grade 11</td>
-        <td>2023-08-20</td>
-        <td>₱40,000</td>
-        <td>
-          ₱10,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567890')" ></i>
-        </td>
-        <td>2023-09-01</td>
-        <td>₱30,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567890')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567890')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567891</td>
-        <td>Jose Rizal</td>
-        <td>09987654321</td>
-        <td>Grade 12</td>
-        <td>2023-09-01</td>
-        <td>₱40,000</td>
-        <td>
-          ₱20,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567891')"></i>
-        </td>
-        <td>2023-09-15</td>
-        <td>₱20,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567891')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567891')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567892</td>
-        <td>Juan dela Cruz</td>
-        <td>09123456789</td>
-        <td>Grade 11</td>
-        <td>2023-08-01</td>
-        <td>₱40,000</td>
-        <td>
-          ₱15,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567892')"></i>
-        </td>
-        <td>2023-08-15</td>
-        <td>₱25,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567892')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567892')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567893</td>
-        <td>Ana Santos</td>
-        <td>09987654321</td>
-        <td>Grade 12</td>
-        <td>2023-07-15</td>
-        <td>₱40,000</td>
-        <td>
-          ₱40,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567893')"></i>
-        </td>
-        <td>2023-07-30</td>
-        <td>₱0</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567893')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567893')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567894</td>
-        <td>Miguel Gomez</td>
-        <td>09123456789</td>
-        <td>Grade 8</td>
-        <td>2023-07-01</td>
-        <td>₱40,000</td>
-        <td>
-          ₱25,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567894')"></i>
-        </td>
-        <td>2023-07-15</td>
-        <td>₱15,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567894')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567894')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567895</td>
-        <td>Liza Perez</td>
-        <td>09987654321</td>
-        <td>Grade 9</td>
-        <td>2023-08-15</td>
-        <td>₱40,000</td>
-        <td>
-          ₱30,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567895')"></i>
-        </td>
-        <td>2023-09-01</td>
-        <td>₱10,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567895')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567895')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567896</td>
-        <td>Carlos Reyes</td>
-        <td>09123456789</td>
-        <td>Grade 10</td>
-        <td>2023-09-15</td>
-        <td>₱40,000</td>
-        <td>
-          ₱20,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567896')"></i>
-        </td>
-        <td>2023-09-30</td>
-        <td>₱20,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567896')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567896')"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567897</td>
-        <td>Juana Dela Paz</td>
-        <td>09987654321</td>
-        <td>Grade 7</td>
-        <td>2023-06-15</td>
-        <td>₱40,000</td>
-        <td>
-          ₱5,000 
-          <i class="fa fa-eye" (click)="openDialog()" aria-hidden="true" style="margin-left: 10px; cursor: pointer;" onclick="viewProofOfPayment('1234567897')"></i>
-        </td>
-        <td>2023-07-01</td>
-        <td>₱35,000</td>
-        <td>
-          <i class="fa fa-eye" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="viewDetails('1234567897')" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-          <i class="fa fa-thumbs-up" aria-hidden="true" style="margin-right: 15px; cursor: pointer;" onclick="approveEnrollment('1234567897')"></i>
-        </td>
-      </tr>
+      @for(c of student; track c.student){
+        <tr>
+          
+          <td class="text-center">{{ c.LRN}}</td>
+          <td class="">{{ c.Name}} {{ c.suffix}}</td>
+          <td class="text-center">{{ c.contact_no }}</td>
+          <td class="text-center">{{ c.GRADELEVEL }}</td>
+          <td class="text-center">{{ c.date_register }}</td>
+          <td class="text-center">{{ c.Fees }}</td>
+          <td class="text-center">{{ c.amount_paid }}</td>
+          <td class="text-center">{{ c.date_of_payment }}</td>
+          <td class="text-center">{{ c.Total }}</td>
+
+          <!-- <td class="text-center"><i class="fa fa-eye" aria-hidden="true" ></i></td>  -->
+          <!-- [routerLink]="['/Usermain/Student/Student/update',a.studentID]" -->
+                            
+        </tr>
+      }                 
     </tbody>
   </table>
 </div>

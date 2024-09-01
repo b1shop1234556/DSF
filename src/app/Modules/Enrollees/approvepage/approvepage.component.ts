@@ -6,10 +6,11 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
 import { ViewViewComponent } from '../view-view/view-view.component';
 import { MatDialog } from '@angular/material/dialog';
+import { PostService } from '../../../post.service';
 
 
 @Component({
@@ -21,13 +22,29 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class ApprovepageComponent {
 
-  constructor(private dialog: MatDialog){}
+  constructor(
+    private dialog: MatDialog,
+    private conn: PostService,
+    private route: Router
+  ){}
+
+  student:any;
+
+  ngOnInit(): void {
+    this.conn.getstudent()
+    .subscribe((result:any)=>{
+      this.student = result;
+    })
+  }
 
   openDialog(): void{
     const dialogRef = this.dialog.open(ViewViewComponent, {
       height: '800px',
-      width: '800px'
+      width: '500px'
     });
+
+
+
   }
 
 }

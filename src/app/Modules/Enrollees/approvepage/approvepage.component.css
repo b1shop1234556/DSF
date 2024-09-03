@@ -41,22 +41,32 @@
   cursor: pointer;
 }
 
+
 table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 3px;
-  overflow: hidden; /* Prevents border-radius from being cut off */
+   overflow: hidden; /*Prevents border-radius from being cut off */
 }
 
 th {
-  background-color: #007bff;
-  color: white;
+  background-color: #255a92;
+  color: #ffffff;
   padding: 12px 15px;
   text-align: left;
-  border-bottom: 2px solid #007bff;
+  border-bottom: 2px solid #255a92;
+  font-family: 'Poppins', sans-serif; /* Custom font */
+  font-weight: 600;
+  text-transform: uppercase; /* Make the text uppercase */
+  letter-spacing: 1px; /* Add space between letters */
+  font-size: 14px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
+
 
 td {
   padding: 12px 15px;
@@ -66,7 +76,7 @@ td {
 
 tbody {
   display: block;
-  max-height: 400px; /* Set max height for scrolling */
+  max-height: 290px; /* Set max height for scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   width: 100%;
 }
@@ -89,3 +99,85 @@ tr:hover {
   cursor: pointer;
   margin-right: 10px;
 }
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin: 25px 0;
+  font-size: 0.9em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #ddd;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.styled-table tbody td i {
+  font-size: 18px;
+  color: #009879;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .styled-table thead {
+    display: none;
+  }
+
+  .styled-table,
+  .styled-table tbody,
+  .styled-table tr,
+  .styled-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .styled-table tr {
+    margin-bottom: 15px;
+  }
+
+  .styled-table td {
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+
+  .styled-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0;
+    width: 50%;
+    padding-left: 15px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+

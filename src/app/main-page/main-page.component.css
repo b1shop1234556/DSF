@@ -1,6 +1,6 @@
 mat-toolbar{
   position: relative;
-  z-index: 5;
+  z-index: 1; /*The value of this is originally 5. */
   background-color: #3ABEF9;
 }
 

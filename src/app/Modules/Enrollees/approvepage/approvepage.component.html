@@ -1,59 +1,44 @@
 <div class="student-account">
-  <p class="h4">ENROLLEES APPROVAL</p>
-  <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search...">
-      <button type="submit">Search</button>
-  </div>
-  <div class="table-container">
-      <table>
-          <thead>
-              <tr>
-                  <th scope="col" class="text-center">LRN</th>  
-                  <th scope="col" class="text-center">NAME</th>  
-                  <th scope="col" class="text-center">CONTACT #</th>  
-                  <th scope="col" class="text-center">GRADE LEVEL</th>
-                  <th scope="col" class="text-center">ENROLLMENT DATE</th>
-                  <th scope="col" class="text-center">TUITION</th>
-                  <th scope="col" class="text-center">PAYMENT</th>
-                  <th scope="col" class="text-center">DATE OF PAYMENT</th>
-                  <th scope="col" class="text-center">BALANCE</th>
-                  <th scope="col" class="text-center">ACTION</th>
-              </tr>
-          </thead>
-          <tbody>
-              @for(c of student; track c.student){
-                  <tr>
-                      <td class="text-center">{{ c.LRN}}</td>
-                      <td class="">{{ c.Name}} {{ c.suffix}}</td>
-                      <td class="text-center">{{ c.contact_no }}</td>
-                      <td class="text-center">{{ c.GRADELEVEL }}</td>
-                      <td class="text-center">{{ c.date_register }}</td>
-                      <td class="text-center">{{ c.Fees }}</td>
-                      <td class="text-center">{{ c.amount_paid }}</td>
-                      <td class="text-center">{{ c.date_of_payment }}</td>
-                      <td class="text-center">{{ c.Total }}</td>
-
-                      <!-- <td class="text-center">
-                          <i class="fa fa-eye" onclick="viewDetails('{{ c.LRN }}')"></i>
-                          <i class="fa fa-thumbs-up" onclick="approveEnrollment('{{ c.LRN }}')"></i>
-                      </td> -->
-                  </tr>
-              }                 
-          </tbody>
+    <p class="h4">ENROLLEES APPROVAL</p>
+    <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button type="submit">Search</button>
+    </div>
+    <div class="table-container">
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>LRN</th>
+            <th>NAME</th>
+            <th>CONTACT #</th>
+            <th>GRADE LEVEL</th>
+            <th>ENROLLMENT DATE</th>
+            <th>TUITION</th>
+            <th>PAYMENT</th>
+            <th>DATE OF PAYMENT</th>
+            <th>BALANCE</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(c of student; track c.student) {
+            <tr>
+              <td>{{ c.LRN }}</td>
+              <td>{{ c.Name }} {{ c.suffix }}</td>
+              <td>{{ c.contact_no }}</td>
+              <td>{{ c.GRADELEVEL }}</td>
+              <td>{{ c.date_register }}</td>
+              <td>{{ c.Fees }}</td>
+              <td class="text-primary text-hover" (click)="modals()">{{ c.amount_paid }}</td>
+              <td>{{ c.date_of_payment }}</td>
+              <td>{{ c.Total }}</td>
+              <td>
+                <i class="fa fa-eye" (click)="views()"></i>
+                <i class="fa fa-thumbs-up"></i>
+              </td>
+            </tr>
+          }
+        </tbody>
       </table>
-  </div>
+    </div>
 </div>
-
-<script>
-function viewDetails(lrn) {
-alert("Viewing details for LRN: " + lrn);
-}
-
-function approveEnrollment(lrn) {
-alert("Enrollment approved for LRN: " + lrn);
-}
-
-function viewProofOfPayment(lrn) {
-alert("Viewing proof of payment for LRN: " + lrn);
-}
-</script>

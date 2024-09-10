@@ -47,12 +47,34 @@ body {
 .filter-container {
   display: flex;
   align-items: center;
+  gap: 10px; /* Smaller gap between items */
   margin-bottom: 20px;
+  flex-wrap: nowrap; /* Prevent wrapping to maintain compact layout */
 }
 
-.filter-container mat-form-field {
-  margin-right: 10px;
+.filter-item {
+  max-width: 150px; /* Limit the width of each filter item */
 }
+
+.filter-field {
+  width: 100%; /* Full width within filter-item */
+}
+
+.filter-button {
+  background-color: #007bff; /* Consistent with table header */
+  color: white;
+  padding: 8px 12px; /* Smaller padding for a more compact button */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px; /* Smaller font size */
+  transition: background-color 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
 
 .styled-table {
   width: 100%;
@@ -107,7 +129,31 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Responsive Styles */
 @media screen and (max-width: 768px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-bar input[type="text"] {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .filter-container {
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .filter-item {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+
+  .filter-button {
+    width: 100%; /* Full width button */
+  }
+
   .styled-table thead {
     display: none;
   }

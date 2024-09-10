@@ -6,41 +6,51 @@
   </div>
 
   <!-- Filter -->
-  <div class="d-flex align-items-center">
-    <mat-form-field class="me-2">
-      <mat-label>Class</mat-label>
-      <mat-select>
-        <!-- <mat-option>None</mat-option> -->
-        @for (class of classes; track class) {
-        <mat-option [value]="class">{{class}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <!-- <mat-form-field class="me-2">
-      <mat-label>Section</mat-label>
-      <mat-select> -->
-        <!-- <mat-option>None</mat-option> -->
-        <!-- @for (sect of sections; track sect) {
-        <mat-option [value]="sect">{{sect}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="me-2">
-      <mat-label>Strand</mat-label>
-      <mat-select> -->
-        <!-- <mat-option>None</mat-option> -->
-        <!-- @for (strnd of strands; track strnd) {
-        <mat-option [value]="strnd">{{strnd}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field> -->
+  <div class="filter-container">
+    <div class="filter-item">
+      <mat-form-field class="filter-field">
+        <mat-label>Class</mat-label>
+        <mat-select>
+          <!-- <mat-option>None</mat-option> -->
+          @for (class of classes; track class) {
+          <mat-option [value]="class">{{class}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <!-- <div class="filter-item">
+      <mat-form-field class="filter-field">
+        <mat-label>Section</mat-label>
+        <mat-select> -->
+          <!-- <mat-option>None</mat-option> -->
+          <!-- @for (sect of sections; track sect) {
+          <mat-option [value]="sect">{{sect}}</mat-option>
+          } -->
+        <!-- </mat-select>
+      </mat-form-field>
+    </div> -->
+
+    <!-- <div class="filter-item">
+      <mat-form-field class="filter-field">
+        <mat-label>Strand</mat-label>
+        <mat-select> -->
+          <!-- <mat-option>None</mat-option> -->
+          <!-- @for (strnd of strands; track strnd) {
+          <mat-option [value]="strnd">{{strnd}}</mat-option>
+          } -->
+        <!-- </mat-select>
+      </mat-form-field> -->
+    <!-- </div> -->
+     
+    <button class="filter-button" type="submit">Apply</button>
   </div>
+  
   
   <div class="table-container">
       <table class="styled-table">
           <thead>
               <tr>
-                  <th scope="col" class="text-center">#</th>  
                   <th scope="col" class="text-center">LRN</th>  
                   <th scope="col" class="text-center">NAME</th> 
                   <th scope="col" class="text-center">GENDER</th> 
@@ -53,7 +63,6 @@
           <tbody>
               @for(c of student; track c.student){
                   <tr>
-                      <td class="text-center">{{ c.we}}</td>
                       <td class="text-center">{{ c.LRN}}</td>
                       <td>{{ c.Name}} {{ c.suffix}}</td>
                       <td class="text-center">{{ c.gender }}</td>

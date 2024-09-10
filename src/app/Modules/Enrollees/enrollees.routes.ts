@@ -3,7 +3,6 @@ import { ApprovepageComponent } from './approvepage/approvepage.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ListpageComponent } from './listpage/listpage.component';
 import { ViewViewComponent } from './view-view/view-view.component';
-import { RosteringComponent } from './rostering/rostering.component';
 import { ViewDetailsComponent } from './view-details/view-details.component';
 
 export const enrolleeshome: Routes = [
@@ -11,7 +10,6 @@ export const enrolleeshome: Routes = [
         children: [
             {path: 'list', component: ListpageComponent},
             {path: 'approve', component: ApprovepageComponent},
-            {path: 'roster', component: RosteringComponent},
             {path: 'view', component: ViewViewComponent},
             {path: 'viewdetails', component: ViewDetailsComponent},
             // {path: 'newacc/:uid', component: NewaccComponent},

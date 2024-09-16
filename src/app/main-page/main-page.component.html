@@ -32,15 +32,19 @@
     
     <!-- Profile Dropdown Menu -->
     <mat-menu #profileMenu="matMenu">
-        <button mat-menu-item [routerLink]="['/main-page/account/acc-homepage']">
+        <button mat-menu-item >
             <mat-icon>settings</mat-icon>
             <span>Account Settings</span>
         </button>
-        <button mat-menu-item [routerLink]="['login']">
+        <button mat-menu-item >
             <mat-icon>exit_to_app</mat-icon>
-            <span>Logout</span>
+            <span [routerLink]="['/login-page']">Logout</span>
         </button>
     </mat-menu>
+
+    <!-- [routerLink]="['login']" -->
+
+    <!-- [routerLink]="['/main-page/account/acc-homepage']" -->
 
 </mat-toolbar> 
 

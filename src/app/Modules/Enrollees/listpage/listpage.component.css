@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
 
 body {
   background-color: #f0f0f0;
@@ -13,21 +13,28 @@ body {
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
-  max-width: 1200px;
-  margin: auto;
+  max-width: 1200px; /* Max width for larger screens */
+  margin: auto; /* Centering the container */
+}
+
+.search-filter-container {
+  display: flex;
+  justify-content: space-between; /* Pushes search bar to the left and filter to the right */
+  align-items: center;
+  gap: 10px; /* Space between search and filter if needed */
+  margin-bottom: 20px; /* Space below the search/filter section */
 }
 
 .search-bar {
-  margin-bottom: 20px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 3px;
+  background-color: #fff;
 }
 
-.search-bar input[type="text"] {
+#search-input {
   padding: 8px;
   border: none;
   box-sizing: border-box;
@@ -47,13 +54,11 @@ body {
 .filter-container {
   display: flex;
   align-items: center;
-  gap: 10px; /* Smaller gap between items */
-  margin-bottom: 20px;
-  flex-wrap: nowrap; /* Prevent wrapping to maintain compact layout */
+  gap: 10px; /* Space between filter items */
 }
 
 .filter-item {
-  max-width: 150px; /* Limit the width of each filter item */
+  max-width: 150px; /* Limit width of filter items */
 }
 
 .filter-field {
@@ -75,58 +80,69 @@ body {
   background-color: #0056b3; /* Darker shade on hover */
 }
 
-
 .styled-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate; /* Change from collapse to separate */
+  border-spacing: 0; /* Ensure no spacing between cells */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px; /* Rounded corners for the table */
+  overflow: hidden; /* Prevents border-radius from being cut off */
   font-family: Arial, sans-serif;
   margin: 25px 0;
   font-size: 0.9em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
-  border-radius: 10px;
-  overflow: hidden;
 }
 
-.styled-table th,
-.styled-table td {
-  padding: 12px 15px;
+.styled-table th {
+  padding: 12px 15px; /* Keep the padding for table headers unchanged */
   text-align: center;
 }
 
-.styled-table thead th {
+.styled-table th {
   background-color: #255a92;
-  color: white;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  font-size: 14px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  color: #ffffff;
   padding: 12px 15px;
+  text-align: left;
+  border-bottom: 2px solid #255a92;
+  font-family: 'Poppins', sans-serif; /* Custom font */
+  font-weight: 600;
+  text-transform: uppercase; /* Make the text uppercase */
+  letter-spacing: 1px; /* Add space between letters */
+  font-size: 14px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+.styled-table td {
+  padding: 8px 10px; /* Reduced padding for table cells */
+  text-align: left;
+  font-size: 14px; /* Smaller font size for table cells */
 }
 
 .styled-table tbody {
   display: block;
-  max-height: 400px;
-  overflow-y: auto;
+  max-height: 400px; /* Set max height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
   width: 100%;
-  border: 1px solid #ddd;
 }
 
 .styled-table tr {
-  display: table;
+  display: table; /* Make rows behave like table rows */
   width: 100%;
-  table-layout: fixed;
-  border-bottom: 1px solid #ddd;
-}
-
-.styled-table td {
-  padding: 12px 15px;
-  text-align: left;
+  table-layout: fixed; /* Prevents columns from resizing */
+  border-bottom: 1px solid #ddd; /* Add border to rows */
 }
 
 .styled-table tbody tr:hover {
-  background-color: #f5f5f5;
+  background-color: #f5f5f5; /* Highlight on hover */
+}
+
+/* Icon Styles */
+.fa-eye, .fa-thumbs-up {
+  font-size: 18px;
+  color: #007bff;
+  cursor: pointer;
+  margin-right: 10px;
 }
 
 /* Responsive Styles */
@@ -141,9 +157,13 @@ body {
     margin-bottom: 10px;
   }
 
-  .filter-container {
+  .search-filter-container {
     flex-direction: column;
     gap: 5px;
+  }
+
+  .filter-container {
+    width: 100%; /* Full width on smaller screens */
   }
 
   .filter-item {

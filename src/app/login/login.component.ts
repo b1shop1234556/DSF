@@ -19,6 +19,7 @@ export class LoginComponent {
     private conn: ConnectService,
     private router: Router
   ){}
+
   loginform = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -26,8 +27,9 @@ export class LoginComponent {
 
   login() {
     if (this.loginform.valid) {
-      this.conn.logins(this.loginform.value).subscribe((result: any) => {
-        if (result.token) {
+      this.conn.logins(this.loginform.value)
+      .subscribe((result: any) => {
+        if (result.token !=null) {
           localStorage.setItem('token', result.token); // Save the token
           this.router.navigate(['/main-page']);
         }

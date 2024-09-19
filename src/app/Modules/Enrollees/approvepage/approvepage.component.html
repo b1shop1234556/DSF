@@ -21,19 +21,21 @@
           </tr>
         </thead>
         <tbody>
-          @for(c of student; track c.student) {
+          @for(c of students; track c.LRN) {
             <tr>
               <td>{{ c.LRN }}</td>
-              <td>{{ c.Name }} {{ c.suffix }}</td>
+              <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
               <td>{{ c.contact_no }}</td>
-              <td>{{ c.GRADELEVEL }}</td>
+              <td>{{ c.year_level }}</td>
               <td>{{ c.date_register }}</td>
-              <td>{{ c.Fees }}</td>
-              <td class="text-primary text-hover" (click)="modals()">{{ c.amount_paid }}</td>
+              <td>{{ c.tuition }}</td>
+              <td class="text-primary text-hover" [routerLink]="['/main-page/enrollees/homepage/view']">{{ c.amount_paid }}</td>
+              <!-- <td class="text-primary text-hover" (click)="modals()">{{ c.amount_paid }}</td> -->
               <td>{{ c.date_of_payment }}</td>
-              <td>{{ c.Total }}</td>
+              <td>{{ c.remaining_balance }}</td>
               <td>
-                <i class="fa fa-eye" (click)="views()"></i>
+                <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
+                <!-- <i class="fa fa-eye" (click)="views()"></i> -->
                 <i class="fa fa-thumbs-up"></i>
               </td>
             </tr>

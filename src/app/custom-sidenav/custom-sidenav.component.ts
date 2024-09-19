@@ -63,7 +63,7 @@ export class CustomSidenavComponent {
     },
     {
       icon: 'list',
-      label: 'Student Account',
+      label: 'Statement of Account',
       route: 'student'
     }
     // {

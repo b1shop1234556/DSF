@@ -9,6 +9,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { RouterOutlet, RouterLink, RouterLinkActive, RouterModule, Router } from '@angular/router';
 import { PostService } from '../../../post.service';
+import { ConnectService } from '../../../connect.service';
 
 @Component({
   selector: 'app-listpage',
@@ -19,21 +20,32 @@ import { PostService } from '../../../post.service';
 })
 export class ListpageComponent {
 
+  // students:any[]=[];
+  students:any;
   
   constructor(
     // private dialog: MatDialog,
-    private conn: PostService,
+    // private conn: PostService,
+    private conn: ConnectService,
     private route: Router
   ){}
 
-  student:any;
+  // ngOnInit(): void {
+  //   this.conn.getstudent().subscribe((data)=>{
+  //     this.students = data;
+  //   })
+  // }
+
+
 
   ngOnInit(): void {
-    this.conn.getstudent()
-    .subscribe((result:any)=>{
-      this.student = result;
+    this.conn.getData().subscribe((result: any) => {
+      this.students = result;
+      console.log(this.students);
     })
   }
+
+
 
   // openDialog(): void{
   //   const dialogRef = this.dialog.open(ViewViewComponent, {

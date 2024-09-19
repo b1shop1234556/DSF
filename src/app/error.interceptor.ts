@@ -8,17 +8,15 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 
   // debugger;
   
-  // const router =inject(Router);
+  const router =inject(Router);
 
-  // return next(req).pipe(catchError((err:any)=>{
-  //   if([401, 403].includes(JSON.parse(err.status))){
-  //     router.navigate(['login']);
-  //   }
+  return next(req).pipe(catchError((err:any)=>{
+    if([401, 403].includes(JSON.parse(err.status))){
+      router.navigate(['login-page']);
+    }
 
-  //   const e = err.error.status || err.statusText
+    const e = err.error.status || err.statusText
 
-  //   return throwError(()=>e);
-  // }))
-
-  return next(req);
+    return throwError(()=>e);
+  }));
 };

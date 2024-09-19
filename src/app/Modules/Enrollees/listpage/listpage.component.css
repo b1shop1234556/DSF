@@ -119,12 +119,6 @@ body {
   font-size: 14px; /* Smaller font size for table cells */
 }
 
-.styled-table tbody {
-  display: block;
-  max-height: 400px; /* Set max height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
-  width: 100%;
-}
 
 .styled-table tr {
   display: table; /* Make rows behave like table rows */

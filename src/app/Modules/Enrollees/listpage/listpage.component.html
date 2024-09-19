@@ -1,4 +1,4 @@
-<div class="student-account">
+<div class="p-4">
   <p class="h4">LIST OF ENROLLEES APPROVED</p>
 
   <!-- Search and Filter -->
@@ -13,7 +13,7 @@
     <div class="filter-container">
       <div class="filter-item">
         <mat-form-field class="filter-field">
-          <mat-label>Class</mat-label>
+          <mat-label>Grade Level</mat-label>
           <mat-select>
             <!-- <mat-option>None</mat-option> -->
             @for (class of classes; track class) {
@@ -54,7 +54,7 @@
   </div>
 
   <!-- Table -->
-  <div class="table-container">
+ 
     <table class="styled-table">
       <thead>
         <tr>
@@ -68,18 +68,18 @@
         </tr>
       </thead>
       <tbody>
-        @for(c of student; track c.student){
+        @for(c of students; track c.LRN){
         <tr>
           <td >{{ c.LRN}}</td>
-          <td>{{ c.Name}} {{ c.suffix}}</td>
+          <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
           <td >{{ c.gender }}</td>
           <td >{{ c.contact_no }}</td>
-          <td >{{ c.GRADELEVEL }}</td>
+          <td >{{ c.year_level }}</td>
           <td >{{ c.address }}</td>
           <td >{{ c.date_register }}</td>
         </tr>
         }
       </tbody>
     </table>
-  </div>
+  
 </div>

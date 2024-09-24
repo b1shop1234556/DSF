@@ -1,85 +1,50 @@
-<div class="p-4">
-  <p class="h4">LIST OF ENROLLEES APPROVED</p>
-
-  <!-- Search and Filter -->
-  <div class="search-filter-container">
-    <!-- Search Bar -->
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search...">
-      <button type="submit">Search</button>
-    </div>
-
-    <!-- Filters -->
-    <div class="filter-container">
-      <div class="filter-item">
-        <mat-form-field class="filter-field">
-          <mat-label>Grade Level</mat-label>
-          <mat-select>
-            <!-- <mat-option>None</mat-option> -->
-            @for (class of classes; track class) {
-            <mat-option [value]="class">{{class}}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
+<section>
+      <div class="example-button-row">
+        <button mat-flat-button color="primary" [routerLink]="['/main-page/enrollees/homepage/approve']">Pendding</button>
+        <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/list']">Approved</button>
       </div>
 
-      <!-- Uncomment if needed
-      <div class="filter-item">
-        <mat-form-field class="filter-field">
-          <mat-label>Section</mat-label>
-          <mat-select>
-            <!-- <mat-option>None</mat-option> -->
-            <!-- @for (sect of sections; track sect) {
-            <mat-option [value]="sect">{{sect}}</mat-option>
-            } -->
-          <!-- </mat-select>
-        </mat-form-field>
-      </div> -->
+      <mat-form-field class="filter-field">
+        <mat-label>Grade Level</mat-label>
+        <mat-select>
+          @for (class of classes; track class) {
+          <mat-option [value]="class">{{class}}</mat-option>
+          }
+        </mat-select>
+      </mat-form-field>
+    </section>
 
-      <!-- Uncomment if needed
-      <div class="filter-item">
-        <mat-form-field class="filter-field">
-          <mat-label>Strand</mat-label>
-          <mat-select>
-            <!-- <mat-option>None</mat-option> -->
-            <!-- @for (strnd of strands; track strnd) {
-            <mat-option [value]="strnd">{{strnd}}</mat-option>
-            } -->
-          <!-- </mat-select>
-        </mat-form-field>
-      </div> -->
-
-      <!-- <button class="filter-button" type="submit">Apply</button> -->
-    </div>
-  </div>
-
-  <!-- Table -->
- 
-    <table class="styled-table">
-      <thead>
-        <tr>
-          <th >LRN</th>
-          <th >NAME</th>
-          <th >GENDER</th>
-          <th >CONTACT #</th>
-          <th >GRADE LEVEL</th>
-          <th >ADDRESS</th>
-          <th >APPROVAL DATE</th>
-        </tr>
-      </thead>
-      <tbody>
-        @for(c of students; track c.LRN){
-        <tr>
-          <td >{{ c.LRN}}</td>
-          <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
-          <td >{{ c.gender }}</td>
-          <td >{{ c.contact_no }}</td>
-          <td >{{ c.year_level }}</td>
-          <td >{{ c.address }}</td>
-          <td >{{ c.date_register }}</td>
-        </tr>
-        }
-      </tbody>
-    </table>
-  
+<div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search...">
+    <button type="submit">Search</button>
 </div>
+
+<div class="table-container">
+  <table class="styled-table">
+    <thead>
+      <tr>
+        <th>LRN</th>
+        <th>NAME</th>
+        <th>GENDER</th>
+        <th>CONTACT #</th>
+        <th>GRADE LEVEL</th>
+        <th>ADDRESS</th>
+        <th>APPROVAL DATE</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for(c of students; track c.LRN) {
+      <tr>
+        <td>{{ c.LRN }}</td>
+        <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+        <td>{{ c.gender }}</td>
+        <td>{{ c.contact_no }}</td>
+        <td>{{ c.year_level }}</td>
+        <td>{{ c.address }}</td>
+        <td>{{ c.date_register }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>
+

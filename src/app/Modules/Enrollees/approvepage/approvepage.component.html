@@ -1,46 +1,55 @@
-<div class="student-account">
-    <p class="h4">ENROLLEES APPROVAL</p>
-    <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search...">
-        <button type="submit">Search</button>
+<!-- <div class="student-account"> -->
+  <!-- <div class="button-container">
+      <button type="button" [routerLink]="['/main-page/enrollees/homepage/approve']">Pendding</button>
+      <button type="button" [routerLink]="['/main-page/enrollees/homepage/list']">Approved</button>
+  </div> -->
+
+  <section>
+    <div class="example-button-row">
+      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/approve']">Pendding</button>
+      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/list']">Approved</button>
     </div>
-    <div class="table-container">
+  </section>
+
+  <!-- <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Search...">
+      <button type="submit">Search</button>
+  </div> -->
+  <div class="table-container">
       <table class="styled-table">
-        <thead>
-          <tr>
-            <th>LRN</th>
-            <th>NAME</th>
-            <th>CONTACT #</th>
-            <th>GRADE LEVEL</th>
-            <th>ENROLLMENT DATE</th>
-            <th>TUITION</th>
-            <th>PAYMENT</th>
-            <th>DATE OF PAYMENT</th>
-            <th>BALANCE</th>
-            <th>ACTION</th>
-          </tr>
-        </thead>
-        <tbody>
-          @for(c of students; track c.LRN) {
-            <tr>
-              <td>{{ c.LRN }}</td>
-              <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
-              <td>{{ c.contact_no }}</td>
-              <td>{{ c.year_level }}</td>
-              <td>{{ c.date_register }}</td>
-              <td>{{ c.tuition }}</td>
-              <td class="text-primary text-hover" [routerLink]="['/main-page/enrollees/homepage/view']">{{ c.amount_paid }}</td>
-              <!-- <td class="text-primary text-hover" (click)="modals()">{{ c.amount_paid }}</td> -->
-              <td>{{ c.date_of_payment }}</td>
-              <td>{{ c.remaining_balance }}</td>
-              <td>
-                <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-                <!-- <i class="fa fa-eye" (click)="views()"></i> -->
-                <i class="fa fa-thumbs-up"></i>
-              </td>
-            </tr>
-          }
-        </tbody>
+          <thead>
+              <tr>
+                  <th>LRN</th>
+                  <th>NAME</th>
+                  <th>CONTACT #</th>
+                  <th>GRADE LEVEL</th>
+                  <th>ENROLLMENT DATE</th>
+                  <th>TUITION</th>
+                  <th>PAYMENT</th>
+                  <th>DATE OF PAYMENT</th>
+                  <th>BALANCE</th>
+                  <!-- <th>ACTION</th> -->
+              </tr>
+          </thead>
+          <tbody>
+              @for(c of students; track c.LRN) {
+                  <tr>
+                      <td>{{ c.LRN }}</td>
+                      <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                      <td>{{ c.contact_no }}</td>
+                      <td>{{ c.year_level }}</td>
+                      <td>{{ c.date_register }}</td>
+                      <td>{{ c.tuition }}</td>
+                      <td class="text-primary text-hover" [routerLink]="['/main-page/enrollees/homepage/view']">{{ c.amount_paid }}</td>
+                      <td>{{ c.date_of_payment }}</td>
+                      <td>{{ c.remaining_balance }}</td>
+                      <!-- <td>
+                          <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
+                          <i class="fa fa-thumbs-up"></i>
+                      </td> -->
+                  </tr>
+              }
+          </tbody>
       </table>
-    </div>
-</div>
+  </div>
+<!-- </div> -->

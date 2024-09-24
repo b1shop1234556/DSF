@@ -43,23 +43,23 @@ export class CustomSidenavComponent {
       icon: 'home',
       label: 'Enrollees',
       route: 'enrollees',
-      subItems: [
-        {
-          icon: 'recent_actors',
-          label: 'List of Enrollees',
-          route: 'enrollees/homepage/list',
-        },
-        {
-          icon: 'check',
-          label: 'Approval',
-          route: 'enrollees/homepage/approve',
-        },
+      // subItems: [
+      //   {
+      //     icon: 'check',
+      //     label: 'Approval',
+      //     route: 'enrollees/homepage/approve',
+      //   },
+      //   {
+      //     icon: 'recent_actors',
+      //     label: 'List of Enrollees',
+      //     route: 'enrollees/homepage/list',
+      //   },
         // {
         //   icon: 'recent_actors',
         //   label: 'Roster',
         //   route: 'enrollment/enrollmentpage/roster',
         // },
-      ]
+      // ]
     },
     {
       icon: 'list',

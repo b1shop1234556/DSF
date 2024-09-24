@@ -6,7 +6,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-import { RouterModule } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { ConnectService } from '../../../connect.service';
 
 @Component({
   selector: 'app-uploadpage',
@@ -16,6 +17,23 @@ import { RouterModule } from '@angular/router';
   styleUrl: './uploadpage.component.css'
 })
 export class UploadpageComponent {
+
+  students:any;
+
+  ngOnInit(): void {
+    this.conn.getData().subscribe((result: any) => {
+      this.students = result;
+      console.log(this.students);
+    })
+  }
+
+  constructor(
+    // private dialog: MatDialog,
+    // private conn: PostService,
+    private conn: ConnectService,
+    private route: Router
+  ){}
+
   classes: string[] = [
     'Grade 7',
     'Grade 8',

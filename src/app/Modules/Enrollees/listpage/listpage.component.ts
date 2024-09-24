@@ -10,11 +10,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { RouterOutlet, RouterLink, RouterLinkActive, RouterModule, Router } from '@angular/router';
 import { PostService } from '../../../post.service';
 import { ConnectService } from '../../../connect.service';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-listpage',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
+  imports: [MatIconModule, MatButtonModule, MatDividerModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
   templateUrl: './listpage.component.html',
   styleUrl: './listpage.component.css'
 })

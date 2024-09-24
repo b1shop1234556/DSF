@@ -7,7 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
 
-
 .student-account {
   background-color: #fff;
   padding: 20px;
@@ -16,6 +15,24 @@
   border: 1px solid #ddd;
   max-width: 1200px; /* Max width for larger screens */
   margin: auto; /* Centering the container */
+}
+
+.button-container {
+  margin-bottom: 20px;
+}
+
+.button-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px; /* Space between buttons */
+}
+
+.button-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
 
 .search-bar {
@@ -44,14 +61,13 @@
   cursor: pointer;
 }
 
-
 table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fff;
   border: 1px solid #ddd;
   border-radius: 3px;
-   overflow: hidden; /*Prevents border-radius from being cut off */
+  overflow: hidden; /* Prevents border-radius from being cut off */
 }
 
 th {
@@ -67,7 +83,6 @@ th {
   font-size: 14px;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
-
 
 td {
   padding: 12px 15px;
@@ -182,3 +197,34 @@ tr:hover {
   }
 }
 
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}

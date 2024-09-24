@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
-
-body {
+/* body {
   background-color: #f0f0f0;
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-}
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
 
 .student-account {
   background-color: #fff;
@@ -17,24 +17,47 @@ body {
   margin: auto; /* Centering the container */
 }
 
-.search-filter-container {
-  display: flex;
-  justify-content: space-between; /* Pushes search bar to the left and filter to the right */
-  align-items: center;
-  gap: 10px; /* Space between search and filter if needed */
-  margin-bottom: 20px; /* Space below the search/filter section */
+.button-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px; /* Space below the button section */
+}
+
+.button-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 10px; /* Space between buttons */
+}
+
+.button-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+.filter-field {
+  margin-left: 1px; /* Space between buttons and filter */
+  width: 140px; /* Ensure it adapts to content */
+  min-width: 50px; /* Set a minimum width to match buttons */
+  height: 65px; /* Match height of buttons */
+}
+
+.mat-form-field {
+  flex-grow: 1; /* Allow the filter field to grow */
 }
 
 .search-bar {
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 3px;
-  background-color: #fff;
 }
 
-#search-input {
+.search-bar input[type="text"] {
   padding: 8px;
   border: none;
   box-sizing: border-box;
@@ -51,55 +74,16 @@ body {
   cursor: pointer;
 }
 
-.filter-container {
-  display: flex;
-  align-items: center;
-  gap: 10px; /* Space between filter items */
-}
-
-.filter-item {
-  max-width: 150px; /* Limit width of filter items */
-}
-
-.filter-field {
-  width: 100%; /* Full width within filter-item */
-}
-
-.filter-button {
-  background-color: #007bff; /* Consistent with table header */
-  color: white;
-  padding: 8px 12px; /* Smaller padding for a more compact button */
-  border: none;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 14px; /* Smaller font size */
-  transition: background-color 0.3s ease;
-}
-
-.filter-button:hover {
-  background-color: #0056b3; /* Darker shade on hover */
-}
-
-.styled-table {
+table {
   width: 100%;
-  border-collapse: separate; /* Change from collapse to separate */
-  border-spacing: 0; /* Ensure no spacing between cells */
+  border-collapse: collapse;
   background-color: #fff;
   border: 1px solid #ddd;
-  border-radius: 10px; /* Rounded corners for the table */
+  border-radius: 3px;
   overflow: hidden; /* Prevents border-radius from being cut off */
-  font-family: Arial, sans-serif;
-  margin: 25px 0;
-  font-size: 0.9em;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
-.styled-table th {
-  padding: 12px 15px; /* Keep the padding for table headers unchanged */
-  text-align: center;
-}
-
-.styled-table th {
+th {
   background-color: #255a92;
   color: #ffffff;
   padding: 12px 15px;
@@ -113,21 +97,27 @@ body {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
-.styled-table td {
-  padding: 8px 10px; /* Reduced padding for table cells */
+td {
+  padding: 12px 15px;
   text-align: left;
-  font-size: 14px; /* Smaller font size for table cells */
+  border-bottom: 1px solid #ddd;
 }
 
+tbody {
+  display: block;
+  max-height: 290px; /* Set max height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
+  width: 100%;
+}
 
-.styled-table tr {
+tr {
   display: table; /* Make rows behave like table rows */
   width: 100%;
   table-layout: fixed; /* Prevents columns from resizing */
   border-bottom: 1px solid #ddd; /* Add border to rows */
 }
 
-.styled-table tbody tr:hover {
+tr:hover {
   background-color: #f5f5f5; /* Highlight on hover */
 }
 
@@ -139,35 +129,54 @@ body {
   margin-right: 10px;
 }
 
-/* Responsive Styles */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  margin: 25px 0;
+  font-size: 0.9em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+  text-align: center;
+}
+
+.styled-table thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #ddd;
+}
+
+.styled-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+.styled-table tbody td i {
+  font-size: 18px;
+  color: #009879;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
-  .search-bar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .search-bar input[type="text"] {
-    margin-right: 0;
-    margin-bottom: 10px;
-  }
-
-  .search-filter-container {
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .filter-container {
-    width: 100%; /* Full width on smaller screens */
-  }
-
-  .filter-item {
-    max-width: 100%; /* Full width on smaller screens */
-  }
-
-  .filter-button {
-    width: 100%; /* Full width button */
-  }
-
   .styled-table thead {
     display: none;
   }
@@ -199,4 +208,36 @@ body {
     font-weight: bold;
     text-align: left;
   }
+}
+
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
 }

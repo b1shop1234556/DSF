@@ -1,149 +1,26 @@
-<p class="h4">STUDENT ACCOUNT</p>
-
-<div class="student-account">
-  <div class="search-bar">
+<!-- <div class="student-account"> -->
+<div class="search-bar">
     <input type="text" id="search-input" placeholder="Search...">
     <button type="submit">Search</button>
-  </div>
-
-  <!-- <div class="d-flex align-items-center">
-    <mat-form-field class="me-2">
-      <mat-label>Class</mat-label>
-      <mat-select> -->
-        <!-- <mat-option>None</mat-option> -->
-        <!-- @for (class of classes; track class) {
-        <mat-option [value]="class">{{class}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="me-2">
-      <mat-label>Section</mat-label>
-      <mat-select> -->
-        <!-- <mat-option>None</mat-option> -->
-        <!-- @for (sect of sections; track sect) {
-        <mat-option [value]="sect">{{sect}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-    <mat-form-field class="me-2">
-      <mat-label>Strand</mat-label>
-      <mat-select> -->
-        <!-- <mat-option>None</mat-option> -->
-        <!-- @for (strnd of strands; track strnd) {
-        <mat-option [value]="strnd">{{strnd}}</mat-option>
-        }
-      </mat-select>
-    </mat-form-field>
-  </div> -->
-  
-  <table>
-    <thead>
-      <tr>
-        <th>LRN</th>
-        <th>Name</th>
-        <th>Gender</th>
-        <th>Grade Level</th>
-        <th>Contact No.</th>
-        <th>Enrollment Date</th>
-        <th>Action</th> <!-- New Action Column -->
-      </tr>
-    </thead>
-    <tbody id="enrollee-table-body">
-      <tr>
-        <td>1234567890</td>
-        <td>Liza Perez</td>
-        <td>Female</td>
-        <td>Grade 9</td>
-        <td>09123456789</td>
-        <td>2023-08-15</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567891</td>
-        <td>Carlos Reyes</td>
-        <td>Male</td>
-        <td>Grade 10</td>
-        <td>09987654321</td>
-        <td>2023-09-15</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567892</td>
-        <td>Ana Santos</td>
-        <td>Female</td>
-        <td>Grade 12</td>
-        <td>09123456789</td>
-        <td>2023-07-15</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567893</td>
-        <td>Juana Dela Paz</td>
-        <td>Female</td>
-        <td>Grade 7</td>
-        <td>09987654321</td>
-        <td>2023-06-15</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567894</td>
-        <td>Juan dela Cruz</td>
-        <td>Male</td>
-        <td>Grade 11</td>
-        <td>09123456789</td>
-        <td>2023-08-01</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567895</td>
-        <td>Jose Rizal</td>
-        <td>Male</td>
-        <td>Grade 12</td>
-        <td>09987654321</td>
-        <td>2023-09-01</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567896</td>
-        <td>Maria Clara</td>
-        <td>Female</td>
-        <td>Grade 11</td>
-        <td>09123456789</td>
-        <td>2023-08-20</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-      <tr>
-        <td>1234567897</td>
-        <td>Miguel Gomez</td>
-        <td>Male</td>
-        <td>Grade 8</td>
-        <td>09987654321</td>
-        <td>2023-07-01</td>
-        <td>
-          <i class="fa fa-upload" aria-hidden="true" style="cursor: pointer;" onclick="uploadFile()"></i>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>
-
-<script>
-  function uploadFile() {
-    alert("Upload file functionality to be implemented.");
-  }
-</script>
-
+<div class="table-container">
+    <table class="styled-table">
+        <thead>
+          <tr>
+            <th>LRN</th>
+            <th>Name</th>
+            <th>Grade Level</th>
+          </tr>
+        </thead>
+        <tbody id="enrollee-table-body">
+          @for(c of students; track c.LRN) {
+            <tr>
+              <td>{{ c.LRN }}</td>
+              <td>{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
+              <td>{{ c.year_level }}</td>
+            </tr>
+          }
+        </tbody>
+      </table>
+</div>
+<!-- </div> -->

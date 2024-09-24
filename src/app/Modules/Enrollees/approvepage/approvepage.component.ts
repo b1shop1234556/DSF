@@ -13,6 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { PostService } from '../../../post.service';
 import Swal from 'sweetalert2';
 import { ConnectService } from '../../../connect.service';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-approvepage',
@@ -28,6 +29,7 @@ import { ConnectService } from '../../../connect.service';
     CustomSidenavComponent,
     MatBadgeModule,
     MatMenuModule,
+    MatDividerModule,
     MatListModule
   ],
   templateUrl: './approvepage.component.html',

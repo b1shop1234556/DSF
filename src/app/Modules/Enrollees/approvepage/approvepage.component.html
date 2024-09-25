@@ -1,3 +1,5 @@
+<!-- <p>PENDDING ENROLLEES</p> -->
+
 <!-- <div class="student-account"> -->
   <!-- <div class="button-container">
       <button type="button" [routerLink]="['/main-page/enrollees/homepage/approve']">Pendding</button>
@@ -6,8 +8,8 @@
 
   <section>
     <div class="example-button-row">
-      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/approve']">Pendding</button>
-      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/list']">Approved</button>
+      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/approve']">PENDDING</button>
+      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/list']">APPROVED</button>
     </div>
   </section>
 
@@ -40,13 +42,20 @@
                       <td>{{ c.year_level }}</td>
                       <td>{{ c.date_register }}</td>
                       <td>{{ c.tuition }}</td>
-                      <td class="text-primary text-hover" [routerLink]="['/main-page/enrollees/homepage/view']">{{ c.amount_paid }}</td>
+                      <td class="text-primary text-hover" (click)="openModal()">{{ c.amount_paid }}</td>
                       <td>{{ c.date_of_payment }}</td>
                       <td>{{ c.remaining_balance }}</td>
-                      <!-- <td>
-                          <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
-                          <i class="fa fa-thumbs-up"></i>
-                      </td> -->
+                      <!-- <td> -->
+                          <!-- <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
+                          <i class="fa fa-thumbs-up"></i> -->
+                          
+                                  <!-- <button mat-fab aria-label="Example icon button with a delete icon">
+                                    <mat-icon>check</mat-icon>
+                                  </button> -->
+                      <!-- </td> -->
+
+                      <!-- [routerLink]="['/main-page/enrollees/homepage/view']" -->
+                       
                   </tr>
               }
           </tbody>

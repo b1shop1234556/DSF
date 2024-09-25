@@ -104,9 +104,9 @@ td {
 }
 
 tbody {
-  display: block;
-  max-height: 290px; /* Set max height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  display: table-row-group; /* Use default display for tbody */
+  max-height: none; /* Remove max height to avoid scrolling */
+  overflow-y: visible; /* Prevent overflow */
   width: 100%;
 }
 

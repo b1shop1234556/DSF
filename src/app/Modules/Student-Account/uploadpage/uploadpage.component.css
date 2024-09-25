@@ -74,7 +74,7 @@ th {
   background-color: #255a92;
   color: #ffffff;
   padding: 12px 15px;
-  text-align: left;
+  text-align: right; /* Right align header */
   border-bottom: 2px solid #255a92;
   font-family: 'Poppins', sans-serif; /* Custom font */
   font-weight: 600;
@@ -86,14 +86,14 @@ th {
 
 td {
   padding: 12px 15px;
-  text-align: left;
+  text-align: right; /* Right align cells */
   border-bottom: 1px solid #ddd;
 }
 
 tbody {
-  display: block;
-  max-height: 290px; /* Set max height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  display: table-row-group; /* Use default display for tbody */
+  max-height: none; /* Remove max height to avoid scrolling */
+  overflow-y: visible; /* Prevent overflow */
   width: 100%;
 }
 
@@ -130,13 +130,12 @@ tr:hover {
 .styled-table th,
 .styled-table td {
   padding: 12px 15px;
-  text-align: center;
+  text-align: left; /* Ensure consistent right alignment */
 }
 
 .styled-table thead tr {
   background-color: #009879;
   color: #ffffff;
-  text-align: left;
   font-weight: bold;
 }
 
@@ -181,7 +180,7 @@ tr:hover {
   }
 
   .styled-table td {
-    text-align: right;
+    text-align: right; /* Keep text right-aligned */
     padding-left: 50%;
     position: relative;
   }

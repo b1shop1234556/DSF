@@ -1,3 +1,4 @@
+<!-- <P>STATEMENT OF ACCOUNT</P> -->
 <!-- <div class="student-account"> -->
 <div class="search-bar">
     <input type="text" id="search-input" placeholder="Search...">
@@ -7,17 +8,17 @@
     <table class="styled-table">
         <thead>
           <tr>
-            <th>LRN</th>
+            <!-- <th>LRN</th> -->
             <th>Name</th>
-            <th>Grade Level</th>
+            <!-- <th>Grade Level</th> -->
           </tr>
         </thead>
         <tbody id="enrollee-table-body">
           @for(c of students; track c.LRN) {
             <tr>
-              <td>{{ c.LRN }}</td>
-              <td>{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
-              <td>{{ c.year_level }}</td>
+              <!-- <td>{{ c.LRN }}</td> -->
+              <td class="text-primary text-hover" [routerLink]="['/main-page/enrollees/homepage/viewdetails']">{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
+              <!-- <td>{{ c.year_level }}</td> -->
             </tr>
           }
         </tbody>

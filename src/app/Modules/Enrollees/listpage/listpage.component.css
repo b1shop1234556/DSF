@@ -87,7 +87,7 @@ th {
   background-color: #255a92;
   color: #ffffff;
   padding: 12px 15px;
-  text-align: left;
+  text-align: center;
   border-bottom: 2px solid #255a92;
   font-family: 'Poppins', sans-serif; /* Custom font */
   font-weight: 600;
@@ -99,7 +99,7 @@ th {
 
 td {
   padding: 12px 15px;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 

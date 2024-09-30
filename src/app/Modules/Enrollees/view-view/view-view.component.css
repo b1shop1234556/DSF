@@ -45,6 +45,13 @@ h2 {
     font-size: 20px;
 }
 
+.image-info-container {
+    display: flex;
+    align-items: center; /* Align items vertically centered */
+    margin-bottom: 20px; /* Space below the container */
+}
+
+
 .receipt-details {
     margin-top: 20px;
     display: flex;
@@ -75,8 +82,13 @@ h2 {
 }
 
 .button-container {
-    text-align: center;
+    margin-left: 20px; /* Space between the info and button */
+    margin-top: 10px; /* Add margin to move the button down */
+    display: flex;
+    align-items: center; /* Center the button vertically */
 }
+
+
 
 button {
     padding: 10px 20px;

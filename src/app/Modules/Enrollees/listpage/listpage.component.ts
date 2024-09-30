@@ -15,7 +15,7 @@ import { MatDividerModule } from '@angular/material/divider';
 @Component({
   selector: 'app-listpage',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, MatDividerModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
+  imports: [CommonModule, MatIconModule, MatButtonModule, MatDividerModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
   templateUrl: './listpage.component.html',
   styleUrl: './listpage.component.css'
 })

@@ -1,4 +1,4 @@
-<!-- <p>PENDDING ENROLLEES</p> -->
+<p>PENDDING ENROLLEES</p>
 
 <!-- <div class="student-account"> -->
   <!-- <div class="button-container">
@@ -22,13 +22,13 @@
           <thead>
               <tr>
                   <th>LRN</th>
-                  <th>NAME</th>
-                  <th>CONTACT #</th>
+                  <th class="col-md-2">NAME</th>
+                  <th>CONTACT NO.</th>
                   <th>GRADE LEVEL</th>
-                  <th>ENROLLMENT DATE</th>
+                  <th class="col-md-2">ENROLLMENT DATE</th>
                   <th>TUITION</th>
                   <th>PAYMENT</th>
-                  <th>DATE OF PAYMENT</th>
+                  <th class="col-md-2">DATE OF PAYMENT</th>
                   <th>BALANCE</th>
                   <!-- <th>ACTION</th> -->
               </tr>
@@ -37,13 +37,13 @@
               @for(c of students; track c.LRN) {
                   <tr>
                       <td>{{ c.LRN }}</td>
-                      <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                      <td class="col-md-2">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
                       <td>{{ c.contact_no }}</td>
                       <td>{{ c.year_level }}</td>
-                      <td>{{ c.date_register }}</td>
+                      <td class="col-md-2">{{ c.date_register | date}}</td>
                       <td>{{ c.tuition }}</td>
                       <td class="text-primary text-hover" (click)="openModal()">{{ c.amount_paid }}</td>
-                      <td>{{ c.date_of_payment }}</td>
+                      <td class="col-md-2">{{ c.date_of_payment | date }}</td>
                       <td>{{ c.remaining_balance }}</td>
                       <!-- <td> -->
                           <!-- <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>

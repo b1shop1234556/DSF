@@ -1,4 +1,4 @@
-<!-- <P>APPROVED ENROLLEES</P> -->
+<P>APPROVED ENROLLEES</P>
 <section>
       <div class="example-button-row">
         <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/approve']">PENDDING</button>
@@ -25,7 +25,7 @@
     <thead>
       <tr>
         <th>LRN</th>
-        <th>NAME</th>
+        <th class="col-md-2">NAME</th>
         <th>GENDER</th>
         <th>CONTACT #</th>
         <th>GRADE LEVEL</th>
@@ -37,12 +37,12 @@
       @for(c of students; track c.LRN) {
       <tr>
         <td>{{ c.LRN }}</td>
-        <td>{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+        <td class="col-md-2">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
         <td>{{ c.gender }}</td>
         <td>{{ c.contact_no }}</td>
         <td>{{ c.year_level }}</td>
         <td>{{ c.address }}</td>
-        <td>{{ c.date_register }}</td>
+        <td>{{ c.date_register | date}}</td>
       </tr>
       }
     </tbody>

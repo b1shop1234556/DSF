@@ -19,16 +19,6 @@ h2 {
     color: #333;
     margin-bottom: 10px;
 }
-.receipt-details {
-    margin-top: 20px;
-    display: flex;
-    justify-content: space-between; /* Make columns side by side */
-}
-.receipt-details p {
-    margin: 5px 0;
-    line-height: 1.6;
-    width: 45%; /* Take up about half the space for each column */
-}
 .total {
     font-weight: bold;
     margin-top: 15px;

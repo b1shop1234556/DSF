@@ -14,11 +14,13 @@ import { MatDialog } from '@angular/material/dialog';
 // import Swal from 'sweetalert2';
 import { ConnectService } from '../../../connect.service';
 import { MatDividerModule } from '@angular/material/divider';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-approvepage',
   standalone: true,
   imports: [
+    CommonModule,
     ViewViewComponent,
     RouterLink,
     RouterModule,

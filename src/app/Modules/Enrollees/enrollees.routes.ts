@@ -8,13 +8,13 @@ import { ViewDetailsComponent } from './view-details/view-details.component';
 export const enrolleeshome: Routes = [
     {path: 'homepage', component: HomepageComponent,
         children: [
-            {path: 'approve', component: ApprovepageComponent},
-            {path: 'list', component: ListpageComponent},
+            {path: 'pending', component: ApprovepageComponent},
+            {path: 'approve', component: ListpageComponent},
             {path: 'view', component: ViewViewComponent},
             // { path: 'views/:id', component: ViewViewComponent },
             {path: 'viewdetails', component: ViewDetailsComponent},
             // {path: 'newacc/:uid', component: NewaccComponent},
-            {path: '', redirectTo: 'approve', pathMatch: 'full'}
+            {path: '', redirectTo: 'pending', pathMatch: 'full'}
         ]
     },
     {path: '', redirectTo: 'homepage', pathMatch: 'full'}

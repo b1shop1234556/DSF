@@ -48,18 +48,42 @@ export class ApprovepageComponent {
   ) {}
 
   openModal(id: any): void {
-    console.log(id)
-    localStorage.setItem('LRN',id)
+    console.log(id);
+    localStorage.setItem('LRN', id);
     this.dialog.open(ViewViewComponent, {
-      width: '900%', // Adjust width as needed
-      maxWidth: '900px', // Set a max width for the modal
+        width: '600px',  // Fixed width
+        height: '650px', // Fixed height
+        maxWidth: '800px',
+        maxHeight: '800px',
     });
-  }
+}
+
+
 
   ngOnInit(): void {
     this.conn.getData().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
+      if (this.students && this.students.length > 0) {
+        // Filter the transactions to include only those with status 'Pending'
+        const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Pending');
+
+        if (pendingTransactions.length > 0) {
+            // If there are pending transactions, log them
+            console.log('Pending Transactions:', pendingTransactions);
+            // You can assign the pending transactions to a variable to display them in your template
+            this.students = pendingTransactions;
+        } else {
+            // If no pending transactions are found, handle accordingly
+            console.log('No pending transactions found');
+            // Optional: clear the transactions or show a message in your template
+            this.students = [];
+        }
+    } else {
+        // Handle the case where no transactions are available
+        console.log('No transactions available');
+        this.students = [];
+    }
     })
   }
 

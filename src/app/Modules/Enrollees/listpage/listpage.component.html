@@ -2,8 +2,8 @@
 <section>
 
     <div class="example-button-row">
-      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/approve']">PENDING</button>
-      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/list']">APPROVED</button>
+      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
+      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
     </div>
 
       <mat-form-field class="filter-field">
@@ -44,7 +44,7 @@
         <td>{{ c.contact_no }}</td>
         <td>{{ c.year_level }}</td>
         <td>{{ c.address }}</td>
-        <td>{{ c.date_register | date}}</td>
+        <td>{{ c.regapproval_date | date}}</td>
       </tr>
       }
     <!-- } -->

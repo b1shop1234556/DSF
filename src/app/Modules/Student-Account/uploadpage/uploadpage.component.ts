@@ -8,16 +8,19 @@ import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterModule } from '@angular/router';
 import { ConnectService } from '../../../connect.service';
+import { SearchFilterPipe } from '../../../search-filter.pipe';
 
 @Component({
   selector: 'app-uploadpage',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule],
+  imports: [MatIconModule, MatButtonModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule, SearchFilterPipe],
   templateUrl: './uploadpage.component.html',
   styleUrl: './uploadpage.component.css'
 })
 export class UploadpageComponent {
 
+
+  keyword: any;
   students:any;
 
   ngOnInit(): void {

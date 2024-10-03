@@ -11,12 +11,12 @@
         <img style="width: 50%; height: auto; margin-right: 50px;" src="{{students.proof_payment}}" alt="image">
 
         <div class="info" style="flex-grow: 1;">
+            <p><strong>JRNL#:</strong> {{students.OR_number}}</p>
             <p><strong>Date:</strong> {{students.date_of_payment | date}}</p>
             <p><strong>LRN:</strong> {{students.LRN}}</p>
             <p><strong>Sender From:</strong> {{students.lname}} {{students.fname}} {{students.mname}}</p>
             <p><strong>Address:</strong> {{students.address}}</p>
-            <p><strong>Description:</strong> Tuition and Fees Payment</p>
-            <p><strong>Payment Method:</strong> GCASH</p>
+            <p><strong>Description:</strong> Tuition and Fees Payment/GCASH</p>
             <p><strong>Total Amount Paid:</strong> ({{students.amount_paid}})</p>
         </div>
         
@@ -31,6 +31,7 @@
         <p><strong>Enrollment Date:</strong> 9/16/2024</p>
         <p><strong>Total Tuition and Fees:</strong> ₱ 40,000</p>
         <p><strong>Payment:</strong> ₱ 100</p>
+        <p><strong>Payment Method:</strong> GCASH</p>
         <p><strong>Balance:</strong> ₱ 39,900</p>
         <p><strong>Total Amount Paid:</strong> One Hundred Pesos Only (₱100)</p>
         <p><strong>Payment Method:</strong> GCash</p>

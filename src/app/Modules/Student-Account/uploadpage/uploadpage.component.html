@@ -1,9 +1,11 @@
 <P>STATEMENT OF ACCOUNT</P>
 <!-- <div class="student-account"> -->
-<div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search...">
-    <button type="submit">Search</button>
-</div>
+
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
+    <!-- <button type="submit">Search</button> -->
+  </div>  
+
 <div class="table-container">
     <table class="styled-table">
         <thead>
@@ -14,7 +16,7 @@
           </tr>
         </thead>
         <tbody id="enrollee-table-body">
-          @for(c of students; track c.LRN) {
+          @for(c of students | searchFilter: keyword; track c.LRN) {
             <tr>
               <!-- <td>{{ c.LRN }}</td> -->
               <td class="text-primary text-hover" [routerLink]="['/main-page/enrollees/homepage/viewdetails']">{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>

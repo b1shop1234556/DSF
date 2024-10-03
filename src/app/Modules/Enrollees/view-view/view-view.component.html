@@ -7,20 +7,25 @@
     </div>
 
     <div class="image-info-container" style="display: flex; align-items: center;">
-        <img src="images.png" alt="Description of Image" style="width: 20%; height: auto; margin-right: 40px;"> 
+        <!-- <img src="images.png" alt="Description of Image" style="width: 20%; height: auto; margin-right: 40px;">  -->
+        <img style="width: 50%; height: auto; margin-right: 50px;" src="{{students.proof_payment}}" alt="image">
 
         <div class="info" style="flex-grow: 1;">
-            <p><strong>Date:</strong> 9/16/2024</p>
-            <p><strong>Sender From:</strong> Collano, Dionece Mark R.</p>
-            <p><strong>Address:</strong> Tanay, Rizal</p>
+            <p><strong>Date:</strong> {{students.date_of_payment | date}}</p>
+            <p><strong>LRN:</strong> {{students.LRN}}</p>
+            <p><strong>Sender From:</strong> {{students.lname}} {{students.fname}} {{students.mname}}</p>
+            <p><strong>Address:</strong> {{students.address}}</p>
             <p><strong>Description:</strong> Tuition and Fees Payment</p>
+            <p><strong>Payment Method:</strong> GCASH</p>
+            <p><strong>Total Amount Paid:</strong> ({{students.amount_paid}})</p>
         </div>
-        <div class="button-container">
-            <button onclick="approveReceipt()">Approve</button>
-        </div>
+        
+    </div>
+    <div class="button-container">
+        <button class="btn btn-primary"onclick="approveReceipt()">Approve</button>
     </div>
 
-    <div class="receipt-details">
+    <!-- <div class="receipt-details">
         <p><strong>JRNL#:</strong> 123456</p>
         <p><strong>Grade Level:</strong> Grade 10</p>
         <p><strong>Enrollment Date:</strong> 9/16/2024</p>
@@ -29,5 +34,5 @@
         <p><strong>Balance:</strong> ₱ 39,900</p>
         <p><strong>Total Amount Paid:</strong> One Hundred Pesos Only (₱100)</p>
         <p><strong>Payment Method:</strong> GCash</p>
-    </div>
+    </div> -->
 </div>

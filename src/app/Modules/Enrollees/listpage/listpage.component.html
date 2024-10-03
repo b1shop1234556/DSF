@@ -1,9 +1,10 @@
 <P>APPROVED ENROLLEES</P>
 <section>
-      <div class="example-button-row">
-        <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/approve']">PENDDING</button>
-        <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/list']">APPROVED</button>
-      </div>
+
+    <div class="example-button-row">
+      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/approve']">PENDING</button>
+      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/list']">APPROVED</button>
+    </div>
 
       <mat-form-field class="filter-field">
         <mat-label>Grade Level</mat-label>

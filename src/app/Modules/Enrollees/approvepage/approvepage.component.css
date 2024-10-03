@@ -228,3 +228,35 @@ section {
   justify-content: center;
   width: 120px;
 }
+
+.pending-button {
+  background-color: #ddb028; /* Yellow for Pending */
+  color: white;
+  padding: 12px 20px; /* Increased padding for more space */
+  border: none;
+  border-radius: 8px; /* Increased border-radius for more rounded corners */
+  cursor: pointer;
+  font-size: 14px; /* Adjust font size if needed */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  margin-right: 15px; /* Increased margin for more space between buttons */
+}
+
+.pending-button:hover {
+  background-color: #e6b41e; /* Darker yellow on hover */
+}
+
+
+.approved-button {
+  background-color: #28a745; /* Green for Approved */
+  color: white;
+  padding: 12px 20px; /* Increased padding for more space */
+  border: none;
+  border-radius: 8px; /* Increased border-radius for more rounded corners */
+  cursor: pointer;
+  font-size: 14px; /* Adjust font size if needed */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.approved-button:hover {
+  background-color: #2ac44e; /* Darker yellow on hover */
+}

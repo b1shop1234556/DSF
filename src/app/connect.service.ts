@@ -25,6 +25,10 @@ export class ConnectService {
     return this.http.get(this.url + 'display');
   }
 
+  findtransac(id :any){
+    return this.http.get(`${this.url}receiptdisplay/${id}`);
+  }
+
   
   // logins(email: string, password: string): Observable<any> {
   //   return this.http.post(this.url, { email, password });

@@ -8,10 +8,11 @@
 
   <section>
     <div class="example-button-row">
-      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/approve']">PENDDING</button>
-      <button mat-flat-button [routerLink]="['/main-page/enrollees/homepage/list']">APPROVED</button>
+      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/approve']">PENDING</button>
+      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/list']">APPROVED</button>
     </div>
-  </section>
+  </section>  
+  
 
   <!-- <div class="search-bar">
       <input type="text" id="search-input" placeholder="Search...">
@@ -25,7 +26,7 @@
                   <th class="col-md-2">NAME</th>
                   <th>CONTACT NO.</th>
                   <th>GRADE LEVEL</th>
-                  <th class="col-md-2">ENROLLMENT DATE</th>
+                  <th >ENROLLMENT DATE</th>
                   <th>TUITION</th>
                   <th>PAYMENT</th>
                   <th class="col-md-2">DATE OF PAYMENT</th>
@@ -40,9 +41,12 @@
                       <td class="col-md-2">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
                       <td>{{ c.contact_no }}</td>
                       <td>{{ c.year_level }}</td>
-                      <td class="col-md-2">{{ c.date_register | date}}</td>
+                      <td >{{ c.date_register | date}}</td>
                       <td>{{ c.tuition }}</td>
-                      <td class="text-primary text-hover" (click)="openModal()">{{ c.amount_paid }}</td>
+                      <td class="text-primary text-hover" (click)="openModal(c.LRN)">
+                        {{ c.amount_paid }}
+                        <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image">
+                      </td>
                       <td class="col-md-2">{{ c.date_of_payment | date }}</td>
                       <td>{{ c.remaining_balance }}</td>
                       <!-- <td> -->

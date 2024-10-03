@@ -11,6 +11,7 @@ export const enrolleeshome: Routes = [
             {path: 'approve', component: ApprovepageComponent},
             {path: 'list', component: ListpageComponent},
             {path: 'view', component: ViewViewComponent},
+            // { path: 'views/:id', component: ViewViewComponent },
             {path: 'viewdetails', component: ViewDetailsComponent},
             // {path: 'newacc/:uid', component: NewaccComponent},
             {path: '', redirectTo: 'approve', pathMatch: 'full'}

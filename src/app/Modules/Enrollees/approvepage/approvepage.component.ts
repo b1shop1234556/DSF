@@ -47,11 +47,12 @@ export class ApprovepageComponent {
     private conn: ConnectService
   ) {}
 
-  openModal(): void {
+  openModal(id: any): void {
+    console.log(id)
+    localStorage.setItem('LRN',id)
     this.dialog.open(ViewViewComponent, {
       width: '900%', // Adjust width as needed
       maxWidth: '900px', // Set a max width for the modal
-      // height:'500px'
     });
   }
 

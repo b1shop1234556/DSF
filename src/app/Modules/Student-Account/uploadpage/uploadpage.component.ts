@@ -24,7 +24,7 @@ export class UploadpageComponent {
   students:any;
 
   ngOnInit(): void {
-    this.conn.getData().subscribe((result: any) => {
+    this.conn.displayStudent().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
     })
@@ -37,31 +37,38 @@ export class UploadpageComponent {
     private route: Router
   ){}
 
-  classes: string[] = [
-    'Grade 7',
-    'Grade 8',
-    'Grade 9',
-    'Grade 10',
-    'Grade 11',
-    'Grade 12',
-  ];
+  // classes: string[] = [
+  //   'Grade 7',
+  //   'Grade 8',
+  //   'Grade 9',
+  //   'Grade 10',
+  //   'Grade 11',
+  //   'Grade 12',
+  // ];
 
-  sections: string[] = [
-    'Emerald',
-    'Diamond',
-    'Pearl',
-    'Sapphire',
-    'Amethyst',
-    'A',
-    'B',
-    'C',
-  ];
+  // sections: string[] = [
+  //   'Emerald',
+  //   'Diamond',
+  //   'Pearl',
+  //   'Sapphire',
+  //   'Amethyst',
+  //   'A',
+  //   'B',
+  //   'C',
+  // ];
 
-  strands: string[] = [
-    'STEM',
-    'ABM',
-    'HUMSS',
-  ];
+  // strands: string[] = [
+  //   'STEM',
+  //   'ABM',
+  //   'HUMSS',
+  // ];
 
   enrolees: string[] = ['Victoria Nueman', 'John Lander', 'Jessie Train', 'Queen Maeve', 'Chace Deep'];
+  // [routerLink]="['/main-page/enrollees/homepage/viewdetails']"
+
+  getLRN(id: any){
+    console.log(id);
+    localStorage.setItem('LRN', id);
+    this.route.navigate(['/main-page/student/home-page/soa'])
+  }
 }

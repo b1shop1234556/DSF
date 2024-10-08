@@ -26,6 +26,7 @@ export class ListpageComponent {
   selectedProgress: string = 'All';
   keyword: any;
   students: any;
+  grade: any;
 
   classes: string[] =[
     'All',
@@ -36,6 +37,7 @@ export class ListpageComponent {
     'Grade 11',
     'Grade 12',
   ]
+  
   
   constructor(
     // private dialog: MatDialog,
@@ -52,32 +54,40 @@ export class ListpageComponent {
 
 
   ngOnInit(): void {
+    this.filterapprove()
+    this.getFilteredEnrollments()
+  }
+
+  displaygrade(){
+    this.conn.displaygrade().subscribe(
+      (result: any) => {
+        this.grade = result;
+        console.log(this.grade);
+      },
+      
+    )
+  }
+  
+
+  filterapprove(){
     this.conn.getData().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
       if (this.students && this.students.length > 0) {
-        // Filter the transactions to include only those with status 'Pending'
         const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
 
         if (pendingTransactions.length > 0) {
-            // If there are pending transactions, log them
             console.log('Pending Transactions:', pendingTransactions);
-            // You can assign the pending transactions to a variable to display them in your template
             this.students = pendingTransactions;
         } else {
-            // If no pending transactions are found, handle accordingly
             console.log('No pending transactions found');
-            // Optional: clear the transactions or show a message in your template
             this.students = [];
         }
     } else {
-        // Handle the case where no transactions are available
         console.log('No transactions available');
         this.students = [];
     }
     })
-
-    this.getFilteredEnrollments()
   }
 
 

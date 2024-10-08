@@ -7,7 +7,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
 import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { ConnectService } from '../../../connect.service';
@@ -24,16 +24,34 @@ export class ViewViewComponent implements OnInit{
   students: any;
   LRN:{ id: string | null } = {id:localStorage.getItem('LRN')}
 
-  constructor(public dialogRef: MatDialogRef<ViewViewComponent>, private conn: ConnectService) {}
+  constructor(
+    public dialogRef: MatDialogRef<ViewViewComponent>, 
+    private conn: ConnectService,
+    private route: Router
+  ) {}
   ngOnInit(): void {
     console.log(this.LRN.id)
     this.conn.findtransac(this.LRN.id).subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
+      
     })
   }
 
   onClose(): void {
     this.dialogRef.close();
+  }
+
+  approveReceipt(id: any){
+    this.conn.approveEnrollment(id).subscribe({ 
+      next: (response) => {
+        console.log("Update Successful");
+        this.route.navigate(["/main-page/enrollees/homepage/approve"])
+        this.dialogRef.close();
+      },
+      error: (error) => {
+        console.error("Updated failed",error);
+      }
+    })
   }
 }

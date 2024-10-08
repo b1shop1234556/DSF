@@ -29,6 +29,20 @@ export class ConnectService {
     return this.http.get(`${this.url}receiptdisplay/${id}`);
   }
 
+  approveEnrollment(id :any){
+    return this.http.get(`${this.url}approveEnrollment/${id}`);
+  }
+
+  displaygrade(){
+    return this.http.get(this.url + 'displaygrade');
+  }
+  displayStudent(){
+    return this.http.get(this.url + 'displayStudent');
+  }
+
+  printSOA(id :any){
+    return this.http.get(`${this.url}displaySOA/${id}`);
+  }
   
   // logins(email: string, password: string): Observable<any> {
   //   return this.http.post(this.url, { email, password });

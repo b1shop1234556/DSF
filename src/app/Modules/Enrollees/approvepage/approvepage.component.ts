@@ -61,6 +61,11 @@ export class ApprovepageComponent {
 
 
   ngOnInit(): void {
+    this.displaypending()
+  }
+
+  displaypending(){
+
     this.conn.getData().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);

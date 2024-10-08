@@ -36,6 +36,7 @@
     </thead>
     <tbody>
       <!-- @for(enrollments of getFilteredEnrollments() | searchFilter: keyword; track enrollments){ -->
+      <!-- @for(c of students; track c.LRN) { -->
       @for(c of students | searchFilter: keyword; track c.LRN) {
       <tr>
         <td>{{ c.LRN }}</td>

@@ -14,10 +14,11 @@
   </section>  
   
 
-  <!-- <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search...">
-      <button type="submit">Search</button>
-  </div> -->
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
+    <!-- <button type="submit">Search</button> -->
+  </div>   
+
   <div class="table-container">
       <table class="styled-table">
           <thead>
@@ -35,17 +36,20 @@
               </tr>
           </thead>
           <tbody>
-              @for(c of students; track c.LRN) {
+              <!-- @for(enrollments of getFilteredEnrollments() | searchFilter: keyword; track enrollments){ -->
+              <!-- @for(c of getFilteredEnrollment() | searchFilter: keyword; track c.LRN) { -->
+              @for(c of students | searchFilter: keyword; track c.LRN) {
+              <!-- @for(c of students; track c.LRN) { -->
                   <tr>
                       <td>{{ c.LRN }}</td>
-                      <td class="col-md-2">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                      <td class="col-md-2" (click)="Modal(c.LRN)">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
                       <td>{{ c.contact_no }}</td>
                       <td>{{ c.year_level }}</td>
                       <td >{{ c.date_register | date}}</td>
                       <td>{{ c.tuition }}</td>
                       <td class="text-primary text-hover" (click)="openModal(c.LRN)">
                         {{ c.amount_paid }}
-                        <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image">
+                        <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
                       </td>
                       <td class="col-md-2">{{ c.date_of_payment | date }}</td>
                       <td>{{ c.remaining_balance }}</td>

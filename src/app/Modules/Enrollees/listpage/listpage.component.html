@@ -8,7 +8,8 @@
 
       <mat-form-field class="filter-field">
         <mat-label>Grade Level</mat-label>
-        <mat-select [(ngModel)]="selectedProgress">
+        <mat-select [(ngModel)]="selectedClass">
+        <!-- <mat-select [(ngModel)]="selectedProgress"> -->
           @for (class of classes; track class) {
           <mat-option [value]="class">{{class}}</mat-option>
           }
@@ -35,9 +36,10 @@
       </tr>
     </thead>
     <tbody>
-      <!-- @for(enrollments of getFilteredEnrollments() | searchFilter: keyword; track enrollments){ -->
+      <!-- @for(enrollments of getFilteredEnrollments() | searchFilter: keyword; track enrollments) { -->
       <!-- @for(c of students; track c.LRN) { -->
-      @for(c of students | searchFilter: keyword; track c.LRN) {
+      @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) {
+      <!-- @for(c of students | searchFilter: keyword; track c.LRN) { -->
       <tr>
         <td>{{ c.LRN }}</td>
         <td class="col-md-2">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>

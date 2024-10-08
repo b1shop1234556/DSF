@@ -15,6 +15,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConnectService } from '../../../connect.service';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
+import { InputPaymentComponent } from '../input-payment/input-payment.component';
+import { SearchFilterPipe } from '../../../search-filter.pipe';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-approvepage',
@@ -28,17 +34,27 @@ import { CommonModule } from '@angular/common';
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
+    MatInputModule,
     CustomSidenavComponent,
     MatBadgeModule,
     MatMenuModule,
     MatDividerModule,
-    MatListModule
+    MatListModule,
+    SearchFilterPipe,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule
   ],
   templateUrl: './approvepage.component.html',
   styleUrls: ['./approvepage.component.css'] // Corrected this to styleUrls
 })
 export class ApprovepageComponent {
+
+  enrollments: any;
+  
+  keyword: any;
   students: any;
+  grade: any;
 
   constructor(
     private dialog: MatDialog,
@@ -58,11 +74,23 @@ export class ApprovepageComponent {
     });
 }
 
-
+    Modal(id: any): void {
+      console.log(id);
+      localStorage.setItem('LRN', id);
+      this.dialog.open(InputPaymentComponent, {
+          width: '600px',  // Fixed width
+          height: '650px', // Fixed height
+          maxWidth: '400px',
+          maxHeight: '400px',
+      });
+}
 
   ngOnInit(): void {
     this.displaypending()
+    // this.filterapprove()
+    // this.getFilteredEnrollments()
   }
+
 
   displaypending(){
 
@@ -91,5 +119,7 @@ export class ApprovepageComponent {
     }
     })
   }
+
+
 
 }

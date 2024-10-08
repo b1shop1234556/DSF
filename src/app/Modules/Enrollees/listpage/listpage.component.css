@@ -49,6 +49,7 @@
 }
 
 .search-bar {
+  margin-top: 20px; /* Adjust the value as needed for desired spacing */
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -56,6 +57,7 @@
   padding: 10px;
   border-radius: 3px;
 }
+
 
 .search-bar input[type="text"] {
   padding: 8px;

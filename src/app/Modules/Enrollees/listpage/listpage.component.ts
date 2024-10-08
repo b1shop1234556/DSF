@@ -23,7 +23,10 @@ import { SearchFilterPipe } from '../../../search-filter.pipe';
 export class ListpageComponent {
 
   enrollments: any;
-  selectedProgress: string = 'All';
+
+  // selectedProgress: string = 'All';
+  selectedClass: string = 'All';
+  
   keyword: any;
   students: any;
   grade: any;
@@ -54,6 +57,7 @@ export class ListpageComponent {
 
 
   ngOnInit(): void {
+    // this.getEnrollments()
     this.filterapprove()
     this.getFilteredEnrollments()
   }
@@ -68,6 +72,12 @@ export class ListpageComponent {
     )
   }
   
+  // getEnrollments(): void{
+    //   this.conn.getEnrollments().subscribe((result: any)=>{
+    //     this.enrollments = result;
+  
+    //   })
+    // }
 
   filterapprove(){
     this.conn.getData().subscribe((result: any) => {
@@ -90,27 +100,48 @@ export class ListpageComponent {
     })
   }
 
+  // getFilteredEnrollments(){
+  //   switch(this.selectedProgress){
+  //     case 'ALL':
+  //       return this.enrollments;
+  //     case 'Grade 7':
+  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+  //     case 'Grade 8':
+  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+  //     case 'Grade 9':
+  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+  //     case 'Grade 10':
+  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+  //     case 'Grade 11':
+  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+  //     case 'Grade 12':
+  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00'); 
+  //     default:
+  //       return[];    
+  //   }
+  // }
 
   getFilteredEnrollments(){
-    switch(this.selectedProgress){
-      case 'ALL':
-        return this.enrollments;
+    switch(this.selectedClass){
+      case 'All':
+        return this.students;
       case 'Grade 7':
-        return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+        return this.students.filter((student: any) => student.year_level == '7' );
       case 'Grade 8':
-        return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+        return this.students.filter((student: any) => student.year_level == '8' );
       case 'Grade 9':
-        return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+        return this.students.filter((student: any) => student.year_level == '9' );
       case 'Grade 10':
-        return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+        return this.students.filter((student: any) => student.year_level == '10' );
       case 'Grade 11':
-        return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
+        return this.students.filter((student: any) => student.year_level == '11' );
       case 'Grade 12':
-        return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00'); 
+        return this.students.filter((student: any) => student.year_level == '12' );
       default:
         return[];    
     }
   }
+
 
 
 

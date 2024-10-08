@@ -18,7 +18,9 @@
 }
 
 .button-container {
-  margin-bottom: 20px;
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 20px; /* Space below the button section */
 }
 
 .button-container button {
@@ -36,6 +38,7 @@
 }
 
 .search-bar {
+  margin-top: 20px; /* Adjust the value as needed for desired spacing */
   margin-bottom: 20px;
   display: flex;
   align-items: center;
@@ -43,6 +46,7 @@
   padding: 10px;
   border-radius: 3px;
 }
+
 
 .search-bar input[type="text"] {
   padding: 8px;

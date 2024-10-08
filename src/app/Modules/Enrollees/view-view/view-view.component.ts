@@ -29,6 +29,7 @@ export class ViewViewComponent implements OnInit{
     private conn: ConnectService,
     private route: Router
   ) {}
+  
   ngOnInit(): void {
     console.log(this.LRN.id)
     this.conn.findtransac(this.LRN.id).subscribe((result: any) => {

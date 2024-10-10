@@ -72,13 +72,7 @@ export class ListpageComponent {
     )
   }
   
-  // getEnrollments(): void{
-    //   this.conn.getEnrollments().subscribe((result: any)=>{
-    //     this.enrollments = result;
-  
-    //   })
-    // }
-
+ 
   filterapprove(){
     this.conn.getData().subscribe((result: any) => {
       this.students = result;
@@ -99,27 +93,6 @@ export class ListpageComponent {
     }
     })
   }
-
-  // getFilteredEnrollments(){
-  //   switch(this.selectedProgress){
-  //     case 'ALL':
-  //       return this.enrollments;
-  //     case 'Grade 7':
-  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
-  //     case 'Grade 8':
-  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
-  //     case 'Grade 9':
-  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
-  //     case 'Grade 10':
-  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
-  //     case 'Grade 11':
-  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00');
-  //     case 'Grade 12':
-  //       return this.enrollments.filter((enrollments: any) => enrollments.regapproval_date == '0000-00-00' && enrollments.payment_approval == '0000-00-00'); 
-  //     default:
-  //       return[];    
-  //   }
-  // }
 
   getFilteredEnrollments(){
     switch(this.selectedClass){
@@ -142,34 +115,4 @@ export class ListpageComponent {
     }
   }
 
-
-
-
-  // classes: string[] = [
-  //   'Grade 7',
-  //   'Grade 8',
-  //   'Grade 9',
-  //   'Grade 10',
-  //   'Grade 11',
-  //   'Grade 12',
-  // ];
-
-  // sections: string[] = [
-  //   'Emerald',
-  //   'Diamond',
-  //   'Pearl',
-  //   'Sapphire',
-  //   'Amethyst',
-  //   'A',
-  //   'B',
-  //   'C',
-  // ];
-
-  // strands: string[] = [
-  //   'STEM',
-  //   'ABM',
-  //   'HUMSS',
-  // ];
-
-  // enrolees: string[] = ['Victoria Nueman', 'John Lander', 'Jessie Train', 'Queen Maeve', 'Chace Deep'];
 }

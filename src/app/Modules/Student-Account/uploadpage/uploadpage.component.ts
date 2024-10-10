@@ -27,6 +27,20 @@ export class UploadpageComponent {
     this.conn.displayStudent().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
+      if (this.students && this.students.length > 0) {
+        const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
+
+        if (pendingTransactions.length > 0) {
+            console.log('Pending Transactions:', pendingTransactions);
+            this.students = pendingTransactions;
+        } else {
+            console.log('No pending transactions found');
+            this.students = [];
+        }
+    } else {
+        console.log('No transactions available');
+        this.students = [];
+    }
     })
   }
 
@@ -37,33 +51,6 @@ export class UploadpageComponent {
     private route: Router
   ){}
 
-  // classes: string[] = [
-  //   'Grade 7',
-  //   'Grade 8',
-  //   'Grade 9',
-  //   'Grade 10',
-  //   'Grade 11',
-  //   'Grade 12',
-  // ];
-
-  // sections: string[] = [
-  //   'Emerald',
-  //   'Diamond',
-  //   'Pearl',
-  //   'Sapphire',
-  //   'Amethyst',
-  //   'A',
-  //   'B',
-  //   'C',
-  // ];
-
-  // strands: string[] = [
-  //   'STEM',
-  //   'ABM',
-  //   'HUMSS',
-  // ];
-
-  enrolees: string[] = ['Victoria Nueman', 'John Lander', 'Jessie Train', 'Queen Maeve', 'Chace Deep'];
   // [routerLink]="['/main-page/enrollees/homepage/viewdetails']"
 
   getLRN(id: any){

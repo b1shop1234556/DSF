@@ -10,11 +10,12 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogRef } from '@angular/material/dialog';
 import { ConnectService } from '../../../connect.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-input-payment',
@@ -23,6 +24,7 @@ import { ConnectService } from '../../../connect.service';
     RouterLink,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     RouterLink,
@@ -42,6 +44,17 @@ import { ConnectService } from '../../../connect.service';
 })
 export class InputPaymentComponent implements OnInit{
 
+  students: any;
+  LRN:{ id: string | null } = {id:localStorage.getItem('LRN')}
+
+  inputAmount = new FormGroup({
+    OR_number: new FormControl(null),
+    date_of_payment: new FormControl(null),
+    description: new FormControl(null),
+    amount_paid: new FormControl(null),
+    LRN: new FormControl(this.LRN.id)
+  })
+
   constructor(
     public dialogRef: MatDialogRef<InputPaymentComponent>, 
     private conn: ConnectService,
@@ -49,12 +62,39 @@ export class InputPaymentComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+    console.log(this.LRN.id)
+    this.conn.findtransac(this.LRN.id).subscribe((result: any) => {
+      this.students = result;
+      console.log(this.students);
+      
+    })
   }
 
   onClose(): void {
     this.dialogRef.close();
   }
 
-
+  saveFunct(){
+    console.log(this.inputAmount.value);
+    this.conn.addpayment(this.inputAmount.value).subscribe(
+     (result: any)=>{
+      if (result.message === 'Success'){
+      Swal.fire({
+        position: "top-end",
+        icon: "success",
+        title: "Your Work Has Been Saved",
+        showConfirmButton: true,
+      }).then(()=>{
+       
+      });
+      this.route.navigate(['main/']);
+  } else {
+    console.error('Error Occurred during save:',result);
+  }
+    },
+    (error) => {
+      console.error('Error:', error);
+    }
+    );
+  }
 }

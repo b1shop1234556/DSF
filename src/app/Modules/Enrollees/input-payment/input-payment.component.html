@@ -1,26 +1,27 @@
 <div class="input-container">
-    <form class="input-form">
-        <mat-label>Cash Amount</mat-label>
-        <input matInput placeholder="Enter cash amount" type="number" required>
+    <h2 class="form-header">Input Payment</h2>
 
-        <mat-label>Upload Image</mat-label>
-        <input type="file" accept="image/*" required>
-        
-        <button class="btn btn-primary">Submit</button>
+    <form class="input-form" [formGroup]="inputAmount" (submit)="saveFunct()">
+        <div class="image-container">
+            <img src="{{students.proof_payment}}" alt="Payment Proof" class="proof-image">
+        </div>
+
+        <div class="input-fields">
+            <mat-label>JRNL#:</mat-label>
+            <input matInput placeholder="Enter JRNL#:" type="text" formControlName="OR_number" required>
+
+            <mat-label>Date of Payment:</mat-label>
+            <input matInput type="date" formControlName="date_of_payment" required>
+
+            <mat-label>Description:</mat-label>
+            <input matInput placeholder="Enter Description" type="text" formControlName="description" required>
+
+            <mat-label>Total Amount Paid:</mat-label>
+            <input matInput placeholder="Enter cash amount" type="number" formControlName="amount_paid" required>
+        </div>
+
+        <div class="button-container">
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
     </form>
 </div>
-
-
-<!-- <div class="input-container">
-    <form class="input-form">
-        <mat-label>Input Cash Payment</mat-label>
-        <input matInput placeholder="Enter JRNL#:" type="text" required>
-        <input matInput placeholder="Enter Description" type="text" required>
-        <input matInput placeholder="Enter cash amount" type="number" required>
-
-        <mat-label>Upload Image</mat-label>
-        <input type="file" accept="image/*" required>
-        
-        <button class="btn btn-primary">Submit</button>
-    </form>
-</div> -->

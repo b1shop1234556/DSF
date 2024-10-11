@@ -264,3 +264,10 @@ section {
 .approved-button:hover {
   background-color: #2ac44e; /* Darker yellow on hover */
 }
+
+
+.disabled {
+  color: #ccc; /* Change text color to indicate disabled state */
+  pointer-events: none; /* Prevent any mouse events */
+  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+}

@@ -78,10 +78,10 @@ export class ApprovepageComponent {
       console.log(id);
       localStorage.setItem('LRN', id);
       this.dialog.open(InputPaymentComponent, {
-          width: '600px',  // Fixed width
-          height: '650px', // Fixed height
-          maxWidth: '400px',
-          maxHeight: '400px',
+          width: '700px',  // Fixed width
+          height: '550px', // Fixed height
+          maxWidth: '800px',
+          maxHeight: '800px',
       });
 }
 

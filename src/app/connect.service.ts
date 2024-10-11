@@ -43,6 +43,10 @@ export class ConnectService {
   printSOA(id :any){
     return this.http.get(`${this.url}displaySOA/${id}`);
   }
+
+  addpayment(data: any){
+    return this.http.post(this.url + 'addpayment', data);
+  }
   
   // logins(email: string, password: string): Observable<any> {
   //   return this.http.post(this.url, { email, password });

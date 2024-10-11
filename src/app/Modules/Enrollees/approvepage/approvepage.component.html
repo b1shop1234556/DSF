@@ -47,10 +47,14 @@
                       <td>{{ c.year_level }}</td>
                       <td >{{ c.date_register | date}}</td>
                       <td>{{ c.tuition }}</td>
-                      <td class="text-primary text-hover" (click)="openModal(c.LRN)">
-                        {{ c.amount_paid }}
-                        <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
+                      <td 
+                      class="text-primary text-hover" 
+                      [ngClass]="{'disabled': c.amount_paid === 0}" 
+                      (click)="c.amount_paid > 0 ? openModal(c.LRN) : null">
+                      {{ c.amount_paid }}
+                      <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
                       </td>
+                  
                       <td class="col-md-2">{{ c.date_of_payment | date }}</td>
                       <td>{{ c.remaining_balance }}</td>
                       <!-- <td> -->

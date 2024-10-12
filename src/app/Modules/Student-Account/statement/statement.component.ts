@@ -9,11 +9,12 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
 import { ConnectService } from '../../../connect.service';
+import { NgxPrintModule } from 'ngx-print';
 
 @Component({
   selector: 'app-statement',
   standalone: true,
-  imports: [RouterLink, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, CustomSidenavComponent, MatBadgeModule, MatMenuModule, MatListModule],
+  imports: [RouterLink, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, CustomSidenavComponent, MatBadgeModule, MatMenuModule, MatListModule,NgxPrintModule],
  templateUrl: './statement.component.html',
   styleUrl: './statement.component.css'
 })
@@ -47,6 +48,26 @@ export class StatementComponent implements OnInit{
       this.fname = result[0].fname;
       this.mname = result[0].mname;
       console.log(this.students, this.lname, this.fname, this.mname);
+        if (this.students && this.students.length > 0) {
+          // Filter the transactions to include only those with status 'Pending'
+          const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
+
+          if (pendingTransactions.length > 0) {
+              // If there are pending transactions, log them
+              console.log('Pending Transactions:', pendingTransactions);
+              // You can assign the pending transactions to a variable to display them in your template
+              this.students = pendingTransactions;
+          } else {
+              // If no pending transactions are found, handle accordingly
+              console.log('No pending transactions found');
+              // Optional: clear the transactions or show a message in your template
+              this.students = [];
+          }
+      } else {
+          // Handle the case where no transactions are available
+          console.log('No transactions available');
+          this.students = [];
+      }
       
     })
   }

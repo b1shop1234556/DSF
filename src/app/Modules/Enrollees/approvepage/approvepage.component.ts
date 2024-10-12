@@ -74,16 +74,17 @@ export class ApprovepageComponent {
     });
 }
 
-    Modal(id: any): void {
-      console.log(id);
-      localStorage.setItem('LRN', id);
-      this.dialog.open(InputPaymentComponent, {
-          width: '700px',  // Fixed width
-          height: '550px', // Fixed height
-          maxWidth: '800px',
-          maxHeight: '800px',
-      });
-}
+  Modal(id: any): void {
+    console.log(id);
+    localStorage.setItem('LRN', id);
+    this.displaypending();
+    this.dialog.open(InputPaymentComponent, {
+        width: '700px',  // Fixed width
+        height: '550px', // Fixed height
+        maxWidth: '800px',
+        maxHeight: '800px',
+    });
+  }
 
   ngOnInit(): void {
     this.displaypending()
@@ -104,6 +105,7 @@ export class ApprovepageComponent {
         if (pendingTransactions.length > 0) {
             // If there are pending transactions, log them
             console.log('Pending Transactions:', pendingTransactions);
+            this.displaypending();
             // You can assign the pending transactions to a variable to display them in your template
             this.students = pendingTransactions;
         } else {

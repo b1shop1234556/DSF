@@ -1,4 +1,4 @@
-<div class="receipt-container" style="z-index: 100050;">
+<div class="receipt-container" style="z-index: 100050;" id="print-section">
     <div>
         <h2>Statement of Account</h2>
     </div>
@@ -21,9 +21,7 @@
             <tbody>
                 <!-- 1st Semester -->
                 <tr>
-                    @for(s of students; track s.LRN){
                     <td colspan="6" style="padding: 8px; border: 1px solid #ccc; text-align: center; font-weight: bold;">******BEGINNING BALANCE - 003/2024</td>
-                    }
                 </tr>
                 @for(s of students; track s.LRN){
                 <tr>
@@ -90,8 +88,9 @@
         <p><strong>Email: nlacbusinessoffice&#64;yahoo.com</strong></p>
     </div>
 
-    <div class="button-container" style="margin-top: 20px;">
-        <button onclick="window.history.back();" style="margin-right: 10px;">Back</button>
-        <button onclick="window.print();">Print</button>
-    </div>
+    
+</div>
+<div class="button-container" style="margin-top: 20px;">
+    <button onclick="window.history.back();" style="margin-right: 10px;">Back</button>
+    <button class="btn btn-success"[useExistingCss]="true" printSectionId="print-section" ngxPrint>Print</button>
 </div>

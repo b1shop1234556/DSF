@@ -27,7 +27,6 @@ import Swal from 'sweetalert2';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterLink,
     RouterModule,
     MatToolbarModule,
     MatButtonModule,
@@ -40,20 +39,19 @@ import Swal from 'sweetalert2';
     MatListModule
   ],
   templateUrl: './input-payment.component.html',
-  styleUrl: './input-payment.component.css'
+  styleUrls: ['./input-payment.component.css'] // Corrected from styleUrl to styleUrls
 })
-export class InputPaymentComponent implements OnInit{
+export class InputPaymentComponent implements OnInit {
 
   students: any;
-  LRN:{ id: string | null } = {id:localStorage.getItem('LRN')}
+  LRN: { id: string | null } = { id: localStorage.getItem('LRN') };
 
   inputAmount = new FormGroup({
     OR_number: new FormControl(null),
-    date_of_payment: new FormControl(null),
     description: new FormControl(null),
-    amount_paid: new FormControl(null),
+    amount_paid: new FormControl(0),
     LRN: new FormControl(this.LRN.id)
-  })
+  });
 
   constructor(
     public dialogRef: MatDialogRef<InputPaymentComponent>, 
@@ -62,39 +60,50 @@ export class InputPaymentComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    console.log(this.LRN.id)
+    this.showdata();
+  }
+  showdata(){
+    console.log(this.LRN.id);
     this.conn.findtransac(this.LRN.id).subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
-      
-    })
+
+      this.inputAmount.patchValue({
+        OR_number: this.students.OR_number,
+        description: this.students.description,
+        amount_paid: this.students.amount_paid,
+      });
+    });
   }
 
   onClose(): void {
     this.dialogRef.close();
   }
-
-  saveFunct(){
+  saveFunct() {
     console.log(this.inputAmount.value);
-    this.conn.addpayment(this.inputAmount.value).subscribe(
-     (result: any)=>{
-      if (result.message === 'Success'){
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Your Work Has Been Saved",
-        showConfirmButton: true,
-      }).then(()=>{
-       
-      });
-      this.route.navigate(['main/']);
-  } else {
-    console.error('Error Occurred during save:',result);
-  }
-    },
-    (error) => {
-      console.error('Error:', error);
-    }
+    const updateData = { id: this.students.id, ...this.inputAmount.value };
+    this.conn.updatePayment(this.LRN.id, updateData).subscribe(
+      (result: any) => {
+        this.showdata();
+        if (result.message === 'Success') {
+          Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Your Work Has Been Saved",
+            showConfirmButton: true,
+          }).then(() => {
+            this.showdata();
+            this.dialogRef.close();
+            this.route.navigate(['/main-page/enrollees/homepage/pending']); 
+          });
+        } else {
+          console.error('Error Occurred during save:', result);
+        }
+      },
+      (error) => {
+        console.error('Error:', error);
+      }
     );
   }
+  
 }

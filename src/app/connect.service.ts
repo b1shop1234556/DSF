@@ -47,7 +47,15 @@ export class ConnectService {
   updatePayment(id: any, data: any) {
     return this.http.put(`${this.url}updatepayment/${id}`, data);
   }
-  
+
+  // for msg section
+  sendMessage(message: any) {
+    return this.http.post(`${this.url}send-message`, message);
+  }
+
+  getMessages() {
+    return this.http.get(`${this.url}get-messages`);
+  }
   
   // logins(email: string, password: string): Observable<any> {
   //   return this.http.post(this.url, { email, password });

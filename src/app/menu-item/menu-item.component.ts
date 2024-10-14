@@ -1,17 +1,3 @@
-// import { Component } from '@angular/core';
-
-// @Component({
-//   selector: 'app-menu-item',
-//   standalone: true,
-//   imports: [],
-//   templateUrl: './menu-item.component.html',
-//   styleUrl: './menu-item.component.css'
-// })
-// export class MenuItemComponent {
-
-// }
-
-
 import { Component, input, signal } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';

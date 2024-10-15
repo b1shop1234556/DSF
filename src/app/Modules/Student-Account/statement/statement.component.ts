@@ -10,11 +10,39 @@ import { RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
 import { ConnectService } from '../../../connect.service';
 import { NgxPrintModule } from 'ngx-print';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { SearchFilterPipe } from '../../../search-filter.pipe';
+import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component';
 
 @Component({
   selector: 'app-statement',
   standalone: true,
-  imports: [RouterLink, RouterModule, MatToolbarModule, MatButtonModule, MatIconModule, MatSidenavModule, CustomSidenavComponent, MatBadgeModule, MatMenuModule, MatListModule,NgxPrintModule],
+  imports: [
+    NgxPrintModule,
+    CommonModule,
+    ViewViewComponent,
+    RouterLink,
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatInputModule,
+    CustomSidenavComponent,
+    MatBadgeModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
+    SearchFilterPipe,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule
+  ],
  templateUrl: './statement.component.html',
   styleUrl: './statement.component.css'
 })

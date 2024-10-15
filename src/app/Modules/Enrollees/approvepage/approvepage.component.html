@@ -30,7 +30,7 @@
                   <th >ENROLLMENT DATE</th>
                   <th>TUITION</th>
                   <th>PAYMENT</th>
-                  <th class="col-md-2">DATE OF PAYMENT</th>
+                  <th>DATE OF PAYMENT</th>
                   <th>BALANCE</th>
                   <!-- <th>ACTION</th> -->
               </tr>
@@ -46,7 +46,7 @@
                       <td>{{ c.contact_no }}</td>
                       <td>{{ c.grade_level }}</td>
                       <td >{{ c.date_register | date}}</td>
-                      <td>{{ c.tuition }}</td>
+                      <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
                       <td 
                       class="text-primary text-hover" 
                       [ngClass]="{'disabled': c.amount_paid === 0}" 
@@ -55,8 +55,8 @@
                       <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
                       </td>
                   
-                      <td class="col-md-2">{{ c.date_of_payment | date }}</td>
-                      <td>{{ c.remaining_balance }}</td>
+                      <td>{{ c.date_of_payment | date }}</td>
+                      <td>{{ c.remaining_balance | currency: 'PHP':'symbol' }}</td>
                       <!-- <td> -->
                           <!-- <i class="fa fa-eye" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
                           <i class="fa fa-thumbs-up"></i> -->

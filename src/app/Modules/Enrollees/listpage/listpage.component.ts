@@ -99,17 +99,17 @@ export class ListpageComponent {
       case 'All':
         return this.students;
       case 'Grade 7':
-        return this.students.filter((student: any) => student.year_level == '7' );
+        return this.students.filter((student: any) => student.grade_level == '7' );
       case 'Grade 8':
-        return this.students.filter((student: any) => student.year_level == '8' );
+        return this.students.filter((student: any) => student.grade_level == '8' );
       case 'Grade 9':
-        return this.students.filter((student: any) => student.year_level == '9' );
+        return this.students.filter((student: any) => student.grade_level == '9' );
       case 'Grade 10':
-        return this.students.filter((student: any) => student.year_level == '10' );
+        return this.students.filter((student: any) => student.grade_level == '10' );
       case 'Grade 11':
-        return this.students.filter((student: any) => student.year_level == '11' );
+        return this.students.filter((student: any) => student.grade_level == '11' );
       case 'Grade 12':
-        return this.students.filter((student: any) => student.year_level == '12' );
+        return this.students.filter((student: any) => student.grade_level == '12' );
       default:
         return[];    
     }

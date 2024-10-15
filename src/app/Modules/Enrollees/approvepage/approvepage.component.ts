@@ -105,7 +105,9 @@ export class ApprovepageComponent {
         if (pendingTransactions.length > 0) {
             // If there are pending transactions, log them
             console.log('Pending Transactions:', pendingTransactions);
-            this.displaypending();
+
+            // this.displaypending();
+            
             // You can assign the pending transactions to a variable to display them in your template
             this.students = pendingTransactions;
         } else {

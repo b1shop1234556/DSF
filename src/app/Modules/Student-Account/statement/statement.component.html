@@ -23,61 +23,34 @@
                 <tr>
                     <td colspan="6" style="padding: 8px; border: 1px solid #ccc; text-align: center; font-weight: bold;">******BEGINNING BALANCE - 003/2024</td>
                 </tr>
+                <tr>
+                    <td style="padding: 8px; border: 1px solid #ccc;">2024-01-09</td>
+                    <td style="padding: 8px; border: 1px solid #ccc;">OR-00010</td>
+                    <td style="padding: 8px; border: 1px solid #ccc;">Tuition & fee SY 2024-2025</td>
+                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">{{tuition}}</td>
+                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;"></td>
+                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;"></td>
+                </tr>
                 @for(s of students; track s.LRN){
                 <tr>
                     <td style="padding: 8px; border: 1px solid #ccc;">{{s.date_of_payment}}</td>
                     <td style="padding: 8px; border: 1px solid #ccc;">{{s.OR_number}}</td>
                     <td style="padding: 8px; border: 1px solid #ccc;">{{s.description}}</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱0.00</td>
+                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;"></td>
                     <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">{{s.amount_paid | currency: 'PHP':'symbol'}}</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">{{s.remaining_balance | currency: 'PHP':'symbol' }}</td>
+                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">{{ s.remaining_balance | currency: 'PHP':'symbol' }}</td>
                 </tr>
                 }
                 
-                <!-- 2nd Semester -->
-                <!-- <tr>
-                    <td style="padding: 8px; border: 1px solid #ccc;">01/10/2024</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">123456</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">Beginning Balance (2nd Semester)</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱30,000</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱0</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱30,000</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px; border: 1px solid #ccc;">01/11/2024</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">123456</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">Payment Received</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱0</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱5,000</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱25,000</td>
-                </tr>
-                
-              
-                <tr>
-                    <td style="padding: 8px; border: 1px solid #ccc;">01/01/2024</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">123456</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">Beginning Balance (Intersem)</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱20,000</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱0</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱20,000</td>
-                </tr>
-                <tr>
-                    <td style="padding: 8px; border: 1px solid #ccc;">01/02/2024</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">123456</td>
-                    <td style="padding: 8px; border: 1px solid #ccc;">Payment Received</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱0</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱2,000</td>
-                    <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">₱18,000</td>
-                </tr> -->
             </tbody>
         </table>
     </div>
     
     <!-- Net Balance Section -->
     <div style="margin-top: 20px;">
-        @for(s of students; track s.LRN){
-        <p style="font-weight: bold; text-align: center;">******NET BALANCE - Due NLAC: {{s.remaining_balance | currency: 'PHP':'symbol'}} Dr</p>
-        }
+        <!-- @for(s of students; track s.LRN){ -->
+        <p style="font-weight: bold; text-align: center;">******NET BALANCE - Due NLAC: {{remaining_balance | currency: 'PHP':'symbol'}} Dr</p>
+        <!-- } -->
     </div>
     
     <!-- Inquiries Section -->

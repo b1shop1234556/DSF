@@ -12,7 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
 import { SearchFilterPipe } from '../../../search-filter.pipe';
 import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component';
@@ -50,10 +50,20 @@ export class ViewMessagesComponent implements OnInit {
   message = '';
   messages = [];
 
-  constructor(private chatService: ConnectService) { }
+  keyword: any;
+  selectedClass: string = 'All';
+  students: any;
+
+  constructor(
+    private chatService: ConnectService,
+    private conn: ConnectService,
+    private route: Router
+  ) { }
 
   ngOnInit(): void {
     this.getMessages();
+    this.filterapprove()
+    this.getFilteredEnrollments()
   }
 
   sendMessage() {
@@ -73,5 +83,47 @@ export class ViewMessagesComponent implements OnInit {
     this.chatService.getMessages().subscribe((messages: any) => {
       this.messages = messages;
     });
+  }
+
+  filterapprove(){
+    this.conn.displaymsg().subscribe((result: any) => {
+      this.students = result;
+      console.log(this.students);
+      if (this.students && this.students.length > 0) {
+        const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Pending');
+
+        if (pendingTransactions.length > 0) {
+            console.log('Pending Transactions:', pendingTransactions);
+            this.students = pendingTransactions;
+        } else {
+            console.log('No pending transactions found');
+            this.students = [];
+        }
+    } else {
+        console.log('No transactions available');
+        this.students = [];
+    }
+    })
+  }
+
+  getFilteredEnrollments(){
+    switch(this.selectedClass){
+      case 'All':
+        return this.students;
+      case 'Grade 7':
+        return this.students.filter((student: any) => student.grade_level == '7' );
+      case 'Grade 8':
+        return this.students.filter((student: any) => student.grade_level == '8' );
+      case 'Grade 9':
+        return this.students.filter((student: any) => student.grade_level == '9' );
+      case 'Grade 10':
+        return this.students.filter((student: any) => student.grade_level == '10' );
+      case 'Grade 11':
+        return this.students.filter((student: any) => student.grade_level == '11' );
+      case 'Grade 12':
+        return this.students.filter((student: any) => student.grade_level == '12' );
+      default:
+        return[];    
+    }
   }
 }

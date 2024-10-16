@@ -15,27 +15,23 @@
                 </div>
             </div>
 
-            <!-- List of Users -->
-            <div class="user-list-item">
-                <img src="batman.png" alt="User" class="rounded-circle me-1" width="40" height="40">
-                <span> Arjay Subido</span>
+
+        <!-- User List -->
+            <div class="user-list">
+                @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) {
+                    <div class="user-list-item">
+                        <img src="path/to/image/{{ c.LRN }}.png" class="rounded-circle me-1" width="40" height="40">
+                        <span>
+                            <a [routerLink]="['/desired-route', c.LRN]" class="text-decoration-none text-dark" >
+                                {{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}
+                            </a>
+                        </span>
+                    </div>
+                }
             </div>
-            <div class="user-list-item">
-                <img src="super.png" alt="User" class="rounded-circle me-1" width="40" height="40">
-                <span> Mario "Miko" Ofiaza III</span>
-            </div>
-            <div class="user-list-item">
-                <img src="arrow.png" alt="User" class="rounded-circle me-1" width="40" height="40">
-                <span> Glenson Lozada</span>
-            </div>
-            <div class="user-list-item">
-                <img src="green.png" alt="User" class="rounded-circle me-1" width="40" height="40">
-                <span> Jhonnel Manaois</span>
-            </div>
-            <div class="user-list-item">
-                <img src="flash.png" alt="User" class="rounded-circle me-1" width="40" height="40">
-                <span> Dionece Collano</span>
-            </div>
+
+
+
         </div>
 
         <!-- Main Content -->
@@ -49,48 +45,49 @@
             <!-- Chat Area -->
             <div class="chat-area">
                 <!-- Chat Area -->
-<div class="chat-area">
-    <!-- First Conversation -->
-    <div class="message received">
-        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-        <div class="message-content ms-2">Magpasa ka na ng assignment mo</div>
-    </div>
-    <div class="message sent">
-        <div class="message-content">Wala pa</div>
-    </div>
-    <div class="message received">
-        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-        <div class="message-content ms-2">Bakit?</div>
-    </div>
-    <div class="message received">
-        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-        <div class="message-content ms-2">HAHAHAHHA</div>
-    </div>
-    <div class="message sent">
-        <div class="message-content">Wala e</div>
-    </div>
+                <!-- @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) { -->
+                <div class="chat-area">
+                    <!-- First Conversation -->
+                    <div class="message received">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
+                        <div class="message-content ms-2">wala</div>
+                    </div>
+                    <div class="message sent">
+                        <div class="message-content">wala</div>
+                    </div>
+                    <div class="message received">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
+                        <div class="message-content ms-2">Bakit?</div>
+                    </div>
+                    <div class="message received">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
+                        <div class="message-content ms-2">HAHAHAHHA</div>
+                    </div>
+                    <div class="message sent">
+                        <div class="message-content">Wala e</div>
+                    </div>
 
-    <!-- Second Conversation -->
-    <div class="message received">
-        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-        <div class="message-content ms-2">Hey, pupunta ka ba sa event?</div>
-    </div>
-    <div class="message sent">
-        <div class="message-content">Oo, andito ako!</div>
-    </div>
-    <div class="message received">
-        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-        <div class="message-content ms-2">Ayos! Anong oras ka darating?</div>
-    </div>
-    <div class="message sent">
-        <div class="message-content">Mga 6 PM.</div>
-    </div>
-    <div class="message received">
-        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-        <div class="message-content ms-2">Sige, kita kits!</div>
-    </div>
-</div>
-
+                    <!-- Second Conversation -->
+                    <div class="message received">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
+                        <div class="message-content ms-2">Hey, pupunta ka ba sa event?</div>
+                    </div>
+                    <div class="message sent">
+                        <div class="message-content">Oo, andito ako!</div>
+                    </div>
+                    <div class="message received">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
+                        <div class="message-content ms-2">Ayos! Anong oras ka darating?</div>
+                    </div>
+                    <div class="message sent">
+                        <div class="message-content">Mga 6 PM.</div>
+                    </div>
+                    <div class="message received">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
+                        <div class="message-content ms-2">Sige, kita kits!</div>
+                    </div>
+                </div>
+            <!-- } -->
             </div>
 
             <!-- Chat Footer -->

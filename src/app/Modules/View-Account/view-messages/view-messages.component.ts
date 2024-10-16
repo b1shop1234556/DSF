@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
@@ -40,53 +40,118 @@ import { ConnectService } from '../../../connect.service';
     MatSelectModule,
     MatFormFieldModule,
     FormsModule,
-    MatIcon
+    MatIcon,
+    ReactiveFormsModule
   ],
   templateUrl: './view-messages.component.html',
   styleUrl: './view-messages.component.css'
 })
 export class ViewMessagesComponent implements OnInit {
-
-  message = '';
-  messages = [];
-
-  keyword: any;
-  selectedClass: string = 'All';
-  students: any;
+  messages: any; // Initialize as an empty array
+  message: any;
+  // chatForm: FormGroup;
 
   constructor(
     private chatService: ConnectService,
-    private conn: ConnectService,
-    private route: Router
-  ) { }
+    private fb: FormBuilder
+  ) {}
 
   ngOnInit(): void {
-    this.getMessages();
-    this.filterapprove()
-    this.getFilteredEnrollments()
+    this.fetchMessages();
+    this.getFilteredEnrollments();
+    this.filterapprove();
   }
 
-  sendMessage() {
-    const message = {
-      message_reciever: '1', // Adjust based on the actual logged-in user
-      message_sender: '1', // Adjust based on the actual conversation target
-      message: this.message,
-      message_date: new Date() // Optional, set current date
-    };
-    this.chatService.sendMessage(message).subscribe(() => {
-      this.message = '';
-      this.getMessages(); // Refresh message list after sending
-    });
+  saveform = new FormGroup({
+    message_sender: new FormControl("1"),
+    message_reciever: new FormControl(" "),
+    message: new FormControl(" ")
+  })
+  fetchMessages(): void {
+    this.chatService.getMessages().subscribe(
+      data => {
+        this.messages = data;
+      },
+      error => {
+        console.error('Error fetching messages:', error);
+      }
+    );
   }
 
-  getMessages() {
-    this.chatService.getMessages().subscribe((messages: any) => {
-      this.messages = messages;
-    });
+  sendMessage(): void {
+    console.log(this.saveform.value)
+    this.saveform.patchValue({ message_sender: '1' });
+    // this.saveform.patchValue({ message_reciever: '2' });
+    this.chatService.sendMessage(this.saveform.value).subscribe(
+      response => {
+        this.messages.push(response); // Add the new message to the list
+        this.message = ''; // Clear only the message input
+        this.fetchMessages();
+        this.saveform.reset();
+      },
+      error => {
+        console.error('Error sending message:', error);
+      }
+    );
+    
+      // if (this.chatForm.valid) {
+      //   const newMessage = this.chatForm.value;
+  
+      //   this.chatService.sendMessage(newMessage).subscribe(
+      //     response => {
+      //       this.messages.push(response);
+      //       this.chatForm.reset(); // Clear form fields
+      //     },
+      //     error => {
+      //       console.error('Error sending message:', error);
+      //     }
+      //   );
+      // }
+    
+
   }
+  
+
+  // message = '';
+  // messages = [];
+
+  // keyword: any;
+  selectedClass: string = 'All';
+  students: any;
+
+  // constructor(
+  //   private chatService: ConnectService,
+  //   private conn: ConnectService,
+  //   private route: Router
+  // ) { }
+
+  // ngOnInit(): void {
+  //   this.getMessages();
+  //   this.filterapprove()
+  //   this.getFilteredEnrollments()
+  // }
+
+  // sendMessage() {
+  //   const message = {
+  //     message_reciever: '1', // Adjust based on the actual logged-in user
+  //     message_sender: '1', // Adjust based on the actual conversation target
+  //     message: this.message,
+  //     message_date: new Date() // Optional, set current date
+  //   };
+  //   this.chatService.sendMessage(message).subscribe(() => {
+  //     this.message = '';
+  //     this.getMessages(); // Refresh message list after sending
+  //   });
+  // }
+
+  // getMessages() {
+  //   this.chatService.getMessages().subscribe((messages: any) => {
+  //     this.messages = messages;
+  //   });
+  // }
 
   filterapprove(){
-    this.conn.displaymsg().subscribe((result: any) => {
+    this.chatService.displaymsg().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
       if (this.students && this.students.length > 0) {

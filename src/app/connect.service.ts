@@ -35,9 +35,9 @@ export class ConnectService {
     return this.http.get(this.url + 'display');
   }
 
-  getMessages(){
-    return this.http.get(this.url + 'display');
-  }
+  // getMessages(){
+  //   return this.http.get(this.url + 'messages');
+  // }
 
   displayTWO(){
     return this.http.get(this.url + 'display');
@@ -67,12 +67,12 @@ export class ConnectService {
   }
 
   // for msg section
-  sendMessage(message: any): Observable<any> {
-    return this.http.post(`${this.url}send-message`, message);
+  sendMessage(message: any){
+    return this.http.post(`${this.url}messages`, message);
   }
 
-  getMessagesS(): Observable<any> {
-    return this.http.get(`${this.url}get-messages`);
+  getMessages(): Observable<any> {
+    return this.http.get(`${this.url}messages`);
   }
   
   // logins(email: string, password: string): Observable<any> {

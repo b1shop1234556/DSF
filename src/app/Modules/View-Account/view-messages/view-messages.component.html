@@ -1,3 +1,17 @@
+<!-- <div class="chat-container">
+    <h2>Chat Box</h2>
+    <div class="messages" *ngFor="let msg of messages">
+      <strong>{{ msg.message_sender }}:</strong> {{ msg.message }}
+      <em>{{ msg.message_date | date: 'short' }}</em>
+    </div>
+    
+    <form [formGroup]="saveform" (submit)="sendMessage(); $event.preventDefault()">
+      <input type="text" formControlName="message_sender" placeholder="Sender ID" required>
+      <input type="text" formControlName="message_reciever" placeholder="Receiver ID" required>
+      <textarea formControlName="message" placeholder="Type your message..." required></textarea>
+      <button type="submit">Send</button>
+    </form>
+</div> -->
 <!-- <p>view-messages works!</p> -->
 <div class="container-fluid h-100">
     <div class="row h-100 messenger-container">
@@ -18,9 +32,9 @@
 
         <!-- User List -->
             <div class="user-list">
-                @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) {
+                @for(c of students; track c.LRN) {
                     <div class="user-list-item">
-                        <img src="path/to/image/{{ c.LRN }}.png" class="rounded-circle me-1" width="40" height="40">
+                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
                         <span>
                             <a [routerLink]="['/desired-route', c.LRN]" class="text-decoration-none text-dark" >
                                 {{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}
@@ -41,62 +55,44 @@
                 <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
                 <span class="ms-2" style="font-weight:500;">Mario "Miko" Ofiaza III</span>
             </div>
-
+        
             <!-- Chat Area -->
+            <!-- <div class="chat-area">
+                <div *ngFor="let msg of messages" class="message" >
+                    <img src="super.png" alt="User" class="rounded-circle" width="40" height="40" >
+                    <div class="message-content ms-2">{{ msg.message }}</div>
+                </div>
+            </div> -->
+            <!-- @for(c of messages; track c.LRN) { -->
             <div class="chat-area">
-                <!-- Chat Area -->
-                <!-- @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) { -->
-                <div class="chat-area">
-                    <!-- First Conversation -->
-                    <div class="message received">
+                <!-- First Conversation -->
+                <div *ngFor="let c of messages">
+                    <div class="message received" *ngIf="c.message && c.message_reciever">
                         <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-                        <div class="message-content ms-2">wala</div>
+                        <div class="message-content ms-2">{{ c.message }}</div>
                     </div>
-                    <div class="message sent">
-                        <div class="message-content">wala</div>
-                    </div>
-                    <div class="message received">
-                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-                        <div class="message-content ms-2">Bakit?</div>
-                    </div>
-                    <div class="message received">
-                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-                        <div class="message-content ms-2">HAHAHAHHA</div>
-                    </div>
-                    <div class="message sent">
-                        <div class="message-content">Wala e</div>
-                    </div>
-
-                    <!-- Second Conversation -->
-                    <div class="message received">
-                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-                        <div class="message-content ms-2">Hey, pupunta ka ba sa event?</div>
-                    </div>
-                    <div class="message sent">
-                        <div class="message-content">Oo, andito ako!</div>
-                    </div>
-                    <div class="message received">
-                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-                        <div class="message-content ms-2">Ayos! Anong oras ka darating?</div>
-                    </div>
-                    <div class="message sent">
-                        <div class="message-content">Mga 6 PM.</div>
-                    </div>
-                    <div class="message received">
-                        <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">
-                        <div class="message-content ms-2">Sige, kita kits!</div>
+                    <div class="message sent" *ngIf="c.message && c.message_sender">
+                        <!-- <img src="super.png" alt="User" class="rounded-circle" width="40" height="40">   -->
+                        <div class="message-content">{{ c.message }}</div>
                     </div>
                 </div>
-            <!-- } -->
             </div>
+            <!-- } -->
 
+        
             <!-- Chat Footer -->
+            <form [formGroup]="saveform" (submit)="sendMessage(); $event.preventDefault()">
             <div class="chat-footer d-flex">
-                <input type="text" class="form-control" placeholder="Type a message">
-                <button class="btn btn-primary ml-2 ms-2">
+                <input type="hidden" formControlName="message_sender" class="form-control" placeholder="Sender ID" >
+                <input type="hidden" formControlName="message_reciever" class="form-control" placeholder="Receiver ID" >
+                <textarea formControlName="message" class="form-control" placeholder="Type a message..." ></textarea>
+                <button class="btn btn-primary ml-2 ms-2" >
                     <span class="material-icons">send</span>
                 </button>
             </div>
+            </form>
         </div>
+        
+        
     </div>
 </div>

@@ -30,7 +30,7 @@ export class ConnectService {
   }
 
 
-//MSG
+//MSG--------------------
   displaymsg(){
     return this.http.get(this.url + 'display');
   }
@@ -42,6 +42,8 @@ export class ConnectService {
   displayTWO(){
     return this.http.get(this.url + 'display');
   }
+
+//----------------------
 
   findtransac(id :any){
     return this.http.get(`${this.url}receiptdisplay/${id}`);

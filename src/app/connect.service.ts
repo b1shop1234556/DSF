@@ -25,6 +25,10 @@ export class ConnectService {
     return this.http.get(this.url + 'display');
   }
 
+  getDatalist(){
+    return this.http.get(this.url + 'displaylist');
+  }
+
   findtransac(id :any){
     return this.http.get(`${this.url}receiptdisplay/${id}`);
   }
@@ -49,11 +53,11 @@ export class ConnectService {
   }
 
   // for msg section
-  sendMessage(message: any) {
+  sendMessage(message: any): Observable<any> {
     return this.http.post(`${this.url}send-message`, message);
   }
 
-  getMessages() {
+  getMessages(): Observable<any> {
     return this.http.get(`${this.url}get-messages`);
   }
   

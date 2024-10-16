@@ -74,7 +74,7 @@ export class ListpageComponent {
   
  
   filterapprove(){
-    this.conn.getData().subscribe((result: any) => {
+    this.conn.getDatalist().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
       if (this.students && this.students.length > 0) {

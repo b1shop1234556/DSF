@@ -56,6 +56,7 @@ export class StatementComponent implements OnInit{
   remaining_balance: any;
   tuition: any;
   total_paid: any;
+  name: any;
 
   constructor(
     private conn: ConnectService
@@ -76,6 +77,7 @@ export class StatementComponent implements OnInit{
     console.log(this.LRN.id)
     this.conn.printSOA(this.LRN.id).subscribe((result: any) => {
       this.students = result.payments;
+      this.name = result.payments[0].name;
       this.remaining_balance = result.remaining_balance;
       this.tuition = result.payments[0].tuition;
       this.total_paid = result.total_paid;

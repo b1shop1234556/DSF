@@ -58,13 +58,14 @@ export class ViewMessagesComponent implements OnInit {
 
   sendMessage() {
     const message = {
-      text: this.message,
-      sender: 'teacher', // adjust the sender to the current user
-      receiver: 'student' // adjust the receiver to the other user
+      message_reciever: '1', // Adjust based on the actual logged-in user
+      message_sender: '1', // Adjust based on the actual conversation target
+      message: this.message,
+      message_date: new Date() // Optional, set current date
     };
     this.chatService.sendMessage(message).subscribe(() => {
       this.message = '';
-      this.getMessages();
+      this.getMessages(); // Refresh message list after sending
     });
   }
 
@@ -73,5 +74,4 @@ export class ViewMessagesComponent implements OnInit {
       this.messages = messages;
     });
   }
-
 }

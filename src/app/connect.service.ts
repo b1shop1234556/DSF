@@ -1,11 +1,14 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConnectService {
+  uploadfile(formData: FormData) {
+    throw new Error('Method not implemented.');
+  }
    
   private url = 'http://localhost:8000/api/'; // Adjusted URL
 
@@ -67,6 +70,18 @@ export class ConnectService {
   updatePayment(id: any, data: any) {
     return this.http.put(`${this.url}updatepayment/${id}`, data);
   }
+
+  //upload....
+  uploadFiles(formData: FormData): Observable<any> {
+    return this.http.post(`${this.url}uploadfiles`, formData).pipe(
+        catchError((error) => {
+            console.error('Error during file upload:', error);
+            return throwError(error);
+        })
+    );
+}
+
+
 
   // for msg section
   sendMessage(message: any){

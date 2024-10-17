@@ -66,4 +66,11 @@
 <div class="button-container" style="margin-top: 20px;">
     <button onclick="window.history.back();" style="margin-right: 10px;">Back</button>
     <button class="btn btn-success"[useExistingCss]="true" printSectionId="print-section" ngxPrint>Print</button>
+
+    <!-- <label style="margin-left: 10px;">
+        <input type="file" (change)="onFileSelected($event)" style="display: none;" id="fileUpload" #fileInput />
+        <button class="btn btn-primary" (click)="fileInput.click()">Choose File</button>
+        <button class="btn btn-success" (click)="uploadFiles()" style="margin-left: 10px;">Upload</button>
+    </label> -->
+    
 </div>

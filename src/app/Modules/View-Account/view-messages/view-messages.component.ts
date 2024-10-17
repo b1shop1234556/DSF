@@ -64,7 +64,7 @@ export class ViewMessagesComponent implements OnInit {
 
   saveform = new FormGroup({
     message_sender: new FormControl("1"),
-    message_reciever: new FormControl(" "),
+    message_reciever: new FormControl(""),
     message: new FormControl(" ")
   })
   fetchMessages(): void {

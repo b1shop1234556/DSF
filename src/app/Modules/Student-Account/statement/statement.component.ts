@@ -11,7 +11,7 @@ import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.c
 import { ConnectService } from '../../../connect.service';
 import { NgxPrintModule } from 'ngx-print';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -41,7 +41,8 @@ import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component
     SearchFilterPipe,
     MatSelectModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
  templateUrl: './statement.component.html',
   styleUrl: './statement.component.css'
@@ -58,6 +59,8 @@ export class StatementComponent implements OnInit{
   total_paid: any;
   name: any;
 
+  selectedFile: File | null = null;
+
   constructor(
     private conn: ConnectService
   ){}
@@ -70,6 +73,59 @@ export class StatementComponent implements OnInit{
     };
     return date.toLocaleDateString('en-US', options);
   }
+
+  onFileSelected(event: Event): void {
+    const fileInput = event.target as HTMLInputElement;
+    if (fileInput.files && fileInput.files.length > 0) {
+      this.selectedFile = fileInput.files[0];
+    }
+  }
+  
+  uploadFiles(): void {
+    console.log("Initiating file upload...");
+
+    if (this.selectedFile) {
+        const formData = new FormData();
+        formData.append('file', this.selectedFile); // Ensure the key is 'file'
+
+        this.conn.uploadFiles(formData).subscribe(
+            (response: any) => {
+                console.log('File uploaded successfully:', response);
+                this.refreshDataList();
+                alert('File uploaded successfully!');
+            },
+            (error: any) => {
+                console.error('Error uploading file:', error);
+                alert('Error uploading file. Please try again.');
+            }
+        );
+    } else {
+        console.warn('No file selected');
+        alert('Please select a file to upload.');
+    }
+}
+
+
+
+
+private refreshDataList(): void {
+  this.conn.getDatalist().subscribe((result: any) => {
+      this.students = result;
+      console.log(this.students);
+      
+      // Filter for pending transactions
+      if (this.students && this.students.length > 0) {
+          const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
+          this.students = pendingTransactions.length > 0 ? pendingTransactions : [];
+          console.log(pendingTransactions.length > 0 ? 'Pending Transactions:' : 'No pending transactions found', this.students);
+      } else {
+          console.log('No transactions available');
+          this.students = [];
+      }
+  });
+}
+
+
 
   ngOnInit(): void {
 

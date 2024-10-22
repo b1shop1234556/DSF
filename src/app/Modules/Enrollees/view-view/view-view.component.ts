@@ -3,7 +3,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
-// import Swal from 'sweetalert2';
+import Swal from 'sweetalert2';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -43,16 +43,23 @@ export class ViewViewComponent implements OnInit{
     this.dialogRef.close();
   }
 
-  approveReceipt(id: any){
-    this.conn.approveEnrollment(id).subscribe({ 
+  approveReceipt(id: any) {
+    this.conn.approveEnrollment(id).subscribe({
       next: (response) => {
-        console.log("Update Successful");
-        this.route.navigate(["/main-page/enrollees/homepage/approve"])
-        this.dialogRef.close();
+        console.log('Update Successful');
+        Swal.fire({
+          position: 'center',
+          icon: 'success',
+          title: 'Enrollment Approved Successfully',
+          showConfirmButton: true,
+        }).then(() => {
+          this.route.navigate(['/main-page/enrollees/homepage/approve']);
+          this.dialogRef.close();
+        });
       },
       error: (error) => {
-        console.error("Updated failed",error);
-      }
-    })
+        console.error('Update failed', error);
+      },
+    });
   }
 }

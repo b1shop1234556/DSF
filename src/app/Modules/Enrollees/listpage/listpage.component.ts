@@ -12,6 +12,9 @@ import { RouterOutlet, RouterLink, RouterLinkActive, RouterModule, Router } from
 import { ConnectService } from '../../../connect.service';
 import { MatDividerModule } from '@angular/material/divider';
 import { SearchFilterPipe } from '../../../search-filter.pipe';
+import { StatementComponent } from '../../Student-Account/statement/statement.component';
+import { MatDialog } from '@angular/material/dialog';
+// import { PutpayComponent } from '../putpay/putpay.component';
 
 @Component({
   selector: 'app-listpage',
@@ -46,18 +49,15 @@ export class ListpageComponent {
     // private dialog: MatDialog,
     // private conn: PostService,
     private conn: ConnectService,
-    private route: Router
+    // private route: Router
   ){}
 
-  // ngOnInit(): void {
-  //   this.conn.getstudent().subscribe((data)=>{
-  //     this.students = data;
-  //   })
-  // }
+ 
 
 
   ngOnInit(): void {
     // this.getEnrollments()
+    // this.displaypending()
     this.filterapprove()
     this.getFilteredEnrollments()
   }
@@ -71,10 +71,12 @@ export class ListpageComponent {
       
     )
   }
+
+  //
   
  
   filterapprove(){
-    this.conn.getDatalist().subscribe((result: any) => {
+    this.conn.getDataPUT().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
       if (this.students && this.students.length > 0) {

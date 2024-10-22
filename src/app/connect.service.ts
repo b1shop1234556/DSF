@@ -32,6 +32,10 @@ export class ConnectService {
     return this.http.get(this.url + 'displaylist');
   }
 
+  getDataPUT(){
+    return this.http.get(this.url + 'displayIN');
+  }
+
 
 //MSG--------------------
   displaymsg(){
@@ -71,6 +75,9 @@ export class ConnectService {
     return this.http.put(`${this.url}updatepayment/${id}`, data);
   }
 
+  putPayment(id: any, data: any) {
+    return this.http.put(`${this.url}updatepayment/${id}`, data);
+  }
   //upload....
   uploadFiles(formData: FormData): Observable<any> {
     return this.http.post(`${this.url}uploadfiles`, formData).pipe(

@@ -6,7 +6,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { RouterLink, RouterModule } from '@angular/router';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
 import { ConnectService } from '../../../connect.service';
 import { NgxPrintModule } from 'ngx-print';
@@ -18,6 +18,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { SearchFilterPipe } from '../../../search-filter.pipe';
 import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component';
+import { jsPDF } from 'jspdf';
+import Swal from 'sweetalert2';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-statement',
@@ -58,11 +61,15 @@ export class StatementComponent implements OnInit{
   tuition: any;
   total_paid: any;
   name: any;
-
+  selectedFileName: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
   selectedFile: File | null = null;
+  LRNs: any;
 
   constructor(
-    private conn: ConnectService
+    private conn: ConnectService,
+    private http: HttpClient,
+    private route: Router
   ){}
   
   formDate(date: Date):string{
@@ -74,66 +81,79 @@ export class StatementComponent implements OnInit{
     return date.toLocaleDateString('en-US', options);
   }
 
-  onFileSelected(event: Event): void {
-    const fileInput = event.target as HTMLInputElement;
-    if (fileInput.files && fileInput.files.length > 0) {
-      this.selectedFile = fileInput.files[0];
-    }
-  }
   
   uploadFiles(): void {
-    console.log("Initiating file upload...");
-
     if (this.selectedFile) {
-        const formData = new FormData();
-        formData.append('file', this.selectedFile); // Ensure the key is 'file'
-
-        this.conn.uploadFiles(formData).subscribe(
-            (response: any) => {
-                console.log('File uploaded successfully:', response);
-                this.refreshDataList();
-                alert('File uploaded successfully!');
-            },
-            (error: any) => {
-                console.error('Error uploading file:', error);
-                alert('Error uploading file. Please try again.');
-            }
+      const formData = new FormData();
+      formData.append('filename', this.selectedFile, this.selectedFile.name);
+    
+      this.http.post(`http://localhost:8000/api/uploadfiles/${this.LRN.id}`, formData)
+        .subscribe(
+          (response: any) => {
+            Swal.fire({
+              title: 'Success!',
+              text: 'Image uploaded successfully!',
+              icon: 'success',
+              confirmButtonText: 'OK'
+            }).then(() => {
+              // this.loadExistingImage();
+              // this.startPolling();
+              // localStorage.removeItem('Admin_ID'); 
+              this.route.navigate(["/main-page/student/home-page/soa"]);
+              // location.reload(); // Reload the page after navigation
+             
+            });
+          },
+          (error: any) => {
+            Swal.fire({
+              title: 'Error!',
+              text: 'Error uploading image. Please try again.',
+              icon: 'error',
+              confirmButtonText: 'OK'
+            });
+            console.error('Error:', error);
+          }
         );
     } else {
-        console.warn('No file selected');
-        alert('Please select a file to upload.');
+      Swal.fire({
+        title: 'Warning!',
+        text: 'Please select an image first.',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
     }
-}
+
+  }
 
 
 
 
-private refreshDataList(): void {
-  this.conn.getDatalist().subscribe((result: any) => {
-      this.students = result;
-      console.log(this.students);
-      
-      // Filter for pending transactions
-      if (this.students && this.students.length > 0) {
-          const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
-          this.students = pendingTransactions.length > 0 ? pendingTransactions : [];
-          console.log(pendingTransactions.length > 0 ? 'Pending Transactions:' : 'No pending transactions found', this.students);
-      } else {
-          console.log('No transactions available');
-          this.students = [];
-      }
-  });
-}
+  private refreshDataList(): void {
+    this.conn.getDatalist().subscribe((result: any) => {
+        this.students = result;
+        console.log(this.students);
+        
+        // Filter for pending transactions
+        if (this.students && this.students.length > 0) {
+            const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
+            this.students = pendingTransactions.length > 0 ? pendingTransactions : [];
+            console.log(pendingTransactions.length > 0 ? 'Pending Transactions:' : 'No pending transactions found', this.students);
+        } else {
+            console.log('No transactions available');
+            this.students = [];
+        }
+    });
+  }
 
 
 
   ngOnInit(): void {
-
     this.currentDate = this.formDate(new Date());
     console.log(this.LRN.id)
     this.conn.printSOA(this.LRN.id).subscribe((result: any) => {
       this.students = result.payments;
       this.name = result.payments[0].name;
+      this.LRNs = result.payments[0].LRN;
       this.remaining_balance = result.remaining_balance;
       this.tuition = result.payments[0].tuition;
       this.total_paid = result.total_paid;
@@ -166,4 +186,21 @@ private refreshDataList(): void {
       
     })
   }
+
+  onFileSelected(event: any) {
+    this.selectedFile = event.target.files[0] as File;
+    this.previewImage();
+  }
+
+  previewImage() {
+    if (this.selectedFile) {
+      const reader = new FileReader();
+      reader.onload = () => {
+        this.imagePreview = reader.result; // Update image preview with selected file
+      };
+      reader.readAsDataURL(this.selectedFile);
+    }
+  }
+
+
 }

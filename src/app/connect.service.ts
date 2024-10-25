@@ -46,9 +46,9 @@ export class ConnectService {
   //   return this.http.get(this.url + 'messages');
   // }
 
-  displayTWO(){
-    return this.http.get(this.url + 'display');
-  }
+  // displayTWO(){
+  //   return this.http.get(this.url + 'display');
+  // }
 
 //----------------------
 
@@ -79,15 +79,7 @@ export class ConnectService {
     return this.http.put(`${this.url}updatepayment/${id}`, data);
   }
   //upload....
-  uploadFiles(formData: FormData): Observable<any> {
-    return this.http.post(`${this.url}uploadfiles`, formData).pipe(
-        catchError((error) => {
-            console.error('Error during file upload:', error);
-            return throwError(error);
-        })
-    );
-}
-
+ 
 
 
   // for msg section

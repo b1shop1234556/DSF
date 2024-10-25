@@ -5,6 +5,7 @@
     
         <p><strong>Statement of Account as of:</strong> {{currentDate}}</p>
         <p><strong>Account Name:</strong> {{name}}</p>
+        <p><strong>LRN:</strong> {{LRNs}}</p>
     
     <div class="transaction-table">
         <table style="width:100%; border-collapse: collapse; margin-top: 20px;">
@@ -31,7 +32,7 @@
                     <td style="padding: 8px; border: 1px solid #ccc; text-align: right;"></td>
                     <td style="padding: 8px; border: 1px solid #ccc; text-align: right;">00.0</td>
                 </tr>
-                @for(s of students; track s.LRN){
+                @for(s of students; track s.date_of_payment){
                 <tr>
                     <td style="padding: 8px; border: 1px solid #ccc;">{{s.date_of_payment}}</td>
                     <td style="padding: 8px; border: 1px solid #ccc;">{{s.OR_number}}</td>
@@ -63,14 +64,13 @@
 
     
 </div>
-<div class="button-container" style="margin-top: 20px;">
-    <button onclick="window.history.back();" style="margin-right: 10px;">Back</button>
-    <button class="btn btn-success"[useExistingCss]="true" printSectionId="print-section" ngxPrint>Print</button>
-
-    <!-- <label style="margin-left: 10px;">
-        <input type="file" (change)="onFileSelected($event)" style="display: none;" id="fileUpload" #fileInput />
-        <button class="btn btn-primary" (click)="fileInput.click()">Choose File</button>
-        <button class="btn btn-success" (click)="uploadFiles()" style="margin-left: 10px;">Upload</button>
-    </label> -->
-    
+<div class="button-container" style="margin-top: 20px; text-align: left;">
+    <label>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" id="fileUpload" name="fileInput" #fileInput style="margin-right: 10px;"> <!-- Adjusted margin -->
+        <div style="margin-top: 10px;"> <!-- Added div for spacing -->
+            <button onclick="window.history.back();" style="margin-right: 10px;">Back</button>
+            <button class="btn btn-success" (click)="uploadFiles()">Upload</button>
+        </div>
+    </label>
 </div>
+

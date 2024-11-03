@@ -24,6 +24,14 @@ export class ConnectService {
     return this.http.post(this.url + 'logout', {}, { headers });
   }
 
+  getAccount(id :any){
+    return this.http.get(`${this.url}findacc/${id}`);
+  }
+
+  updateAccount(data :any){
+    return this.http.put(`${this.url}updateacc/${data.id}`,data);
+  }
+
   getData(){
     return this.http.get(this.url + 'display');
   }

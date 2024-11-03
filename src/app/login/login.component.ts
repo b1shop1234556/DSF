@@ -28,6 +28,7 @@ export class LoginComponent {
         if (result.token != null) {
           if (typeof window !== 'undefined' && window.localStorage) {
             localStorage.setItem('token', result.token); // Save the token only in the browser
+            localStorage.setItem('id', result.user.id);
           }
           this.router.navigate(['/main-page']);
         }

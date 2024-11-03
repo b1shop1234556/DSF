@@ -27,7 +27,7 @@
 
     <!-- Profile Button with Dropdown -->
     <button mat-icon-button class="example-icon circle-btn ms-2" [matMenuTriggerFor]="profileMenu">
-        <img src="profile.png" class="prof-image" />
+        <img [src]="imagePreview" class="prof-image" />
     </button>
     
     <!-- Profile Dropdown Menu -->
@@ -38,7 +38,7 @@
         </button>
         <button mat-menu-item >
             <mat-icon>exit_to_app</mat-icon>
-            <span [routerLink]="['/login-page/login']">Logout</span>
+            <span (click)="logout()">Logout</span>
         </button>
     </mat-menu>
 

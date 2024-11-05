@@ -1,10 +1,3 @@
-/* body {
-  background-color: #f0f0f0;
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-} */
-
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
 
 .student-account {
@@ -20,7 +13,7 @@
 .button-container {
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center items vertically */
-  margin-bottom: 20px; /* Space below the button section */
+  margin-bottom: 10px; /* Reduced margin-bottom for less space between the button section and search bar */
 }
 
 .button-container button {
@@ -48,16 +41,16 @@
   flex-grow: 1; /* Allow the filter field to grow */
 }
 
+/* Updated search bar styles */
 .search-bar {
-  margin-top: 20px; /* Adjust the value as needed for desired spacing */
-  margin-bottom: 20px;
+  margin-top: 0; /* Removed margin-top to reduce space above the search bar */
+  margin-bottom: 0; /* Reduced margin-bottom to eliminate extra space below the search bar */
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
   padding: 10px;
   border-radius: 3px;
 }
-
 
 .search-bar input[type="text"] {
   padding: 8px;
@@ -76,6 +69,7 @@
   cursor: pointer;
 }
 
+/* Updated table styles */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -83,6 +77,8 @@ table {
   border: 1px solid #ddd;
   border-radius: 3px;
   overflow: hidden; /* Prevents border-radius from being cut off */
+  margin-top: 5px; /* Reduced margin-top for the table */
+  table-layout: fixed; /* Fixed table layout to ensure uniform column widths */
 }
 
 th {
@@ -106,10 +102,27 @@ td {
 }
 
 tbody {
-  display: table-row-group; /* Use default display for tbody */
-  max-height: none; /* Remove max height to avoid scrolling */
-  overflow-y: visible; /* Prevent overflow */
+  display: block;
+  max-height: 290px; /* Set max height for scrolling */
+  overflow-y: auto; /* Enable vertical scrolling */
   width: 100%;
+  /* Hide scrollbars but allow scrolling */
+  scrollbar-width: thin; /* Firefox: make the scrollbar thin */
+  scrollbar-color: transparent transparent; /* Firefox: hide the scrollbar but keep it scrollable */
+  -ms-overflow-style: none;  /* IE/Edge */
+}
+
+tbody::-webkit-scrollbar {
+  width: 0px; /* Hide scrollbar */
+  height: 0px; /* Hide horizontal scrollbar */
+}
+
+tbody::-webkit-scrollbar-thumb {
+  background-color: transparent; /* Transparent thumb */
+}
+
+tbody::-webkit-scrollbar-track {
+  background-color: transparent; /* Transparent track */
 }
 
 tr {
@@ -242,6 +255,7 @@ section {
   display: flex;
   justify-content: center;
   width: 120px;
+  margin-bottom: 5px; /* Reduced bottom margin to bring the buttons closer to the content below */
 }
 
 .pending-button {
@@ -253,13 +267,13 @@ section {
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
-  margin-right: 15px; /* Increased margin for more space between buttons */
+  margin-right: 5px; /* Reduced margin-right for less space between buttons */
+  margin-bottom: 0; /* Removed margin-bottom to reduce space below */
 }
 
 .pending-button:hover {
   background-color: #e6b41e; /* Darker yellow on hover */
 }
-
 
 .approved-button {
   background-color: #28a745; /* Green for Approved */
@@ -270,8 +284,9 @@ section {
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
+  margin-bottom: 0; /* Removed margin-bottom to reduce space below */
 }
 
 .approved-button:hover {
-  background-color: #2ac44e; /* Darker yellow on hover */
+  background-color: #2ac44e; /* Darker green on hover */
 }

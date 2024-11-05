@@ -22,11 +22,11 @@ export const loginGuard: CanActivateFn = (route, state) => {
 
 export const routes: Routes = [
     {path: 'login-page', component: LoginComponent,
-        // children: [
-        //     {path:'login', component: LoginComponent, canActivate:[loginGuard]},
-        //     // {path:'sign', component: SignComponent},
-        //     {path: '', redirectTo: 'login', pathMatch:'full'}
-        // ]
+        children: [
+            {path:'login', component: LoginComponent, canActivate:[loginGuard]},
+            // {path:'sign', component: SignComponent},
+            {path: '', redirectTo: 'login', pathMatch:'full'}
+        ]
     },
     {path: 'main-page', component: MainPageComponent, canActivate:[authGuard],
     children: [

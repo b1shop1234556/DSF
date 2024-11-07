@@ -61,6 +61,7 @@
   cursor: pointer;
 }
 
+/* Table styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -73,8 +74,8 @@ table {
 th {
   background-color: #255a92;
   color: #ffffff;
-  padding: 12px 15px;
-  text-align: right; /* Right align header */
+  padding: 8px 12px; /* Reduced padding */
+  text-align: center;
   border-bottom: 2px solid #255a92;
   font-family: 'Poppins', sans-serif; /* Custom font */
   font-weight: 600;
@@ -85,16 +86,28 @@ th {
 }
 
 td {
-  padding: 12px 15px;
-  text-align: right; /* Right align cells */
+  padding: 8px 12px; /* Reduced padding */
+  text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
+/* Fix for the scrolling behavior */
 tbody {
-  display: table-row-group; /* Use default display for tbody */
-  max-height: none; /* Remove max height to avoid scrolling */
-  overflow-y: visible; /* Prevent overflow */
+  display: block;
+  max-height: 290px; /* Set max height for scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling */
   width: 100%;
+}
+
+/* Hide the scrollbar but keep scrolling */
+tbody::-webkit-scrollbar {
+  width: 0px; /* Hide scrollbar in WebKit browsers */
+  height: 0px; /* Hide horizontal scrollbar in WebKit browsers */
+}
+
+tbody {
+  scrollbar-width: thin; /* Firefox: make the scrollbar thin */
+  scrollbar-color: transparent transparent; /* Firefox: hide the scrollbar but keep it scrollable */
 }
 
 tr {

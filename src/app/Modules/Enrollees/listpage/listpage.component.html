@@ -1,21 +1,20 @@
 <P>APPROVED ENROLLEES</P>
 <section>
-
     <div class="example-button-row">
       <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
       <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
     </div>
 
-      <mat-form-field class="filter-field">
-        <mat-label>Grade Level</mat-label>
-        <mat-select [(ngModel)]="selectedClass">
-        <!-- <mat-select [(ngModel)]="selectedProgress"> -->
-          @for (class of classes; track class) {
-          <mat-option [value]="class">{{class}}</mat-option>
-          }
-        </mat-select>
-      </mat-form-field>
-    </section>
+    <mat-form-field class="filter-field">
+      <mat-label>Grade Level</mat-label>
+      <mat-select [(ngModel)]="selectedClass">
+        @for (class of classes; track class) {
+        <mat-option [value]="class">{{class}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+</section>
+
 
     <div class="search-bar">
       <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">

@@ -44,7 +44,7 @@
 /* Updated search bar styles */
 .search-bar {
   margin-top: 15px; /* Reduced spacing */
-  margin-bottom: 15px; /* Reduced spacing */
+  margin-bottom: 5px; /* Reduced spacing */
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
@@ -78,7 +78,7 @@ table {
   border: 1px solid #ddd;
   border-radius: 3px;
   overflow: hidden; /* Prevents border-radius from being cut off */
-  margin-top: 5px; /* Reduced margin-top for the table */
+  margin-top: 0; /* Reduced margin-top for the table */
   table-layout: fixed; /* Fixed table layout to ensure uniform column widths */
 }
 
@@ -104,7 +104,7 @@ td {
 
 tbody {
   display: block;
-  max-height: 290px; /* Set max height for scrolling */
+  max-height: 280px; /* Set max height for scrolling */
   overflow-y: auto; /* Enable vertical scrolling */
   width: 100%;
   /* Hide scrollbars but allow scrolling */

@@ -2,15 +2,49 @@ import { Component, OnInit } from '@angular/core';
 import { ConnectService } from '../../../connect.service';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { response } from 'express';
-import { Router } from '@angular/router';
+// import { response } from 'express';
+import { Router, RouterLink, RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatListModule } from '@angular/material/list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSelectModule } from '@angular/material/select';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { CustomSidenavComponent } from '../../../custom-sidenav/custom-sidenav.component';
+import { SearchFilterPipe } from '../../../search-filter.pipe';
+import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component';
 
 @Component({
   selector: 'app-edit-info',
   standalone: true,
-  imports: [ReactiveFormsModule,CommonModule,FormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    ViewViewComponent,
+    RouterLink,
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatInputModule,
+    CustomSidenavComponent,
+    MatBadgeModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
+    SearchFilterPipe,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule
+  ],
   templateUrl: './edit-info.component.html',
   styleUrl: './edit-info.component.css'
 })
@@ -34,9 +68,14 @@ export class EditInfoComponent implements OnInit{
   ){}
 
   accountupdate = new FormGroup({
+    fname: new FormControl(null),
+    mname: new FormControl(null),
+    lname: new FormControl(null),
     currentPassword: new FormControl(null),
     password: new FormControl(null),
-    confirmpassword: new FormControl(null)
+    confirmpassword: new FormControl(null),
+    email: new FormControl(null),
+    address: new FormControl(null),
   })
 
   ngOnInit(): void {

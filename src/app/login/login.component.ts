@@ -62,7 +62,7 @@ export class LoginComponent {
             position: 'center',
             icon: 'error',
             title: 'Error',
-            text: 'There was an issue with the login process. Please try again later.',
+            text: 'There was an issue with the login process. Please try again.',
             showConfirmButton: true
           });
         }

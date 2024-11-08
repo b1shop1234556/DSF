@@ -100,7 +100,7 @@ export class MainPageComponent implements OnInit{
 
     this.connect.logout().subscribe((results: any) => {
       localStorage.removeItem('token');
-      this.route.navigate(['login-page']);
+      this.route.navigate(['login']);
     })
   }
   get(){

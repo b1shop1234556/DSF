@@ -1,6 +1,6 @@
 import { CanActivate, CanActivateFn, Router, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
-import { LoginPageComponent } from './login-page/login-page.component';
+// import { LoginPageComponent } from './login-page/login-page.component';
 import { MainPageComponent } from './main-page/main-page.component';
 import { enrolleeshome } from './Modules/Enrollees/enrollees.routes';
 import { studenthome } from './Modules/Student-Account/student.routes';
@@ -21,12 +21,12 @@ export const loginGuard: CanActivateFn = (route, state) => {
   
 
 export const routes: Routes = [
-    {path: 'login-page', component: LoginComponent,
-        children: [
-            {path:'login', component: LoginComponent, canActivate:[loginGuard]},
-            // {path:'sign', component: SignComponent},
-            {path: '', redirectTo: 'login', pathMatch:'full'}
-        ]
+    {path: 'login', component: LoginComponent, canActivate:[loginGuard]
+        // children: [
+        //     {path:'login', component: LoginComponent, canActivate:[loginGuard]},
+        //     // {path:'sign', component: SignComponent},
+        //     {path: '', redirectTo: 'login', pathMatch:'full'}
+        // ]
     },
     {path: 'main-page', component: MainPageComponent, canActivate:[authGuard],
     children: [

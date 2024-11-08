@@ -94,10 +94,17 @@ export class EditInfoComponent implements OnInit{
     })
   }
   get(){
+    console.log("success")
     this.connect.getAccount(this.user.id).subscribe((result: any) => {
       console.log(result)
       this.acc = result
+      this.accountupdate.controls['fname'].setValue(this.acc.fname)
+      this.accountupdate.controls['mname'].setValue(this.acc.mname)
+      this.accountupdate.controls['lname'].setValue(this.acc.lname)
+      this.accountupdate.controls['email'].setValue(this.acc.email)
+      this.accountupdate.controls['address'].setValue(this.acc.address)
       this.accountupdate.controls['currentPassword'].setValue(this.acc.password)
+      
     })
   }
 

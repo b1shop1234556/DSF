@@ -79,6 +79,7 @@ export class InputPaymentComponent implements OnInit {
   onClose(): void {
     this.dialogRef.close();
   }
+  
   saveFunct() {
     console.log(this.inputAmount.value);
     const updateData = { id: this.students.id, ...this.inputAmount.value };

@@ -17,9 +17,9 @@
         </thead>
         <tbody id="enrollee-table-body">
           @for(c of students | searchFilter: keyword; track c.LRN) {
-            <tr (click)="getLRN(c.LRN)">
+            <tr (click)="Modal(c.LRN)">
               <!-- <td>{{ c.LRN }}</td> -->
-              <td class="text-primary text-hover" >{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
+              <td class="text-primary text-hover">{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
               <!-- <td>{{ c.year_level }}</td> -->
             </tr>
           }

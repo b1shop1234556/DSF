@@ -9,6 +9,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { Router, RouterModule } from '@angular/router';
 import { ConnectService } from '../../../connect.service';
 import { SearchFilterPipe } from '../../../search-filter.pipe';
+import { StatementComponent } from '../statement/statement.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-uploadpage',
@@ -22,6 +24,18 @@ export class UploadpageComponent {
 
   keyword: any;
   students:any;
+
+  Modal(id: any): void {
+    console.log(id);
+    localStorage.setItem('LRN', id);
+    // this.displaypending();
+    this.dialog.open(StatementComponent, {
+        width: '700px',  // Fixed width
+        height: '327px', // Fixed height
+        maxWidth: '800px',
+        maxHeight: '800px',
+    });
+  }
 
   ngOnInit(): void {
     this.conn.displayStudent().subscribe((result: any) => {
@@ -45,7 +59,7 @@ export class UploadpageComponent {
   }
 
   constructor(
-    // private dialog: MatDialog,
+    private dialog: MatDialog,
     // private conn: PostService,
     private conn: ConnectService,
     private route: Router
@@ -53,9 +67,9 @@ export class UploadpageComponent {
 
   // [routerLink]="['/main-page/enrollees/homepage/viewdetails']"
 
-  getLRN(id: any){
-    console.log(id);
-    localStorage.setItem('LRN', id);
-    this.route.navigate(['/main-page/student/home-page/soa'])
-  }
+  // getLRN(id: any){
+  //   console.log(id);
+  //   localStorage.setItem('LRN', id);
+  //   this.route.navigate(['/main-page/student/home-page/soa'])
+  // }
 }

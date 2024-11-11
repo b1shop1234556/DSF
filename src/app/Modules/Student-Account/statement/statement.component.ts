@@ -21,6 +21,7 @@ import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component
 import { jsPDF } from 'jspdf';
 import Swal from 'sweetalert2';
 import { HttpClient } from '@angular/common/http';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-statement',
@@ -67,6 +68,7 @@ export class StatementComponent implements OnInit{
   LRNs: any;
 
   constructor(
+    public dialogRef: MatDialogRef<StatementComponent>, 
     private conn: ConnectService,
     private http: HttpClient,
     private route: Router
@@ -81,6 +83,9 @@ export class StatementComponent implements OnInit{
     return date.toLocaleDateString('en-US', options);
   }
 
+  onClose(): void {
+    this.dialogRef.close();
+  }
   
   uploadFiles(): void {
     if (this.selectedFile) {

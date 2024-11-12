@@ -104,7 +104,7 @@ export class StatementComponent implements OnInit{
               // this.loadExistingImage();
               // this.startPolling();
               // localStorage.removeItem('Admin_ID'); 
-              this.route.navigate(["/main-page/student/home-page/soa"]);
+              this.route.navigate(["/main-page/student/home-page/upload"]);
               // location.reload(); // Reload the page after navigation
              
             });
@@ -130,9 +130,6 @@ export class StatementComponent implements OnInit{
 
   }
 
-
-
-
   private refreshDataList(): void {
     this.conn.getDatalist().subscribe((result: any) => {
         this.students = result;
@@ -149,7 +146,6 @@ export class StatementComponent implements OnInit{
         }
     });
   }
-
 
 
   ngOnInit(): void {

@@ -1,99 +1,133 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fc; /* Soft background color */
     margin: 0;
-    padding: 10px;
+    padding: 20px;
 }
 
 .input-container {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
-    padding: 20px;
-    background-color: #ffffff; /* White background for better contrast */
-    /* margin-left: 20px;  */
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+.form-header {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
 }
 
 .input-form {
     display: flex;
-    flex-direction: row; /* Place fields and image side by side */
-}
-
-.input-fields {
-    flex: 1; /* Allow this div to grow */
-    margin-left: 40px; /* Space between image and input fields */
+    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    justify-content: space-between;
+    align-items: flex-start; /* Ensure elements align to the top */
 }
 
 .image-container {
+    max-width: 220px;
+    margin-right: 20px;
     display: flex;
-    flex-direction: column; /* Stack the image vertically */
-    align-items: flex-start; /* Align image to the left */
-    margin-top: 10px; /* Move the image downward */
+    justify-content: center;
+    align-items: center;
 }
 
 .proof-image {
-    max-width: 200px;  /* Set a specific width for the image */
-    height: auto;  /* Maintain aspect ratio */
-    margin-bottom: 10px; /* Space below the image */
+    width: 100%;
+    max-width: 200px; /* Ensure image doesn’t get too big */
+    height: auto;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for image */
+}
+
+.input-fields {
+    flex: 1 1 60%; /* Flex the input fields to fill space */
+}
+
+.field {
+    margin-bottom: 20px; /* Add consistent spacing between inputs */
 }
 
 .mat-label {
     font-weight: bold;
-    margin-bottom: 8px;
+    font-size: 14px;
     color: #333;
+    margin-bottom: 8px;
+    display: block;
 }
 
-input[type="number"], 
-input[type="file"], 
-input[type="text"], 
-input[type="date"] { 
-    padding: 10px;
+input[type="number"],
+input[type="text"] {
+    width: 100%;
+    padding: 12px;
     margin-bottom: 16px;
     border: 1px solid #ccc;
     border-radius: 4px;
     font-size: 16px;
     outline: none;
-    transition: border-color 0.3s;
+    transition: border-color 0.3s ease-in-out;
 }
 
-input[type="number"]:focus, 
-input[type="file"]:focus,
-input[type="text"]:focus,
-input[type="date"]:focus {
-    border-color: #007bff;
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #007bff; /* Highlight input on focus */
 }
 
 .btn {
-    padding: 10px 20px; /* Increase padding for a larger button */
+    padding: 12px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     background-color: #007bff;
     color: white;
-    font-size: 16px; /* Increase font size */
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
 }
 
 .btn:hover {
     background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
 }
 
 .button-container {
-    margin-top: 350px; /* Adjust space above the button if needed */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: flex-start; /* Align button to the left */
-    align-self: flex-start; /* Align to the top of the container */
+    display: flex;
+    justify-content: flex-end; /* Move button to the right */
+    margin-top: 20px;
+    width: 100%; /* Make the button container span full width */
 }
 
-.button-container button {
-    margin: 0; /* Remove any additional margins */
-}
+@media (max-width: 768px) {
+    .input-form {
+        flex-direction: column; /* Stack elements vertically on small screens */
+        align-items: center;
+    }
 
+    .image-container {
+        margin-bottom: 20px;
+        text-align: center; /* Center image in smaller screens */
+    }
 
-.form-header {
-    font-size: 24px; /* Size of the header */
-    font-weight: bold; /* Bold text */
-    margin-bottom: 20px; /* Space below the header */
-    text-align: center; /* Center the header */
-    color: #333; /* Color of the header */
-    width: 100%; /* Ensure the header takes full width for centering */
+    .input-fields {
+        flex: 1 1 100%; /* Allow the fields to take up full width */
+        margin-left: 0;
+    }
+
+    .proof-image {
+        max-width: 180px; /* Adjust image size for mobile */
+    }
+
+    .button-container {
+        justify-content: center; /* Center the button on mobile */
+    }
 }

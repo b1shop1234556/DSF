@@ -1,89 +1,117 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f9f9f9;
     margin: 0;
-    padding: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .receipt-container {
     background-color: #ffffff;
-    padding: 20px;
-    max-width: 100%; /* Full width for responsiveness */
-    max-height: 100%; /* Prevent overflow beyond the modal */
-    overflow: hidden; /* Hide overflow from the container */
-    display: block;
+    padding: 30px;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    position: relative;
 }
 
 .header {
     text-align: center;
-    margin-bottom: 15px; /* Reduced margin */
-}
-
-.header img {
-    height: 40px; /* Adjusted height for the logo */
+    margin-bottom: 30px;
 }
 
 .header h1 {
-    margin: 0;
-    font-size: 20px; /* Reduced font size */
+    font-size: 28px;
     color: #333;
+    margin-bottom: 5px;
 }
 
 .header p {
-    margin: 0;
-    font-size: 12px; /* Reduced font size */
+    font-size: 14px;
     color: #666;
+    margin: 0;
 }
 
 h2 {
     text-align: center;
     color: #333;
-    margin-bottom: 10px; /* Reduced margin */
-    font-size: 18px; /* Reduced font size */
+    font-size: 18px;
+    margin-bottom: 10px;
 }
-
 
 .image-info-container {
     display: flex;
-    align-items: flex-start; /* Align items to the top */
-    margin-bottom: 20px;
+    justify-content: flex-start; /* Aligns items to the left */
+    align-items: flex-start; /* Aligns items to the top */
+    margin-bottom: 30px;
 }
 
 .proof-image {
-    max-width: 50%; /* Prevent image from exceeding half the width */
-    height: auto; /* Maintain aspect ratio */
-    margin-right: 20px; /* Space between image and info */
+    max-width: 220px; /* Control the image size */
+    height: auto;
+    object-fit: cover; /* Maintain aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    margin-right: 20px; /* Space between image and text */
 }
 
 .info {
-    flex-grow: 1; /* Allow the info section to take remaining space */
+    flex-grow: 1; /* Allow the info section to take up remaining space */
+    max-width: 500px; /* Max width for the info section */
+}
+
+.info p {
+    font-size: 16px;
+    margin: 8px 0;
+    color: #333;
+}
+
+.info strong {
+    color: #007bff; /* Use blue for labels */
 }
 
 .button-container {
-    margin-top: 20px; /* Space above the button */
     text-align: right; /* Align button to the right */
+    margin-top: 30px;
 }
 
 button {
-    padding: 10px 20px;
+    padding: 12px 24px;
     font-size: 16px;
     cursor: pointer;
     border: none;
-    border-radius: 5px;
-    background-color: #007bff; /* Change to your preferred color */
+    border-radius: 6px;
+    background-color: #007bff;
     color: white;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
 }
 
 @media print {
     @page {
-        size: landscape; /* Set to landscape orientation */
+        size: landscape;
         margin: 15mm;
     }
     body {
         background-color: #fff;
+        padding: 0;
     }
     .receipt-container {
         box-shadow: none;
-        width: 100%; /* Ensure full width in landscape */
+        width: 100%;
+        max-width: none;
+    }
+    button {
+        display: none; /* Hide button in print view */
     }
 }

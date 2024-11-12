@@ -67,8 +67,8 @@ export class ApprovepageComponent {
     console.log(id);
     localStorage.setItem('LRN', id);
     this.dialog.open(ViewViewComponent, {
-        width: '600px',  // Fixed width
-        height: '650px', // Fixed height
+        width: '530px',  // Fixed width
+        height: '490px', // Fixed height
         maxWidth: '800px',
         maxHeight: '800px',
     });
@@ -80,7 +80,7 @@ export class ApprovepageComponent {
     this.displaypending();
     this.dialog.open(InputPaymentComponent, {
         width: '700px',  // Fixed width
-        height: '550px', // Fixed height
+        height: '530px', // Fixed height
         maxWidth: '800px',
         maxHeight: '800px',
     });

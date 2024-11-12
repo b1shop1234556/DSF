@@ -50,7 +50,7 @@ import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component
 })
 export class EditInfoComponent implements OnInit{
   // user: any;
-  acc: any;
+  acc: any = {};
   user = { id: localStorage.getItem('id')};
   imagePreview: string | ArrayBuffer | null = null;
   errorMessage: string = ''; // To hold any error messages
@@ -60,6 +60,8 @@ export class EditInfoComponent implements OnInit{
   existingImageUrl: string | null = null;
   intervalId: any;
   image: any;
+
+  isLoading: boolean = true;  // Flag to track loading status
 
   constructor(
     private connect: ConnectService,
@@ -97,7 +99,8 @@ export class EditInfoComponent implements OnInit{
     console.log("success")
     this.connect.getAccount(this.user.id).subscribe((result: any) => {
       console.log(result)
-      this.acc = result
+      this.acc = result;
+      this.isLoading = false;
       this.accountupdate.controls['fname'].setValue(this.acc.fname)
       this.accountupdate.controls['mname'].setValue(this.acc.mname)
       this.accountupdate.controls['lname'].setValue(this.acc.lname)

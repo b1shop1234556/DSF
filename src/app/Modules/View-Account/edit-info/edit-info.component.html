@@ -18,8 +18,8 @@
                   </div>
               </div>
             </div>
-            <h4 class="fs-22 text-black mb-1">{{acc.fname}} {{acc.mname}} {{acc.lname}}</h4>
-            <p class="mb-4">{{acc.role}}</p>
+            <h4 class="fs-22 text-black mb-1">{{acc?.fname}} {{acc?.mname}} {{acc?.lname}}</h4>
+            <p class="mb-4">{{acc?.role}}</p>
   
           </div>
   
@@ -28,11 +28,11 @@
             <div class="contact-list">
               <div class="contact-item">
                 <a href="mailto:{{ acc.email }}" class="contact-icon"><i class="bi bi-envelope"></i></a>
-                <span class="text-black">{{ acc.email }}</span>
+                <span class="text-black">{{ acc?.email }}</span>
               </div>
               <div class="contact-item">
                 <a href="#" class="contact-icon"><i class="bi bi-geo-alt"></i></a>
-                <span class="text-black">{{ acc.address }}</span>
+                <span class="text-black">{{ acc?.address }}</span>
               </div>
             </div>
           </div>

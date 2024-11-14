@@ -86,6 +86,7 @@ export class EditInfoComponent implements OnInit{
     this.loadExistingImage();
     this.startPolling(); 
     this.get();
+    // console.log(this.accountupdate)
     
   }
   save(){
@@ -139,7 +140,7 @@ export class EditInfoComponent implements OnInit{
               confirmButtonText: 'OK'
             }).then(() => {
               this.loadExistingImage();
-              this.route.navigate(["/main/accountpage/accountmain/accountview/"]);
+              // this.route.navigate(["/main-page/accountpage/accountmain/accountview/"]);
               // location.reload(); // Reload the page after navigation
              
             });

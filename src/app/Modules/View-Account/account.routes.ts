@@ -6,9 +6,9 @@ import { ViewMessagesComponent } from './view-messages/view-messages.component';
 export const accounthome: Routes = [
     {path: 'acc-homepage', component: AccHomepageComponent,
         children: [
-            {path: 'acc', component: EditInfoComponent},
+            {path: 'accnt', component: EditInfoComponent},
             {path: 'msg', component: ViewMessagesComponent},
-            {path: '', redirectTo: 'acc', pathMatch: 'full'}
+            {path: '', redirectTo: 'accnt', pathMatch: 'full'}
         ]
     },
     {path: '', redirectTo: 'acc-homepage', pathMatch: 'full'}

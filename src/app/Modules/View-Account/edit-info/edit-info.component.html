@@ -1,5 +1,5 @@
 <!-- <p class="h4">MY ACCOUNT</p> -->
-
+<form [formGroup]="accountupdate" (submit)="save()" novalidate>
 <div class="content-body">
     <div class="container-fluid">
       <div class="row">
@@ -22,6 +22,13 @@
             <p class="mb-4">{{acc?.role}}</p>
   
           </div>
+
+          <!-- <div class="header-container mt-3">
+            <h1 class="fs-50 text-black font-w600 ms-3">Edit Profile</h1>
+            <div class="button-group">
+              <button type="submit" (click)="onUpload()" class="btn btn-primary rounded">Changes Profile</button>
+            </div>
+          </div> -->
   
           <!-- Contact Information -->
           <div class="card-body text-center">
@@ -43,12 +50,12 @@
           <div class="header-container mt-3">
             <h1 class="fs-50 text-black font-w600 ms-3">Edit Profile</h1>
             <div class="button-group">
-              <button type="submit" (click)="onUpload()" class="btn btn-primary rounded">Save Changes</button>
-            </div>
+                <button type="submit" (click)="onUpload()" class="btn btn-primary rounded">Save Changes</button>
+              </div>
           </div>
   
           <div class="card-body">
-            <form [formGroup]="accountupdate" (submit)="save()" novalidate>
+            
               <!-- Generals Section -->
               <div class="mb-sm-5 mb-2">
                 <div class="title mb-4">
@@ -127,9 +134,13 @@
                   </div>
                 </div>
               </div>
-            </form>
+              <!-- <div class="button-group">
+                <button type="submit" class="btn btn-primary rounded">Save Changes</button>
+              </div> -->
+            <!-- </form> -->
           </div>
         </div>
       </div>
     </div>
   </div>
+</form>

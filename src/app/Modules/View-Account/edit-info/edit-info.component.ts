@@ -125,6 +125,8 @@ export class EditInfoComponent implements OnInit{
       reader.readAsDataURL(this.selectedFile);
     }
   }
+
+
   onUpload(){
     if (this.selectedFile) {
       const formData = new FormData();
@@ -156,12 +158,12 @@ export class EditInfoComponent implements OnInit{
           }
         );
     } else {
-      Swal.fire({
-        title: 'Warning!',
-        text: 'Please select an image first.',
-        icon: 'warning',
-        confirmButtonText: 'OK'
-      });
+      // Swal.fire({
+      //   title: 'Warning!',
+      //   text: 'Please select an image first.',
+      //   icon: 'warning',
+      //   confirmButtonText: 'OK'
+      // });
     }
   }
 

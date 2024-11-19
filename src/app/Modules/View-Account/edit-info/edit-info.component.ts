@@ -89,13 +89,38 @@ export class EditInfoComponent implements OnInit{
     // console.log(this.accountupdate)
     
   }
-  save(){
-    const updateData = {id: this.user.id, ...this.accountupdate.value}
+  save() {
+    const updateData = { id: this.user.id, ...this.accountupdate.value };
     console.log(updateData);
-    this.connect.updateAccount(updateData).subscribe(response => {
-      this.route.navigate(['/main-page/account/acc-homepage/'])
-    })
+  
+    // Call your service to update the account
+    this.connect.updateAccount(updateData).subscribe(
+      (response) => {
+        // Success - show Swal success alert
+        Swal.fire({
+          title: 'Success!',
+          text: 'Your account has been updated successfully.',
+          icon: 'success',
+          confirmButtonText: 'OK'
+        }).then(() => {
+          // Reload the page after success
+          location.reload();  // This will reload the current page
+        });
+      },
+      (error) => {
+        // Error - show Swal error alert
+        Swal.fire({
+          title: 'Error!',
+          text: 'There was an error updating your account. Please try again.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
+        console.error('Error updating account:', error);
+      }
+    );
   }
+  
+  
   get(){
     console.log("success")
     this.connect.getAccount(this.user.id).subscribe((result: any) => {
@@ -127,45 +152,29 @@ export class EditInfoComponent implements OnInit{
   }
 
 
-  onUpload(){
+  onUpload() {
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('admin_pic', this.selectedFile, this.selectedFile.name);
-    
+      
       this.http.post(`http://localhost:8000/api/profile-image/${this.user.id}`, formData)
         .subscribe(
           (response: any) => {
-            Swal.fire({
-              title: 'Success!',
-              text: 'Image uploaded successfully!',
-              icon: 'success',
-              confirmButtonText: 'OK'
-            }).then(() => {
-              this.loadExistingImage();
-              // this.route.navigate(["/main-page/accountpage/accountmain/accountview/"]);
-              // location.reload(); // Reload the page after navigation
-             
-            });
+            // After successful image upload, reload the image preview
+            this.loadExistingImage();
+            // Optionally, you can reload the page or navigate to another route if necessary
           },
           (error: any) => {
-            Swal.fire({
-              title: 'Error!',
-              text: 'Error uploading image. Please try again.',
-              icon: 'error',
-              confirmButtonText: 'OK'
-            });
-            console.error('Error:', error);
+            console.error('Error uploading image:', error);
+            // You can handle the error silently or log it to the console
           }
         );
     } else {
-      // Swal.fire({
-      //   title: 'Warning!',
-      //   text: 'Please select an image first.',
-      //   icon: 'warning',
-      //   confirmButtonText: 'OK'
-      // });
+      // Optionally, you can show a message in the console or just leave it empty
+      console.log('No file selected for upload.');
     }
   }
+  
 
   loadExistingImage() {
     if (this.user.id) {

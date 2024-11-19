@@ -96,6 +96,7 @@ export class InputPaymentComponent implements OnInit {
             this.showdata();
             this.dialogRef.close();
             this.route.navigate(['/main-page/enrollees/homepage/pending']); 
+            location.reload();
           });
         } else {
           console.error('Error Occurred during save:', result);

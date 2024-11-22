@@ -68,7 +68,7 @@ export class ApprovepageComponent {
     localStorage.setItem('LRN', id);
     this.dialog.open(ViewViewComponent, {
         width: '530px',  // Fixed width
-        height: '500px', // Fixed height
+        height: '520px', // Fixed height
         maxWidth: '800px',
         maxHeight: '800px',
     });

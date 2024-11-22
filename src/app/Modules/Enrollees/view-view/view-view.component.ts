@@ -44,22 +44,49 @@ export class ViewViewComponent implements OnInit{
   }
 
   approveReceipt(id: any) {
-    this.conn.approveEnrollment(id).subscribe({
-      next: (response) => {
-        console.log('Update Successful');
+    // Ask for confirmation about proceeding without proof of payment
+    Swal.fire({
+      title: 'Are you sure you want to approve without proof of payment?',
+      text: 'Please confirm if you want to proceed.',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, Proceed',
+      cancelButtonText: 'No, Cancel'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        // User clicked "Yes, Proceed", so proceed with the approval process
+        this.conn.approveEnrollment(id).subscribe({
+          next: (response) => {
+            console.log('Update Successful');
+            Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: 'Enrollment Approved Successfully',
+              showConfirmButton: true,
+            }).then(() => {
+              this.route.navigate(['/main-page/enrollees/homepage/approve']);
+              this.dialogRef.close();
+            });
+          },
+          error: (error) => {
+            console.error('Update failed', error);
+          },
+        });
+      } else {
+        // User clicked "No, Cancel", handle the case accordingly
         Swal.fire({
           position: 'center',
-          icon: 'success',
-          title: 'Enrollment Approved Successfully',
+          icon: 'info',
+          title: 'Approval Cancelled',
+          text: 'The approval process was cancelled.',
           showConfirmButton: true,
         }).then(() => {
-          this.route.navigate(['/main-page/enrollees/homepage/approve']);
+          // Optionally close the dialog or take other actions
           this.dialogRef.close();
         });
-      },
-      error: (error) => {
-        console.error('Update failed', error);
-      },
+      }
     });
   }
+  
+  
 }

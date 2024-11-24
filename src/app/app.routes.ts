@@ -7,6 +7,8 @@ import { studenthome } from './Modules/Student-Account/student.routes';
 import { accounthome } from './Modules/View-Account/account.routes';
 import { authGuard } from './auth.guard';
 import { inject } from '@angular/core';
+import { insertshome } from './Modules/Insert-Tuitionfees/inserts.routes';
+// import { insertshome } from './Modules/Insert-Tuitionfees/inserts.routes';
 
 export const loginGuard: CanActivateFn = (route, state) => {
     if (typeof window !== 'undefined' && window.localStorage) {
@@ -43,6 +45,11 @@ export const routes: Routes = [
         {
             path: 'account',
             loadChildren: () => import('./Modules/View-Account/account.routes').then(r=>accounthome),
+           
+        },
+        {
+            path: 'inserts',
+            loadChildren: () => import('./Modules/Insert-Tuitionfees/inserts.routes').then(r => insertshome),
            
         },
 

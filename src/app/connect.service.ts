@@ -29,7 +29,7 @@ export class ConnectService {
   }
 
   updateAccount(data :any){
-    return this.http.put(`${this.url}updateacc/${data.id}`,data);
+    return this.http.put(`${this.url}updateacc/${data.admin_id}`,data);
   }
 
   getData(){

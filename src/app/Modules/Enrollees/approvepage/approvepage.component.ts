@@ -100,7 +100,7 @@ export class ApprovepageComponent {
       console.log(this.students);
       if (this.students && this.students.length > 0) {
         // Filter the transactions to include only those with status 'Pending'
-        const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Pending');
+        const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === '0000-00-00');
 
         if (pendingTransactions.length > 0) {
             // If there are pending transactions, log them

@@ -51,7 +51,7 @@ import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component
 export class EditInfoComponent implements OnInit{
   // user: any;
   acc: any = {};
-  user = { id: localStorage.getItem('id')};
+  user = { admin_id: localStorage.getItem('admin_id')};
   imagePreview: string | ArrayBuffer | null = null;
   errorMessage: string = ''; // To hold any error messages
   file:  File | null = null;
@@ -82,7 +82,7 @@ export class EditInfoComponent implements OnInit{
 
   ngOnInit(): void {
     // this.user = { id: localStorage.getItem('id')}
-    console.log(this.user.id)
+    console.log(this.user.admin_id)
     this.loadExistingImage();
     this.startPolling(); 
     this.get();
@@ -90,7 +90,7 @@ export class EditInfoComponent implements OnInit{
     
   }
   save() {
-    const updateData = { id: this.user.id, ...this.accountupdate.value };
+    const updateData = { admin_id: this.user.admin_id, ...this.accountupdate.value };
     console.log(updateData);
   
     // Call your service to update the account
@@ -123,7 +123,7 @@ export class EditInfoComponent implements OnInit{
   
   get(){
     console.log("success")
-    this.connect.getAccount(this.user.id).subscribe((result: any) => {
+    this.connect.getAccount(this.user.admin_id).subscribe((result: any) => {
       console.log(result)
       this.acc = result;
       this.isLoading = false;
@@ -157,7 +157,7 @@ export class EditInfoComponent implements OnInit{
       const formData = new FormData();
       formData.append('admin_pic', this.selectedFile, this.selectedFile.name);
       
-      this.http.post(`http://localhost:8000/api/profile-image/${this.user.id}`, formData)
+      this.http.post(`http://localhost:8000/api/profile-image/${this.user.admin_id}`, formData)
         .subscribe(
           (response: any) => {
             // After successful image upload, reload the image preview
@@ -177,8 +177,8 @@ export class EditInfoComponent implements OnInit{
   
 
   loadExistingImage() {
-    if (this.user.id) {
-      this.connect.getAccount(this.user.id).subscribe(
+    if (this.user.admin_id) {
+      this.connect.getAccount(this.user.admin_id).subscribe(
         (response: any) => {
           if (response.admin_pic) {
             this.existingImageUrl = `http://localhost/profile_images/${response.admin_pic}`;
@@ -195,15 +195,15 @@ export class EditInfoComponent implements OnInit{
         }
       );
     } else {
-      this.imagePreview = null; // Clear the preview if no ID
-      this.message = 'No Admin ID found. Please log in again.';
+      this.imagePreview = null; // Clear the preview if no admin_id
+      this.message = 'No Admin admin_id found. Please log in again.';
     }
   }
   startPolling() {
     this.intervalId = setInterval(async () => {
-      const latestAdminId = localStorage.getItem('id');
-      if (latestAdminId !== this.user.id) {
-        this.user.id = latestAdminId;
+      const latestAdminId = localStorage.getItem('admin_id');
+      if (latestAdminId !== this.user.admin_id) {
+        this.user.admin_id = latestAdminId;
         this.loadExistingImage();
       }
     }, 300); // Check every second

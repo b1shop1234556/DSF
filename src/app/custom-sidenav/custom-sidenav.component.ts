@@ -48,7 +48,7 @@ export class CustomSidenavComponent implements OnInit{
   }
 
   acc: any = {};
-  user = { id: localStorage.getItem('id')};
+  user = { admin_id: localStorage.getItem('admin_id')};
   imagePreview: string | ArrayBuffer | null = null;
   errorMessage: string = ''; // To hold any error messages
   file:  File | null = null;
@@ -86,7 +86,7 @@ export class CustomSidenavComponent implements OnInit{
       icon: 'list',
       label: 'Statement of Account',
       route: 'student'
-    }
+    },
     // {
     //   icon: 'home',
     //   label: 'Student Account',
@@ -102,6 +102,11 @@ export class CustomSidenavComponent implements OnInit{
     //   label: 'Logout',
     //   route: 'login'
     // }
+    {
+      icon: 'upload',
+      label: 'Insert Tuition Fees',
+      route: 'inserts'
+    }
   ]);
 
   constructor(
@@ -112,7 +117,7 @@ export class CustomSidenavComponent implements OnInit{
  
   profilePicSize = computed( ()=> this.sideNavCollapsed() ? '32' : '100');
   get(){
-    this.connect.getAccount(this.user.id).subscribe((result: any) => {
+    this.connect.getAccount(this.user.admin_id).subscribe((result: any) => {
       console.log(result)
       this.acc = result
       // this.accountupdate.controls['currentPassword'].setValue(this.acc.password)
@@ -134,8 +139,8 @@ export class CustomSidenavComponent implements OnInit{
   }
 
   loadExistingImage() {
-    if (this.user.id) {
-      this.connect.getAccount(this.user.id).subscribe(
+    if (this.user.admin_id) {
+      this.connect.getAccount(this.user.admin_id).subscribe(
         (response: any) => {
           if (response.admin_pic) {
             this.existingImageUrl = `http://localhost/profile_images/${response.admin_pic}`;
@@ -152,15 +157,15 @@ export class CustomSidenavComponent implements OnInit{
         }
       );
     } else {
-      this.imagePreview = null; // Clear the preview if no ID
-      this.message = 'No Admin ID found. Please log in again.';
+      this.imagePreview = null; // Clear the preview if no admin_id
+      this.message = 'No Admin admin_id found. Please log in again.';
     }
   }
   startPolling() {
     this.intervalId = setInterval(async () => {
-      const latestAdminId = localStorage.getItem('id');
-      if (latestAdminId !== this.user.id) {
-        this.user.id = latestAdminId;
+      const latestAdminId = localStorage.getItem('admin_id');
+      if (latestAdminId !== this.user.admin_id) {
+        this.user.admin_id = latestAdminId;
         this.loadExistingImage();
       }
     }, 300); // Check every second

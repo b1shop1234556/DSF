@@ -75,27 +75,31 @@ export class ListpageComponent {
   //
   
  
-  filterapprove(){
+  filterapprove() {
     this.conn.getDataPUT().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
+  
       if (this.students && this.students.length > 0) {
-        const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === 'Approve');
-
-        if (pendingTransactions.length > 0) {
-            console.log('Pending Transactions:', pendingTransactions);
-            this.students = pendingTransactions;
+        // Filter for transactions where payment_approval is NOT null and not '0000-00-00'
+        const approvedTransactions = this.students.filter((transaction: any) => 
+          transaction.payment_approval !== null && transaction.payment_approval !== '0000-00-00'
+        );
+  
+        if (approvedTransactions.length > 0) {
+          console.log('Approved Transactions:', approvedTransactions);
+          this.students = approvedTransactions;
         } else {
-            console.log('No pending transactions found');
-            this.students = [];
+          console.log('No approved transactions found');
+          this.students = [];
         }
-    } else {
+      } else {
         console.log('No transactions available');
         this.students = [];
-    }
-    })
+      }
+    });
   }
-
+  
   getFilteredEnrollments(){
     switch(this.selectedClass){
       case 'All':

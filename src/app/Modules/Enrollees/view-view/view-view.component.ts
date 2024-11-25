@@ -46,18 +46,18 @@ export class ViewViewComponent implements OnInit{
   approveReceipt(id: any) {
     // Ask for confirmation about proceeding without proof of payment
     Swal.fire({
-      title: 'Are you sure you want to approve without proof of payment?',
-      text: 'Please confirm if you want to proceed.',
+      title: 'Proceed without proof of payment?',
+      text: 'Are you sure you want to approve the enrollment without proof of payment?',
       icon: 'warning',
       showCancelButton: true,
-      confirmButtonText: 'Yes, Proceed',
-      cancelButtonText: 'No, Cancel'
+      confirmButtonText: 'Yes, approve',
+      cancelButtonText: 'No, cancel',
     }).then((result) => {
       if (result.isConfirmed) {
-        // User clicked "Yes, Proceed", so proceed with the approval process
+        // Proceed with the approval process if confirmed
         this.conn.approveEnrollment(id).subscribe({
           next: (response) => {
-            console.log('Update Successful');
+            console.log('Enrollment approval successful');
             Swal.fire({
               position: 'center',
               icon: 'success',
@@ -69,24 +69,31 @@ export class ViewViewComponent implements OnInit{
             });
           },
           error: (error) => {
-            console.error('Update failed', error);
+            console.error('Enrollment approval failed', error);
+            Swal.fire({
+              position: 'center',
+              icon: 'error',
+              title: 'Approval Failed',
+              text: 'There was an error while processing the approval.',
+              showConfirmButton: true,
+            });
           },
         });
       } else {
-        // User clicked "No, Cancel", handle the case accordingly
+        // Inform the user that the approval process was canceled
         Swal.fire({
           position: 'center',
           icon: 'info',
           title: 'Approval Cancelled',
-          text: 'The approval process was cancelled.',
+          text: 'You have canceled the approval process.',
           showConfirmButton: true,
         }).then(() => {
-          // Optionally close the dialog or take other actions
           this.dialogRef.close();
         });
       }
     });
   }
+  
   
   
 }

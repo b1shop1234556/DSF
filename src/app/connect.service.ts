@@ -110,4 +110,9 @@ export class ConnectService {
   // logout(): void {
   //   localStorage.removeItem('personal_access_token');
   // }
+
+  addtuitionfee(data: any){
+    return this.http.post(`${this.url}addtuitionfee`, data);
+  }
+
 }

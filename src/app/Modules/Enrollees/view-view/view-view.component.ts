@@ -44,56 +44,24 @@ export class ViewViewComponent implements OnInit{
   }
 
   approveReceipt(id: any) {
-    // Ask for confirmation about proceeding without proof of payment
-    Swal.fire({
-      title: 'Proceed without proof of payment?',
-      text: 'Are you sure you want to approve the enrollment without proof of payment?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Yes, approve',
-      cancelButtonText: 'No, cancel',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        // Proceed with the approval process if confirmed
-        this.conn.approveEnrollment(id).subscribe({
-          next: (response) => {
-            console.log('Enrollment approval successful');
-            Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: 'Enrollment Approved Successfully',
-              showConfirmButton: true,
-            }).then(() => {
-              this.route.navigate(['/main-page/enrollees/homepage/approve']);
-              this.dialogRef.close();
-            });
-          },
-          error: (error) => {
-            console.error('Enrollment approval failed', error);
-            Swal.fire({
-              position: 'center',
-              icon: 'error',
-              title: 'Approval Failed',
-              text: 'There was an error while processing the approval.',
-              showConfirmButton: true,
-            });
-          },
-        });
-      } else {
-        // Inform the user that the approval process was canceled
+    this.conn.approveEnrollment(id).subscribe({
+      next: (response) => {
+        console.log('Update Successful');
         Swal.fire({
           position: 'center',
-          icon: 'info',
-          title: 'Approval Cancelled',
-          text: 'You have canceled the approval process.',
+          icon: 'success',
+          title: 'Enrollment Approved Successfully',
           showConfirmButton: true,
         }).then(() => {
+          this.route.navigate(['/main-page/enrollees/homepage/approve']);
           this.dialogRef.close();
         });
-      }
+      },
+      error: (error) => {
+        console.error('Update failed', error);
+      },
     });
   }
-  
   
   
 }

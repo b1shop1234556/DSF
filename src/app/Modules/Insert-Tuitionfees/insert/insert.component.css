@@ -1,41 +1,49 @@
 /* Overall Page Styling */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc;
+/* body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
     margin: 0;
-}
+    padding: 0;
+} */
 
 /* Form Container Styling */
 form.tuition-form {
     background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
     width: 100%;
-    max-width: 600px;
+    max-width: 700px; /* Slightly larger max-width for a more spacious form */
+    margin: 0 20px;
+    margin-left: 200px;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Header Styling */
 h1.form-header {
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     color: #333;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    letter-spacing: 1px;
 }
 
 /* Form Group Styling */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
+/* Label Styling */
 label {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
-    color: #333;
+    color: #555;
     display: block;
     margin-bottom: 8px;
 }
@@ -43,27 +51,30 @@ label {
 /* Input Field Styling */
 input[type="number"], select {
     width: 100%;
-    padding: 10px;
+    padding: 14px;
     font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background-color: #fafafa;
+    transition: border 0.3s ease;
     box-sizing: border-box;
 }
 
 input[type="number"]:focus, select:focus {
-    border-color: #007bff;
+    border-color: #5cb85c;
     outline: none;
 }
 
 /* Submit Button Styling */
 .submit-btn {
     width: 100%;
-    padding: 12px;
+    padding: 15px;
     background-color: #007bff;
     color: #fff;
     border: none;
-    border-radius: 6px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -75,14 +86,16 @@ input[type="number"]:focus, select:focus {
 /* Responsive Design */
 @media (max-width: 768px) {
     h1.form-header {
-        font-size: 20px;
+        font-size: 24px;
     }
 
     input[type="number"], select {
         font-size: 14px;
+        padding: 12px;
     }
 
     .submit-btn {
-        font-size: 14px;
+        font-size: 16px;
+        padding: 14px;
     }
 }

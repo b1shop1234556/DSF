@@ -111,8 +111,13 @@ export class ConnectService {
   //   localStorage.removeItem('personal_access_token');
   // }
 
+  //inserting tuition
   addtuitionfee(data: any){
     return this.http.post(`${this.url}addtuitionfee`, data);
   }
+  tuitiondisplay(){
+    return this.http.get(this.url + 'tuitiondisplay');
+  }
+  
 
 }

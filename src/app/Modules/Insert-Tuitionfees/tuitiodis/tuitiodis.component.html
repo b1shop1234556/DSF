@@ -1,48 +1,49 @@
-<p>TUITION FEES</p>
 <section>
-  
-    <section class="search-bar">
-      <input type="text" id="search-input" placeholder="Search by Grade Level..." [(ngModel)]="keyword">
-    </section>
-  
-    <div class="table-container">
-      <table class="styled-table">
-        <thead>
-          <tr>
-            <th>Grade Level</th>
-            <th>Tuition</th>
-            <th>General</th>
-            <th>ESC</th>
-            <th>Subsidy</th>
-            <th>Required Downpayment</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- Loop through tuition fees and display them -->
-          @for(c of students | searchFilter: keyword; track c.fee_id) {
-            <tr>
-              <td>{{ c.grade_level }}</td>
-              <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
-              <td>{{ c.general | currency: 'PHP':'symbol' }}</td>
-              <td>{{ c.esc | currency: 'PHP':'symbol' }}</td>
-              <td>{{ c.subsidy | currency: 'PHP':'symbol' }}</td>
-              <td>{{ c.req_Downpayment | currency: 'PHP':'symbol' }}</td>
-              <td>
-                <!-- Action buttons for Update and Delete -->
-                <i class="fa-solid fa-pen-to-square" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i> 
-                <!-- <i class="fa-solid fa-trash-can"></i> -->
-              </td>  
-            </tr>
-          }
-        </tbody>
-      </table>
-
-      <div class="button-container">
-        <!-- Move Add New Tuition Fee button/icon to the right -->
-        <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
-      </div>
-
+  <!-- Heading container using flexbox -->
+  <div class="heading-container">
+    <div class="heading-left">
+      <p>TUITION FEES</p>
     </div>
+    <div class="button-container">
+      <!-- Plus icon positioned beside the heading -->
+      <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
+    </div>
+  </div>
+
+  <section class="search-bar">
+    <input type="text" id="search-input" placeholder="Search by Grade Level..." [(ngModel)]="keyword">
   </section>
   
+  <div class="table-container">
+    <table class="styled-table">
+      <thead>
+        <tr>
+          <th>Grade Level</th>
+          <th>Tuition</th>
+          <th>General</th>
+          <th>ESC</th>
+          <th>Subsidy</th>
+          <th>Required Downpayment</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Loop through tuition fees and display them -->
+        @for(c of students | searchFilter: keyword; track c.fee_id) {
+          <tr>
+            <td>{{ c.grade_level }}</td>
+            <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
+            <td>{{ c.general | currency: 'PHP':'symbol' }}</td>
+            <td>{{ c.esc | currency: 'PHP':'symbol' }}</td>
+            <td>{{ c.subsidy | currency: 'PHP':'symbol' }}</td>
+            <td>{{ c.req_Downpayment | currency: 'PHP':'symbol' }}</td>
+            <td>
+              <!-- Action buttons for Update and Delete -->
+              <i class="fa-solid fa-pen-to-square" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
+            </td>  
+          </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

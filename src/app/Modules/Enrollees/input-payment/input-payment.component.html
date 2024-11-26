@@ -1,7 +1,9 @@
 <div class="input-container">
     <h2 class="form-header">Input Payment</h2>
 
-    <form class="input-form" [formGroup]="inputAmount" (submit)="saveFunct()">
+    <form class="input-form" [formGroup]="inputAmount" >
+
+        <!-- (submit)="saveFunct()" -->
         <div class="image-container">
             <img src="{{students.proof_payment}}" alt="Payment Proof" class="proof-image">
         </div>

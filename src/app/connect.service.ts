@@ -24,6 +24,7 @@ export class ConnectService {
     return this.http.post(this.url + 'logout', {}, { headers });
   }
 
+   //----editing profiles-----
   getAccount(id :any){
     return this.http.get(`${this.url}findacc/${id}`);
   }
@@ -86,8 +87,6 @@ export class ConnectService {
   putPayment(id: any, data: any) {
     return this.http.put(`${this.url}updatepayment/${id}`, data);
   }
-  //upload....
- 
 
 
   // for msg section
@@ -98,18 +97,7 @@ export class ConnectService {
   getMessages(): Observable<any> {
     return this.http.get(`${this.url}messages`);
   }
-  
-  // logins(email: string, password: string): Observable<any> {
-  //   return this.http.post(this.url, { email, password });
-  // }
 
-  // isLoggedIn(): boolean {
-  //   return !!localStorage.getItem('personal_access_token');
-  // }
-
-  // logout(): void {
-  //   localStorage.removeItem('personal_access_token');
-  // }
 
   //inserting tuition
   addtuitionfee(data: any){
@@ -118,6 +106,13 @@ export class ConnectService {
   tuitiondisplay(){
     return this.http.get(this.url + 'tuitiondisplay');
   }
-  
 
+  updateTuitionFee(id :any){
+    return this.http.get(`${this.url}updateTuitionFee/${id}`);
+  }
+
+  findfees(id :any){
+    return this.http.get(`${this.url}findfees/${id}`);
+  }
+  
 }

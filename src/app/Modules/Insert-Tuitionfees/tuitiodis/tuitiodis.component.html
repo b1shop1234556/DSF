@@ -3,10 +3,11 @@
   <div class="heading-container">
     <div class="heading-left">
       <p>TUITION FEES</p>
-    </div>
-    <div class="button-container">
       <!-- Plus icon positioned beside the heading -->
       <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
+    </div>
+    <div class="button-container">
+      <!-- Any other buttons can go here -->
     </div>
   </div>
 
@@ -39,7 +40,7 @@
             <td>{{ c.req_Downpayment | currency: 'PHP':'symbol' }}</td>
             <td>
               <!-- Action buttons for Update and Delete -->
-              <i class="fa-solid fa-pen-to-square" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i>
+              <i class="fa-solid fa-pen-to-square" [routerLink]="['/main-page/inserts/ins/editfee']"></i>
             </td>  
           </tr>
         }

@@ -1,0 +1,47 @@
+<form [formGroup]="tuitionfee" (submit)="saveForm()" class="tuition-form">
+    <h1 class="form-header">Edit Tuition Fees</h1>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="grade_level">Grade Level:</label>
+            <input type="number" id="grade_level" formControlName="grade_level" required>
+        </div>
+
+        <div class="form-group">
+            <label for="tuition">Tuition:</label>
+            <input type="number" id="tuition" formControlName="tuition" step="0.01" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="general">General Fee:</label>
+            <input type="number" id="general" formControlName="general" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="esc">ESC:</label>
+            <select id="esc" formControlName="esc" required>
+                <option value="9000">9000</option>
+                <option value="17500">17500</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label for="subsidy">Subsidy:</label>
+            <input type="number" id="subsidy" formControlName="subsidy" step="0.01" required>
+        </div>
+
+        <div class="form-group">
+            <label for="req_Downpayment">Required Downpayment:</label>
+            <input type="number" id="req_Downpayment" formControlName="req_Downpayment" required>
+        </div>
+    </div>
+
+    <!-- Button Container to move the button to the right -->
+    <div class="submit-btn-container">
+        <button type="submit" class="submit-btn">Update</button>
+    </div>
+</form>

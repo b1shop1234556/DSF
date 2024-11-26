@@ -1,33 +1,3 @@
-/* Style the heading container to use flexbox */
-.heading-container {
-  display: flex;
-  align-items: center; /* Vertically center the content */
-  justify-content: space-between; /* Ensure space between the title and the button */
-  margin-bottom: 15px; /* Reduced space below the button section */
-}
-
-/* Styling for the title (TUITION FEES) */
-
-
-/* Button container styles */
-.button-container {
-  display: flex;
-  align-items: center; /* Align icon vertically */
-}
-
-/* Style the icon */
-.fa-circle-plus {
-  font-size: 30px; /* Size of the icon */
-  color: #007bff; /* Icon color */
-  cursor: pointer; /* Make it clickable */
-  transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
-}
-
-.fa-circle-plus:hover {
-  color: #0056b3; /* Darker blue when hovered */
-  transform: scale(1.1); /* Slightly increase size when hovered */
-}
-
 /* General body and font settings */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
 
@@ -40,6 +10,27 @@
   border: 1px solid #ddd;
   max-width: 1200px; /* Max width for larger screens */
   margin: auto; /* Centering the container */
+}
+
+/* Button container styles */
+.button-container {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Center items vertically */
+  margin-bottom: 15px; /* Reduced space below the button section */
+}
+
+.button-container button {
+  background-color: #007bff;
+  color: white;
+  padding: 8px 12px; /* Reduced padding */
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  margin-right: 8px; /* Reduced space between buttons */
+}
+
+.button-container button:hover {
+  background-color: #0056b3; /* Darker shade on hover */
 }
 
 /* Search bar styling */
@@ -98,6 +89,36 @@ td {
   padding: 8px 12px; /* Reduced padding */
   text-align: center;
   border-bottom: 1px solid #ddd;
+}
+
+/* Fix for the scrolling behavior */
+tbody {
+  display: block;
+  max-height: 280px; /* Set max height for scrolling */
+  overflow-y: scroll; /* Enable vertical scrolling */
+  width: 100%;
+}
+
+/* Hide the scrollbar but keep scrolling */
+tbody::-webkit-scrollbar {
+  width: 0px; /* Hide scrollbar in WebKit browsers */
+  height: 0px; /* Hide horizontal scrollbar in WebKit browsers */
+}
+
+tbody {
+  scrollbar-width: thin; /* Firefox: make the scrollbar thin */
+  scrollbar-color: transparent transparent; /* Firefox: hide the scrollbar but keep it scrollable */
+}
+
+tr {
+  display: table; /* Make rows behave like table rows */
+  width: 100%;
+  table-layout: fixed; /* Prevents columns from resizing */
+  border-bottom: 1px solid #ddd; /* Add border to rows */
+}
+
+tr:hover {
+  background-color: #f5f5f5; /* Highlight on hover */
 }
 
 /* Icon styles */
@@ -190,3 +211,104 @@ td {
     text-align: left;
   }
 }
+
+/* Button row for pending and approved actions */
+section {
+  display: table;
+}
+
+.example-label {
+  display: table-cell;
+  font-size: 14px;
+  margin-left: 8px;
+  min-width: 120px;
+}
+
+.example-button-row {
+  display: table-cell;
+  max-width: 600px;
+}
+
+.example-button-row .mat-mdc-button-base {
+  margin: 8px 8px 8px 0;
+}
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+/* Button styles for Pending and Approved states */
+.pending-button {
+  background-color: #ddb028; /* Yellow for Pending */
+  color: white;
+  padding: 10px 15px; /* Reduced padding */
+  border: none;
+  border-radius: 8px; /* Increased border-radius for more rounded corners */
+  cursor: pointer;
+  font-size: 14px; /* Adjust font size if needed */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+  margin-right: 10px; /* Reduced space between buttons */
+}
+
+.pending-button:hover {
+  background-color: #e6b41e; /* Darker yellow on hover */
+}
+
+.approved-button {
+  background-color: #28a745; /* Green for Approved */
+  color: white;
+  padding: 10px 15px; /* Reduced padding */
+  border: none;
+  border-radius: 8px; /* Increased border-radius for more rounded corners */
+  cursor: pointer;
+  font-size: 14px; /* Adjust font size if needed */
+  transition: background-color 0.3s; /* Smooth transition for hover effect */
+}
+
+.approved-button:hover {
+  background-color: #2ac44e; /* Darker green on hover */
+}
+
+/* Disabled state for buttons */
+.disabled {
+  color: #ccc; /* Change text color to indicate disabled state */
+  pointer-events: none; /* Prevent any mouse events */
+  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+}
+
+/* Heading container alignment */
+.heading-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading-left {
+  display: flex;
+  align-items: center; /* Vertically align the icon with the text */
+}
+
+
+
+.heading-left i {
+  font-size: 40px; /* Adjust the icon size if needed */
+  cursor: pointer;
+  color: #007bff; /* Set icon color */
+  transition: color 0.3s ease;
+  margin-bottom: 12px;
+  margin-left: 8px;
+}
+
+.heading-left i:hover {
+  color: #0056b3; /* Change icon color on hover */
+}
+
+/* Other existing styles... */

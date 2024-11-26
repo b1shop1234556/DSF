@@ -62,6 +62,7 @@ export class InputPaymentComponent implements OnInit {
   ngOnInit(): void {
     this.showdata();
   }
+  
   showdata(){
     console.log(this.LRN.id);
     this.conn.findtransac(this.LRN.id).subscribe((result: any) => {

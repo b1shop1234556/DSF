@@ -1,0 +1,109 @@
+/* Styling for the form container */
+.tuition-form {
+    width: 80%;
+    max-width: 800px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.form-header {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Styling for form rows with two columns */
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+
+/* Styling for form groups */
+.form-group {
+    flex: 1; /* Allow form groups to take equal space */
+    min-width: 45%; /* Ensure there's enough space for two elements */
+}
+
+.form-group label {
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Focus style for inputs */
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #007bff;
+}
+
+/* Styling for the submit button */
+.submit-btn {
+    padding: 8px 20px; /* Reduce padding to make the button smaller */
+    font-size: 1rem; /* Reduce font size */
+    font-weight: bold;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+/* Hover effect for the submit button */
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Optional: Adding a little space at the bottom */
+.tuition-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Styling to move the submit button to the right side */
+.submit-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px; /* Optional: Space between form fields and button */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tuition-form {
+        width: 90%;
+    }
+
+    /* Stack form fields vertically on smaller screens */
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-group {
+        min-width: 100%;
+    }
+
+    /* Make the submit button full-width on small screens */
+    .submit-btn-container {
+        justify-content: center; /* Center the button on smaller screens */
+    }
+}

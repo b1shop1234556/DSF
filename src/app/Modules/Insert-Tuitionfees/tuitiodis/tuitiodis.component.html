@@ -1,9 +1,5 @@
 <p>TUITION FEES</p>
 <section>
-    <div class="button-container">
-      <!-- Move Add New Tuition Fee button/icon to the right -->
-      <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
-    </div>
   
     <section class="search-bar">
       <input type="text" id="search-input" placeholder="Search by Grade Level..." [(ngModel)]="keyword">
@@ -35,12 +31,18 @@
               <td>
                 <!-- Action buttons for Update and Delete -->
                 <i class="fa-solid fa-pen-to-square" [routerLink]="['/main-page/enrollees/homepage/viewdetails']"></i> 
-                <i class="fa-solid fa-trash-can"></i>
+                <!-- <i class="fa-solid fa-trash-can"></i> -->
               </td>  
             </tr>
           }
         </tbody>
       </table>
+
+      <div class="button-container">
+        <!-- Move Add New Tuition Fee button/icon to the right -->
+        <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
+      </div>
+
     </div>
   </section>
   

@@ -78,7 +78,7 @@ export class InsertComponent implements OnInit{
             title: "Your Work Has Been Saved",
             showConfirmButton: true,
           }).then(() => {
-            this.route.navigate(['/main-page/enrollees/homepage/pending']); 
+            this.route.navigate(['/main-page/inserts/ins/tuidis']); 
             location.reload();
           });
         } else {

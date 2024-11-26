@@ -286,10 +286,10 @@ section {
 
 /* Icon styles for the Add New Tuition Fee button */
 .fa-circle-plus {
-    font-size: 40px; /* Size of the icon */
+    font-size: 60px; /* Size of the icon */
     color: #007bff; /* Color for the icon (Blue) */
     cursor: pointer; /* Makes the icon clickable */
-    margin-right: 8px; /* Space to the right */
+    margin-left: 500px; /* Space to the right */
     transition: color 0.3s, transform 0.3s; /* Smooth transition for hover effects */
   }
   

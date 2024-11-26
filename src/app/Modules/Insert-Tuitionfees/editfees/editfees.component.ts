@@ -92,28 +92,28 @@ export class EditfeesComponent implements OnInit{
     });
   }
 
-  saveForm(){
-    console.log(this.tuitionfee.value)
-    this.conn.addtuitionfee(this.tuitionfee.value).subscribe(
-      (result: any) => {
-        if (result.message === 'Success') {
-          Swal.fire({
-            position: "center",
-            icon: "success",
-            title: "Your Work Has Been Saved",
-            showConfirmButton: true,
-          }).then(() => {
-            this.route.navigate(['/main-page/inserts/ins/tuidis']); 
-            location.reload();
-          });
-        } else {
-          console.error('Error Occurred during save:', result);
-        }
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
-  }
+  // saveForm(){
+  //   console.log(this.tuitionfee.value)
+  //   this.conn.addtuitionfee(this.tuitionfee.value).subscribe(
+  //     (result: any) => {
+  //       if (result.message === 'Success') {
+  //         Swal.fire({
+  //           position: "center",
+  //           icon: "success",
+  //           title: "Your Work Has Been Saved",
+  //           showConfirmButton: true,
+  //         }).then(() => {
+  //           this.route.navigate(['/main-page/inserts/ins/tuidis']); 
+  //           location.reload();
+  //         });
+  //       } else {
+  //         console.error('Error Occurred during save:', result);
+  //       }
+  //     },
+  //     (error) => {
+  //       console.error('Error:', error);
+  //     }
+  //   );
+  // }
 
 }

@@ -1,6 +1,6 @@
 <form [formGroup]="tuitionfee"  class="tuition-form">
 
-    <!-- (submit)="saveForm()" -->
+    
     <h1 class="form-header">Edit Tuition Fees</h1>
 
     <div class="form-row">
@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label for="esc">ESC:</label>
-            <select id="esc" formControlName="esc" required>
+            <select id="esc" formControlName="esc" >
                 <option value="9000">9000</option>
                 <option value="17500">17500</option>
             </select>
@@ -33,7 +33,7 @@
     <div class="form-row">
         <div class="form-group">
             <label for="subsidy">Subsidy:</label>
-            <input type="number" id="subsidy" formControlName="subsidy" step="0.01" required>
+            <input type="number" id="subsidy" formControlName="subsidy" step="0.01" >
         </div>
 
         <div class="form-group">
@@ -44,6 +44,6 @@
 
     <!-- Button Container to move the button to the right -->
     <div class="submit-btn-container">
-        <button type="submit" class="submit-btn">Update</button>
+        <button type="submit" class="submit-btn" (click)="onSubmit()">Update</button>
     </div>
 </form>

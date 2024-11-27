@@ -19,6 +19,7 @@
     <table class="styled-table">
       <thead>
         <tr>
+          <th>feeid</th>
           <th>Grade Level</th>
           <th>Tuition</th>
           <th>General</th>
@@ -32,6 +33,7 @@
         <!-- Loop through tuition fees and display them -->
         @for(c of students | searchFilter: keyword; track c.fee_id) {
           <tr>
+            <td>{{c.fee_id}}</td>
             <td>{{ c.grade_level }}</td>
             <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
             <td>{{ c.general | currency: 'PHP':'symbol' }}</td>
@@ -40,7 +42,7 @@
             <td>{{ c.req_Downpayment | currency: 'PHP':'symbol' }}</td>
             <td>
               <!-- Action buttons for Update and Delete -->
-              <i class="fa-solid fa-pen-to-square" [routerLink]="['/main-page/inserts/ins/editfee']"></i>
+              <i class="fa-solid fa-pen-to-square" (click)="Modal(c)"></i>
             </td>  
           </tr>
         }

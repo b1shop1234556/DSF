@@ -107,9 +107,20 @@ export class ConnectService {
     return this.http.get(this.url + 'tuitiondisplay');
   }
 
-  updateTuitionFee(id :any){
-    return this.http.get(`${this.url}updateTuitionFee/${id}`);
-  }
+  updateTuitionFee(id: any, data: any) {
+    return this.http.put(`${this.url}updateTuitionFee/${id}`, data);
+}
+
+//   updateTuitionFee(id: number, data: any): Observable<any> {
+//     return this.http.put(`http://localhost:8000/api/updateTuitionFee/${id}`, data)
+//         .pipe(
+//             catchError((error) => {
+//                 console.error('Error occurred:', error);
+//                 return throwError(error);
+//             })
+//         );
+// }
+
 
   findfees(id :any){
     return this.http.get(`${this.url}findfees/${id}`);

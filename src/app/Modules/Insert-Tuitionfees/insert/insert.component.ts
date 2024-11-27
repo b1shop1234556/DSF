@@ -18,6 +18,8 @@ import { SearchFilterPipe } from '../../../search-filter.pipe';
 import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component';
 import Swal from 'sweetalert2';
 import { ConnectService } from '../../../connect.service';
+import { MatDialogRef } from '@angular/material/dialog';
+import { EditfeesComponent } from '../editfees/editfees.component';
 
 @Component({
   selector: 'app-insert',
@@ -53,6 +55,7 @@ export class InsertComponent implements OnInit{
   }
 
   constructor(
+    // public dialogRef: MatDialogRef<InsertComponent>,
     private conn: ConnectService,
     private route: Router
   ){}

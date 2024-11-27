@@ -11,6 +11,7 @@ import { ConnectService } from '../../../connect.service';
 import { SearchFilterPipe } from '../../../search-filter.pipe';
 import { StatementComponent } from '../statement/statement.component';
 import { MatDialog } from '@angular/material/dialog';
+import { PrintSOAComponent } from '../print-soa/print-soa.component';
 
 @Component({
   selector: 'app-uploadpage',
@@ -36,6 +37,19 @@ export class UploadpageComponent {
         maxHeight: '800px',
     });
   }
+
+  OpenModal(id: any): void {
+    console.log(id);
+    localStorage.setItem('LRN', id);
+    // this.displaypending();
+    this.dialog.open(PrintSOAComponent, {
+        width: '805px',  // Fixed width
+        height: '615px', // Fixed height
+        maxWidth: '900px',
+        maxHeight: '900px',
+    });
+  }
+
 
   ngOnInit(): void {
     this.conn.displayStudent().subscribe((result: any) => {

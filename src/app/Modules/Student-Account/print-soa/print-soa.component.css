@@ -1,0 +1,80 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 10px; /* Reduced padding */
+}
+
+.receipt-container {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px; /* Reduced padding */
+    max-width: 900px; /* Reduced width */
+    margin: auto;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    display: block;
+}
+
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 5px; /* Reduced margin */
+    font-size: 20px; /* Reduced font size */
+}
+
+.total {
+    font-weight: bold;
+    margin-top: 15px;
+    color: #d9534f; 
+}
+
+.footer {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 10px; /* Smaller font size */
+    color: #777;
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Move button to the right */
+    margin-top: 15px; /* Decreased margin-top to bring button closer to the table */
+    width: 100%; /* Make the button container span full width */
+}
+
+button {
+    padding: 10px 24px; /* Adjusted padding to 15px top/bottom */
+    font-size: 16px; /* Match font size from the first code */
+    border: none;
+    border-radius: 6px;
+    background-color: #007bff; /* Match the blue button color */
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    margin-right: 30px;
+}
+
+button:hover {
+    background-color: #0056b3; /* Darken the button on hover */
+    transform: translateY(-2px); /* Add a hover effect */
+}
+
+button:active {
+    transform: translateY(0); /* Reset the hover effect when button is clicked */
+}
+
+@media print {
+    @page {
+        size: landscape; /* Set landscape for printing */
+        margin: 20mm; /* Set margin for print */
+    }
+    body {
+        background-color: #fff;
+    }
+    .receipt-container {
+        box-shadow: none;
+        max-width: 100%; /* Take full width for printing */
+    }
+}

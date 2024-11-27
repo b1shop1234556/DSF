@@ -19,7 +19,7 @@
     <table class="styled-table">
       <thead>
         <tr>
-          <th>feeid</th>
+          <!-- <th>feeid</th> -->
           <th>Grade Level</th>
           <th>Tuition</th>
           <th>General</th>
@@ -33,7 +33,7 @@
         <!-- Loop through tuition fees and display them -->
         @for(c of students | searchFilter: keyword; track c.fee_id) {
           <tr>
-            <td>{{c.fee_id}}</td>
+            <!-- <td>{{c.fee_id}}</td> -->
             <td>{{ c.grade_level }}</td>
             <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
             <td>{{ c.general | currency: 'PHP':'symbol' }}</td>

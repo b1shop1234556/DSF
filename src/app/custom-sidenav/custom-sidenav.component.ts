@@ -103,8 +103,8 @@ export class CustomSidenavComponent implements OnInit{
     //   route: 'login'
     // }
     {
-      icon: 'upload',
-      label: 'Insert Tuition Fees',
+      icon: 'account_balance_wallet',
+      label: 'Tuition Fees',
       route: 'inserts'
     }
   ]);

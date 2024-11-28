@@ -55,6 +55,8 @@ export class ApprovepageComponent {
   keyword: any;
   students: any;
   grade: any;
+  intervalId: any;
+
 
   constructor(
     private dialog: MatDialog,
@@ -87,41 +89,56 @@ export class ApprovepageComponent {
   }
 
   ngOnInit(): void {
-    this.displaypending()
+    this.displaypending();
+    this.startAutoReload();
     // this.filterapprove()
     // this.getFilteredEnrollments()
   }
 
+  ngOnDestroy(): void {
+    // Clear the interval when the component is destroyed
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+    }
+  }
 
-  displaypending(){
+  startAutoReload() {
+    // Reload the data every 30 seconds (30000ms)
+    this.intervalId = setInterval(() => {
+      this.displaypending();
+    }, 30000);  // 30 seconds interval
+  }
+
+
+  displaypending() {
     this.conn.getData().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
+
       if (this.students && this.students.length > 0) {
-        // Filter the transactions to include only those with status 'Pending'
         const pendingTransactions = this.students.filter((transaction: any) => transaction.payment_approval === null);
 
         if (pendingTransactions.length > 0) {
-            // If there are pending transactions, log them
-            console.log('Pending Transactions:', pendingTransactions);
+          console.log('Pending Transactions:', pendingTransactions);
 
-            // this.displaypending();
-            
-            // You can assign the pending transactions to a variable to display them in your template
-            this.students = pendingTransactions;
+          this.students = pendingTransactions.sort((a: any, b: any) => {
+            const lastNameComparison = a.lname.localeCompare(b.lname);
+            if (lastNameComparison === 0) {
+              return a.fname.localeCompare(b.fname);
+            }
+            return lastNameComparison;
+          });
         } else {
-            // If no pending transactions are found, handle accordingly
-            console.log('No pending transactions found');
-            // Optional: clear the transactions or show a message in your template
-            this.students = [];
+          console.log('No pending transactions found');
+          this.students = [];
         }
-    } else {
-        // Handle the case where no transactions are available
+      } else {
         console.log('No transactions available');
         this.students = [];
-    }
-    })
+      }
+    });
   }
+  
 
 
 }

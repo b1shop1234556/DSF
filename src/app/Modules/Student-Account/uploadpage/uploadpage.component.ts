@@ -65,6 +65,12 @@ export class UploadpageComponent {
         if (approvedTransactions.length > 0) {
           console.log('Approved Transactions:', approvedTransactions);
           this.students = approvedTransactions;
+  
+          // Sort students alphabetically by lname (last name)
+          this.students.sort((a: any, b: any) => {
+            return a.lname.localeCompare(b.lname); // Sort by last name alphabetically
+          });
+  
         } else {
           console.log('No approved transactions found');
           this.students = [];
@@ -75,6 +81,7 @@ export class UploadpageComponent {
       }
     });
   }
+  
 
   constructor(
     private dialog: MatDialog,

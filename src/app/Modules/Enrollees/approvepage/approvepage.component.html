@@ -51,7 +51,7 @@
                       class="text-primary text-hover" 
                       [ngClass]="{'disabled': c.amount_paid === 0}" 
                       (click)="c.amount_paid > 0 ? openModal(c.LRN) : null">
-                      {{ c.amount_paid }}
+                      {{ c.amount_paid | currency: 'PHP':'symbol' }}
                       <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
                       </td>
                   

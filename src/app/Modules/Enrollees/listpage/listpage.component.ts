@@ -89,6 +89,17 @@ export class ListpageComponent {
         if (approvedTransactions.length > 0) {
           console.log('Approved Transactions:', approvedTransactions);
           this.students = approvedTransactions;
+  
+          // Now sort the students alphabetically by their name (lname, fname, mname)
+          this.students.sort((a: any, b: any) => {
+            const nameA = `${a.lname}, ${a.fname} ${a.mname}`.toLowerCase();
+            const nameB = `${b.lname}, ${b.fname} ${b.mname}`.toLowerCase();
+  
+            if (nameA < nameB) return -1; // A comes before B
+            if (nameA > nameB) return 1;  // B comes before A
+            return 0; // names are equal
+          });
+  
         } else {
           console.log('No approved transactions found');
           this.students = [];
@@ -99,6 +110,7 @@ export class ListpageComponent {
       }
     });
   }
+  
   
   getFilteredEnrollments(){
     switch(this.selectedClass){

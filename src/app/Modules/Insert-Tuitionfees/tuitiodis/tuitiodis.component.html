@@ -4,7 +4,7 @@
     <div class="heading-left">
       <p>TUITION FEES</p>
       <!-- Plus icon positioned beside the heading -->
-      <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
+      <!-- <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i> -->
     </div>
     <div class="button-container">
       <!-- Any other buttons can go here -->
@@ -26,7 +26,7 @@
           <th>ESC</th>
           <th>Subsidy</th>
           <th>Required Downpayment</th>
-          <th>Actions</th>
+          <!-- <th>Actions</th> -->
         </tr>
       </thead>
       <tbody>
@@ -38,12 +38,13 @@
             <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
             <td>{{ c.general | currency: 'PHP':'symbol' }}</td>
             <td>{{ c.esc | currency: 'PHP':'symbol' }}</td>
-            <td>{{ c.subsidy | currency: 'PHP':'symbol' }}</td>
+            <td>{{ c.subsidy }}</td>
             <td>{{ c.req_Downpayment | currency: 'PHP':'symbol' }}</td>
-            <td>
-              <!-- Action buttons for Update and Delete -->
+
+            <!-- Action buttons for Update and Delete -->
+            <!-- <td>
               <i class="fa-solid fa-pen-to-square" (click)="Modal(c)"></i>
-            </td>  
+            </td>   -->
           </tr>
         }
       </tbody>

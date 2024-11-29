@@ -55,7 +55,7 @@ export class ApprovepageComponent {
   keyword: any;
   students: any;
   grade: any;
-  intervalId: any;
+  // intervalId: any;
 
 
   constructor(
@@ -90,24 +90,24 @@ export class ApprovepageComponent {
 
   ngOnInit(): void {
     this.displaypending();
-    this.startAutoReload();
+    // this.startAutoReload();
     // this.filterapprove()
     // this.getFilteredEnrollments()
   }
 
-  ngOnDestroy(): void {
-    // Clear the interval when the component is destroyed
-    if (this.intervalId) {
-      clearInterval(this.intervalId);
-    }
-  }
+  // ngOnDestroy(): void {
+  //   // Clear the interval when the component is destroyed
+  //   if (this.intervalId) {
+  //     clearInterval(this.intervalId);
+  //   }
+  // }
 
-  startAutoReload() {
-    // Reload the data every 30 seconds (30000ms)
-    this.intervalId = setInterval(() => {
-      this.displaypending();
-    }, 30000);  // 30 seconds interval
-  }
+  // startAutoReload() {
+  //   // Reload the data every 30 seconds (30000ms)
+  //   this.intervalId = setInterval(() => {
+  //     this.displaypending();
+  //   }, 30000);  // 30 seconds interval
+  // }
 
 
   displaypending() {

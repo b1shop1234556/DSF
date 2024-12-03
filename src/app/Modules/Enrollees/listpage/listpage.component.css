@@ -103,14 +103,10 @@ td {
 }
 
 tbody {
-  display: block;
-  max-height: 280px; /* Set max height for scrolling */
-  overflow-y: auto; /* Enable vertical scrolling */
+  display: table-row-group; /* Use default display for tbody */
+  max-height: none; /* Remove max height to avoid scrolling */
+  overflow-y: visible; /* Prevent overflow */
   width: 100%;
-  /* Hide scrollbars but allow scrolling */
-  scrollbar-width: thin; /* Firefox: make the scrollbar thin */
-  scrollbar-color: transparent transparent; /* Firefox: hide the scrollbar but keep it scrollable */
-  -ms-overflow-style: none;  /* IE/Edge */
 }
 
 tbody::-webkit-scrollbar {

@@ -103,6 +103,7 @@ export class MainPageComponent implements OnInit{
       this.route.navigate(['login']);
     })
   }
+  
   get(){
     this.connect.getAccount(this.user.admin_id).subscribe((result: any) => {
       console.log(result)

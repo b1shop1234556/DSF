@@ -55,6 +55,8 @@ export class ApprovepageComponent {
   keyword: any;
   students: any;
   grade: any;
+
+  currentDate: Date = new Date();
   // intervalId: any;
 
 
@@ -65,26 +67,26 @@ export class ApprovepageComponent {
     private conn: ConnectService
   ) {}
 
-  openModal(id: any): void {
-    console.log(id);
-    localStorage.setItem('LRN', id);
-    this.dialog.open(ViewViewComponent, {
-        width: '530px',  // Fixed width
-        height: '520px', // Fixed height
-        maxWidth: '800px',
-        maxHeight: '800px',
-    });
-}
+//   openModal(id: any): void {
+//     console.log(id);
+//     localStorage.setItem('LRN', id);
+//     this.dialog.open(ViewViewComponent, {
+//         width: '530px',  // Fixed width
+//         height: '520px', // Fixed height
+//         maxWidth: '800px',
+//         maxHeight: '800px',
+//     });
+// }
 
   Modal(id: any): void {
     console.log(id);
     localStorage.setItem('LRN', id);
     this.displaypending();
     this.dialog.open(InputPaymentComponent, {
-        width: '700px',  // Fixed width
-        height: '530px', // Fixed height
-        maxWidth: '800px',
-        maxHeight: '800px',
+        width: '920px',  // Fixed width
+        height: '528px', // Fixed height
+        maxWidth: '2000px',
+        maxHeight: '2000px',
     });
   }
 

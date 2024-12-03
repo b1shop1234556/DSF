@@ -1,30 +1,50 @@
 <div class="input-container">
-    <h2 class="form-header">Input Payment</h2>
+    <h2 class="form-header">Payments</h2>
 
     <form class="input-form" [formGroup]="inputAmount" (submit)="saveFunct()">
-        <div class="image-container">
-            <img src="{{students.proof_payment}}" alt="Payment Proof" class="proof-image">
+        <!-- Left Side: Image and Form Fields -->
+        <div class="left-container">
+            <div class="image-container" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
+                <img src="{{students.proof_payment}}" alt="Payment Proof" class="proof-image">
+                <div class="zoomed-in" #zoomedIn></div>
+            </div>
+
+            <div class="input-fields">
+                <div class="field">
+                    <mat-label>JRNL#:</mat-label>
+                    <input matInput placeholder="Enter JRNL#:" type="text" formControlName="OR_number" required>
+                </div>
+
+                <div class="field">
+                    <mat-label>Description:</mat-label>
+                    <input matInput placeholder="Enter Description" type="text" formControlName="description" required>
+                </div>
+
+                <div class="field">
+                    <mat-label>Total Amount Paid:</mat-label>
+                    <input matInput placeholder="Enter cash amount" type="number" formControlName="amount_paid" required>
+                </div>
+            </div>
         </div>
 
-        <div class="input-fields">
-            <div class="field">
-                <mat-label>JRNL#:</mat-label>
-                <input matInput placeholder="Enter JRNL#:" type="text" formControlName="OR_number" required>
+        <!-- Right Side: Student Info -->
+        <div class="right-container">
+            <div class="image-info-container">
+                <div class="info">
+                    <p><strong>JRNL#:</strong> {{students.OR_number}}</p>
+                    <p><strong>Date:</strong> {{students.date_of_payment | date}}</p>
+                    <p><strong>LRN:</strong> {{students.LRN}}</p>
+                    <p><strong>Sender From:</strong> {{students.lname}} {{students.fname}} {{students.mname}}</p>
+                    <p><strong>Address:</strong> {{students.address}}</p>
+                    <p><strong>Description:</strong> {{students.description}}</p>
+                    <p><strong>Total Amount Paid:</strong> ({{students.amount_paid}})</p>
+                </div>
             </div>
 
-            <div class="field">
-                <mat-label>Description:</mat-label>
-                <input matInput placeholder="Enter Description" type="text" formControlName="description" required>
+            <!-- Approve Button (Now under the Right Container) -->
+            <div class="button-container">
+                <button class="btn btn-primary" type="submit" (click)="approveReceipt(students.LRN)">Approve</button>
             </div>
-
-            <div class="field">
-                <mat-label>Total Amount Paid:</mat-label>
-                <input matInput placeholder="Enter cash amount" type="number" formControlName="amount_paid" required>
-            </div>
-        </div>
-
-        <div class="button-container">
-            <button class="btn btn-primary" type="submit">Submit</button>
         </div>
     </form>
 </div>

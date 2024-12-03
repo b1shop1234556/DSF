@@ -1,133 +1,195 @@
+/* Global Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f4f7fc; /* Soft background color */
+    background-color: #f4f7fa;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
+/* Input and Receipt Container Styles */
 .input-container {
-    max-width: 700px;
+    max-width: 920px;
     margin: 0 auto;
-    padding: 30px;
+    padding: 40px;
     background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    margin-bottom: 0;
+    /* border-top: 4px solid #007bff; */
 }
 
+/* Form Header */
 .form-header {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 20px;
+    font-size: 28px;
     text-align: center;
-    color: #333;
+    margin-bottom: 30px;
+    color: #000000;
+    /* border-bottom: 2px solid #007bff; */
+    /* padding-bottom: 10px; */
 }
 
+/* Input Form Styles */
 .input-form {
     display: flex;
-    flex-wrap: wrap; /* Allow content to wrap on smaller screens */
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: flex-start; /* Ensure elements align to the top */
+    gap: 20px;
 }
 
-.image-container {
-    max-width: 220px;
-    margin-right: 20px;
+.left-container {
+    width: 48%; /* Left container takes up almost half of the width */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row; /* Align the image and input fields horizontally */
+    gap: 30px; /* Increased space between image and input fields */
+}
+
+/* Image Container for Zoom Effect */
+.image-container {
+    position: relative;
+    text-align: center;
+    flex-shrink: 0; /* Prevent image from shrinking */
+    margin-right: 20px; /* Add space between image and input fields */
+    cursor: zoom-in; /* Indicating that the image can be zoomed */
 }
 
 .proof-image {
-    width: 100%;
-    max-width: 200px; /* Ensure image doesn’t get too big */
+    max-width: 220px;
     height: auto;
-    object-fit: cover; /* Maintain aspect ratio */
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow for image */
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
 }
 
+/* The "eyeglass" or zoomed-in view */
+.zoomed-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px; /* Set the size of the zoomed-in image */
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    pointer-events: none;
+    display: none;
+}
+
+/* Optional: adding a hover effect for the image container */
+.image-container:hover .proof-image {
+    transform: scale(1.1); /* Optional: scale image when hovered */
+}
+
+/* Input Fields */
 .input-fields {
-    flex: 1 1 60%; /* Flex the input fields to fill space */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    flex-grow: 1; /* Allow the form to take remaining space */
 }
 
 .field {
-    margin-bottom: 20px; /* Add consistent spacing between inputs */
+    margin-bottom: 20px;
 }
 
 .mat-label {
-    font-weight: bold;
+    font-weight: 600;
     font-size: 14px;
-    color: #333;
-    margin-bottom: 8px;
+    color: #555;
+    margin-bottom: 10px;
     display: block;
 }
 
-input[type="number"],
-input[type="text"] {
+input[type="number"], input[type="text"] {
     width: 100%;
-    padding: 12px;
-    margin-bottom: 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    padding: 14px;
     font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+}
+
+input[type="number"]:focus, input[type="text"]:focus {
+    border-color: #007bff;
     outline: none;
-    transition: border-color 0.3s ease-in-out;
+    background-color: #ffffff;
 }
 
-input[type="number"]:focus,
-input[type="text"]:focus {
-    border-color: #007bff; /* Highlight input on focus */
+/* Right container (Student Info) */
+.right-container {
+    width: 48%; /* Right container takes up almost half of the width */
+    margin-top: 20px; /* Add space between left and right container */
 }
 
-.btn {
-    padding: 12px 24px;
+.image-info-container {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    margin-bottom: 20px; /* Adds space between the info section and button */
+}
+
+.info {
+    font-size: 16px;
+    color: #555;
+}
+
+.info p {
+    margin-bottom: 12px;
+}
+
+.info strong {
+    color: #007bff;
+}
+
+/* Button Styles */
+.button-container {
+    text-align: center;
+    margin-top: 20px; /* Adds space above the button */
+}
+
+button {
+    padding: 14px 32px;
+    font-size: 16px;
+    cursor: pointer;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     background-color: #007bff;
     color: white;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease-in-out;
+    transition: background-color 0.3s ease, transform 0.2s ease-in-out;
 }
 
-.btn:hover {
+button:hover {
     background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-.btn:active {
+button:active {
     transform: translateY(0);
 }
 
-.button-container {
-    display: flex;
-    justify-content: flex-end; /* Move button to the right */
-    margin-top: 20px;
-    width: 100%; /* Make the button container span full width */
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
     .input-form {
-        flex-direction: column; /* Stack elements vertically on small screens */
+        flex-direction: column;
         align-items: center;
     }
 
-    .image-container {
-        margin-bottom: 20px;
-        text-align: center; /* Center image in smaller screens */
+    .left-container {
+        width: 100%; /* Full width for small screens */
+        flex-direction: column; /* Stack image and input fields vertically */
+        gap: 20px; /* Space between the image and input fields */
     }
 
-    .input-fields {
-        flex: 1 1 100%; /* Allow the fields to take up full width */
-        margin-left: 0;
+    .right-container {
+        width: 100%; /* Full width for small screens */
+    }
+
+    .image-container {
+        text-align: center;
+        margin-bottom: 20px;
     }
 
     .proof-image {
-        max-width: 180px; /* Adjust image size for mobile */
-    }
-
-    .button-container {
-        justify-content: center; /* Center the button on mobile */
+        max-width: 180px;
     }
 }

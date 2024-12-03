@@ -1,17 +1,27 @@
-<p>PENDING ENROLLEES</p>
+<div class="banner">
+  <div class="text-content">
+    <div class="date">{{ currentDate | date: 'EEEE, MMMM d, y' }}</div>
+    <h1 class="welcome-message">Welcome back, DSF!</h1>
+    <p class="subtext">Always stay updated in your student portal</p>
+  </div>
+  <div class="illustration">
+    <!-- Placeholder for the 3D illustration -->
+    <img src="sams.png " alt="Illustration">
+  </div>
+</div>
 
-<!-- <div class="student-account"> -->
-  <!-- <div class="button-container">
-      <button type="button" [routerLink]="['/main-page/enrollees/homepage/approve']">Pendding</button>
-      <button type="button" [routerLink]="['/main-page/enrollees/homepage/list']">Approved</button>
-  </div> -->
 
-  <section>
-    <div class="example-button-row">
-      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
-      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
-    </div>
-  </section>  
+
+<!-- Wrap the "PENDING ENROLLEES" text and buttons in the same flex container -->
+<section>
+  <div class="example-button-row">
+    <!-- Add text within the button row container -->
+    <p class="pending-text">PENDING ENROLLEES</p>
+    <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
+    <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
+  </div>
+</section>
+
   
 
   <div class="search-bar">
@@ -47,10 +57,7 @@
                       <td>{{ c.grade_level }}</td>
                       <td >{{ c.date_register | date}}</td>
                       <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
-                      <td 
-                      class="text-primary text-hover" 
-                      [ngClass]="{'disabled': c.amount_paid === 0}" 
-                      (click)="c.amount_paid > 0 ? openModal(c.LRN) : null">
+                      <td>
                       {{ c.amount_paid | currency: 'PHP':'symbol' }}
                       <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
                       </td>

@@ -65,6 +65,11 @@ export class ConnectService {
     return this.http.get(`${this.url}receiptdisplay/${id}`);
   }
 
+  // view_financials
+  displayFinancials(id :any){
+    return this.http.get(`${this.url}displayFinancials/${id}`);
+  }
+
   approveEnrollment(id :any){
     return this.http.get(`${this.url}approveEnrollment/${id}`);
   }

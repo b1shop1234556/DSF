@@ -12,6 +12,7 @@ import { SearchFilterPipe } from '../../../search-filter.pipe';
 import { StatementComponent } from '../statement/statement.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PrintSOAComponent } from '../print-soa/print-soa.component';
+import { ViewFinancialsComponent } from '../view-financials/view-financials.component';
 
 @Component({
   selector: 'app-uploadpage',
@@ -49,6 +50,19 @@ export class UploadpageComponent {
         maxHeight: '900px',
     });
   }
+
+  OpModal(id: any): void {
+    console.log(id);
+    localStorage.setItem('LRN', id);
+    // this.displaypending();
+    this.dialog.open(ViewFinancialsComponent, {
+        width: '815px',  // Fixed width
+        height: '550px', // Fixed height
+        maxWidth: '900px',
+        maxHeight: '900px',
+    });
+  }
+
 
 
   ngOnInit(): void {

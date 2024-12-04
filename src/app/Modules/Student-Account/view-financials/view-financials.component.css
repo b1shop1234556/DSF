@@ -1,0 +1,81 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f7fa;
+    margin: 0;
+    padding: 0;
+}
+
+/* View Container */
+.view-container {
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    height: 100vh; /* Full screen height */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Image Container */
+.image-container {
+    position: relative;
+    text-align: center;
+    max-width: 800px; /* Maximum width for the container */
+    width: 100%;
+    background-color: #fff; /* White background for better contrast */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1); /* Subtle shadow for 3D effect */
+    overflow: hidden; /* Hide anything that overflows */
+    transition: transform 0.3s ease-in-out;
+    cursor: zoom-in; /* Indicating zoom functionality */
+}
+
+/* Beautiful Image Styling */
+.proof-image {
+    width: 100%; /* Make image fill container */
+    height: auto;
+    object-fit: contain; /* Ensure the whole image fits inside the container */
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Light shadow to make the image stand out */
+}
+
+/* Zoomed-in effect */
+/* .zoomed-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px; 
+    height: 200px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%; 
+    border: 2px solid #007bff; 
+    pointer-events: none;
+    display: none;
+} */
+
+/* Hover effect to make the image interactive */
+.image-container:hover .proof-image {
+    transform: scale(1.05); /* Slightly enlarge the image on hover */
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3); /* Stronger shadow on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .view-container {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+    
+    .image-container {
+        max-width: 100%; /* Full width for smaller screens */
+    }
+    
+    .proof-image {
+        max-width: 100%; /* Make sure image is responsive */
+    }
+    
+    /* .zoomed-in {
+        width: 150px; 
+        height: 150px;
+    } */
+}

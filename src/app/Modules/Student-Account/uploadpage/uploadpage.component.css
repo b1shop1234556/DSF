@@ -36,26 +36,30 @@
 }
 
 .search-bar {
-  margin-bottom: 20px;
   display: flex;
+  justify-content: flex-end;  /* Aligns the content to the right */
   align-items: center;
   border: 1px solid #ddd;
-  padding: 10px;
+  padding: 6px;
   border-radius: 3px;
+  max-width: 250px;
+  margin-left: auto;  /* Ensures it pushes to the right */
 }
 
+
 .search-bar input[type="text"] {
-  padding: 8px;
+  padding: 6px;
   border: none;
   box-sizing: border-box;
-  margin-right: 10px;
   flex-grow: 1;
+  width: 100%;
 }
+
 
 .search-bar button {
   background-color: #007bff;
   color: white;
-  padding: 8px 16px;
+  padding: 6px 12px; /* Reduced padding */
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -93,9 +97,9 @@ td {
 
 /* Fix for the scrolling behavior */
 tbody {
-  display: block;
-  max-height: 280px; /* Set max height for scrolling */
-  overflow-y: scroll; /* Enable vertical scrolling */
+  display: table-row-group; /* Use default display for tbody */
+  max-height: none; /* Remove max height to avoid scrolling */
+  overflow-y: visible; /* Prevent overflow */
   width: 100%;
 }
 
@@ -207,4 +211,18 @@ tr:hover {
     font-weight: bold;
     text-align: left;
   }
+}
+
+
+.pending-text {
+  font-size: 30px; /* Larger font size for better visibility */
+  font-weight: bold;
+  color: #030303; /* Dark color for the text */
+  margin-right: 20px; /* Space between text and buttons */
+  align-self: center; /* Vertically center the text */
+  padding-top: 20px; /* Padding to create space above */
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  text-transform: uppercase; /* Make text uppercase for impact */
+  letter-spacing: 3px; /* Spacing between letters for a sleek look */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }

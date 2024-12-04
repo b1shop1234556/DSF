@@ -93,9 +93,9 @@ td {
 
 /* Fix for the scrolling behavior */
 tbody {
-  display: block;
-  max-height: 280px; /* Set max height for scrolling */
-  overflow-y: scroll; /* Enable vertical scrolling */
+  display: table-row-group; /* Use default display for tbody */
+  max-height: none; /* Remove max height to avoid scrolling */
+  overflow-y: visible; /* Prevent overflow */
   width: 100%;
 }
 

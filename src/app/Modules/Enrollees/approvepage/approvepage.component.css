@@ -33,24 +33,41 @@
   background-color: #0056b3; /* Darker shade on hover */
 }
 
+/* Flex container to align search bar to the right */
+.search-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-grow: 1;
+  padding-left: 580px; /* Add right padding to give some space */
+}
+
+
+.example-flex-container {
+  display: flex;
+  justify-content: space-between; /* Space between the button row and the search bar */
+  align-items: center; /* Vertically center the content */
+  width: 100%; /* Ensure it takes up the full width */
+  gap: 20px; /* Optional: Space between the button row and the search bar */
+}
+
 /* Search bar styling */
 .search-bar {
-  margin-top: 15px; /* Reduced spacing */
-  margin-bottom: 15px; /* Reduced spacing */
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
-  padding: 8px; /* Reduced padding */
+  padding: 6px;
   border-radius: 3px;
+  max-width: 250px;
 }
 
 .search-bar input[type="text"] {
-  padding: 6px; /* Reduced padding */
+  padding: 6px;
   border: none;
   box-sizing: border-box;
-  margin-right: 8px; /* Reduced space */
   flex-grow: 1;
+  width: 100%;
 }
+
 
 .search-bar button {
   background-color: #007bff;
@@ -225,12 +242,9 @@ section {
 }
 
 .example-button-row {
-  display: table-cell;
-  max-width: 600px;
-}
-
-.example-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
+  display: flex;
+  align-items: center;
+  gap: 5x; /* Reduced gap between the buttons */
 }
 
 .example-flex-container {
@@ -249,13 +263,13 @@ section {
 .pending-button {
   background-color: #ddb028; /* Yellow for Pending */
   color: white;
-  padding: 10px 15px; /* Reduced padding */
+  padding: 12px 20px; /* Increased padding for more space */
   border: none;
   border-radius: 8px; /* Increased border-radius for more rounded corners */
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
-  margin-right: 10px; /* Reduced space between buttons */
+  
 }
 
 .pending-button:hover {
@@ -265,12 +279,13 @@ section {
 .approved-button {
   background-color: #28a745; /* Green for Approved */
   color: white;
-  padding: 10px 15px; /* Reduced padding */
+  padding: 12px 20px; /* Increased padding for more space */
   border: none;
   border-radius: 8px; /* Increased border-radius for more rounded corners */
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
+  margin-bottom: 0; /* Removed margin-bottom to reduce space below */
 }
 
 .approved-button:hover {
@@ -313,26 +328,26 @@ section {
   width: 100%;
   max-width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  gap: 20px; /* Space between image and text */
+  gap: 50px; /* Space between image and text */
 }
 
 .illustration {
   display: flex;
   align-items: right;
   justify-content: right;
-  max-width: 60%; /* Set max-width to control image area */
+  max-width: 35%; /* Reduced max-width for the image area */
   padding-right: 20px;
+  margin-left: 85px;
 }
 
 .illustration img {
   width: 100%;
-  max-width: 600px;
-  margin-left: 4rem;
+  max-width: 280px; /* Reduced max-width for image */
+  margin-left: 18rem; /* Increased left margin further to move the image right */
 }
 
 .date {
   font-size: 20px;
-  /* opacity: 0.8; */
   padding-bottom: 4rem;
   font-weight: 400;
 }
@@ -351,6 +366,7 @@ section {
 .text-content {
   max-width: 70%;
 }
+
 .dash-col {
   width: 66.67%; /* Equivalent to col-8 */
 }
@@ -358,3 +374,19 @@ section {
 .inq-col {
   width: 33.33%; /* Equivalent to col-4 */
 }
+
+
+
+.pending-text {
+  font-size: 30px; /* Larger font size for better visibility */
+  font-weight: bold;
+  color: #030303; /* Dark color for the text */
+  margin-right: 20px; /* Space between text and buttons */
+  align-self: center; /* Vertically center the text */
+  padding-top: 20px; /* Padding to create space above */
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  text-transform: uppercase; /* Make text uppercase for impact */
+  letter-spacing: 3px; /* Spacing between letters for a sleek look */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+

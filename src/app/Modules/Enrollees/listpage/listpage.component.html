@@ -1,56 +1,55 @@
-<P>APPROVED ENROLLEES</P>
-<section>
+<p class="approved-text">APPROVED ENROLLEES</p>
+
+
+<section class="button-filter-container">
+  <section class="button-filter-section">
     <div class="example-button-row">
-      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
-      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
+        <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
+        <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
     </div>
 
     <mat-form-field class="filter-field">
-      <mat-label>Grade Level</mat-label>
-      <mat-select [(ngModel)]="selectedClass">
-        @for (class of classes; track class) {
-        <mat-option [value]="class">{{class}}</mat-option>
-        }
-      </mat-select>
+        <mat-label>Grade Level</mat-label>
+        <mat-select [(ngModel)]="selectedClass">
+            @for (class of classes; track class) {
+            <mat-option [value]="class">{{class}}</mat-option>
+            }
+        </mat-select>
     </mat-form-field>
+  </section>
+
+  <!-- Search Bar on the right side -->
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
+  </div>
 </section>
 
-
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
-      <!-- <button type="submit">Search</button> -->
-    </div>    
-
+<!-- Table for displaying approved enrollments -->
 <div class="table-container">
-  <table class="styled-table">
-    <thead>
-      <tr>
-        <th>LRN</th>
-        <th class="col-md-2">NAME</th>
-        <th>GENDER</th>
-        <th>CONTACT #</th>
-        <th>GRADE LEVEL</th>
-        <th class="col-md-2">ADDRESS</th>
-        <th>APPROVAL DATE</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- @for(enrollments of getFilteredEnrollments() | searchFilter: keyword; track enrollments) { -->
-      <!-- @for(c of students; track c.LRN) { -->
-      @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) {
-      <!-- @for(c of students | searchFilter: keyword; track c.LRN) { -->
-      <tr>
-        <td>{{ c.LRN }}</td>
-        <td class="col-md-2">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
-        <td>{{ c.gender }}</td>
-        <td>{{ c.contact_no }}</td>
-        <td>{{ c.grade_level }}</td>
-        <td class="col-md-2">{{ c.address }}</td>
-        <td>{{ c.payment_approval | date}}</td>
-      </tr>
-      }
-    <!-- } -->
-    </tbody>
-  </table>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>LRN</th>
+                <th class="col-md-2">NAME</th>
+                <th>GENDER</th>
+                <th>CONTACT #</th>
+                <th>GRADE LEVEL</th>
+                <th class="col-md-2">ADDRESS</th>
+                <th>APPROVAL DATE</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) {
+            <tr>
+                <td>{{ c.LRN }}</td>
+                <td class="col-md-2 text-start">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                <td class="text-start">{{ c.gender }}</td>
+                <td class="text-start">{{ c.contact_no }}</td>
+                <td>{{ c.grade_level }}</td>
+                <td class="col-md-2 text-start">{{ c.address }}</td>
+                <td class="text-start">{{ c.payment_approval | date}}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
 </div>
-

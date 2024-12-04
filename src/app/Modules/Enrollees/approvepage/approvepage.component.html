@@ -6,28 +6,33 @@
   </div>
   <div class="illustration">
     <!-- Placeholder for the 3D illustration -->
-    <img src="sams.png " alt="Illustration">
+    <img src="Coins-bro.png " alt="Illustration">
   </div>
 </div>
 
 
+<p class="pending-text">PENDING ENROLLEES</p>
+
 
 <!-- Wrap the "PENDING ENROLLEES" text and buttons in the same flex container -->
 <section>
-  <div class="example-button-row">
-    <!-- Add text within the button row container -->
-    <p class="pending-text">PENDING ENROLLEES</p>
-    <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
-    <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
+  <div class="example-flex-container">
+    <!-- Button container (to the left now) -->
+    <div class="example-button-row">
+      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
+      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
+    </div>
+
+    <!-- Search bar container (to the right now) -->
+    <div class="search-container">
+      <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
+      </div>
+    </div>
   </div>
 </section>
 
-  
 
-  <div class="search-bar">
-    <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
-    <!-- <button type="submit">Search</button> -->
-  </div>   
 
   <div class="table-container">
       <table class="styled-table">

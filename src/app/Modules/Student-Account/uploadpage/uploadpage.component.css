@@ -226,3 +226,15 @@ tr:hover {
   letter-spacing: 3px; /* Spacing between letters for a sleek look */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+
+.icon-container {
+  text-align: right;
+}
+
+.icon-container i {
+  margin-right: 10px;
+}
+
+.icon-container i:last-child {
+  margin-right: 0; /* Removes the margin from the last icon */
+}

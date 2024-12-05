@@ -57,7 +57,7 @@ export class UploadpageComponent {
     // this.displaypending();
     this.dialog.open(ViewFinancialsComponent, {
         width: '815px',  // Fixed width
-        height: '550px', // Fixed height
+        height: '555px', // Fixed height
         maxWidth: '900px',
         maxHeight: '900px',
     });

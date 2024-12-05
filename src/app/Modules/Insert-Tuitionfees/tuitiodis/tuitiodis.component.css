@@ -312,3 +312,17 @@ section {
 }
 
 /* Other existing styles... */
+
+
+.pending-text {
+  font-size: 30px; /* Larger font size for better visibility */
+  font-weight: bold;
+  color: #030303; /* Dark color for the text */
+  margin-right: 20px; /* Space between text and buttons */
+  align-self: center; /* Vertically center the text */
+  padding-top: 20px; /* Padding to create space above */
+  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  text-transform: uppercase; /* Make text uppercase for impact */
+  letter-spacing: 3px; /* Spacing between letters for a sleek look */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}

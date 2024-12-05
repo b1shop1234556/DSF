@@ -77,14 +77,17 @@ export class ViewFinancialsComponent implements OnInit {
 
   showdata(): void {
     this.conn.displayFinancials(this.LRN.id).subscribe((result: any) => {
-      this.students = result;
+      this.students = result; // Store the fetched student data, which includes the most recent file
       this.inputAmount.patchValue({
         OR_number: this.students.OR_number,
         description: this.students.description,
         amount_paid: this.students.amount_paid,
       });
+    }, (error) => {
+      console.error('Error fetching financials:', error);
     });
   }
+  
 
   saveFunct(): void {
     const updateData = { id: this.students.id, ...this.inputAmount.value };

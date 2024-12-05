@@ -20,8 +20,12 @@
           @for(c of students | searchFilter: keyword; track c.LRN) {
             <tr>
               <!-- <td>{{ c.LRN }}</td> -->
-              <td class="text-primary text-hover" (click)="Modal(c.LRN)">{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
-               <!-- <td><i class="fa-solid fa-eye" (click)="OpModal(c.LRN)"></i></td> -->
+              <td class="">{{ c.lname }}, {{ c.fname }} {{ c.mname }} {{ c.suffix }}</td>
+              <td class="icon-container">
+                <i class="fa-solid fa-upload" (click)="Modal(c.LRN)"></i>
+                <i class="fa-solid fa-eye" (click)="OpModal(c.LRN)"></i>
+              </td>
+              
               <!-- <td><i class="fa-solid fa-print" (click)="OpenModal(c.LRN)"></i></td> -->
             </tr>
           }

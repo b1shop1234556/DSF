@@ -116,24 +116,24 @@ export class InputPaymentComponent implements OnInit {
   }
   
 
-  onMouseMove(event: MouseEvent): void {
-    const zoomElement = this.zoomedIn?.nativeElement as HTMLElement;
-    const imageElement = event.target as HTMLImageElement;
+  // onMouseMove(event: MouseEvent): void {
+  //   const zoomElement = this.zoomedIn?.nativeElement as HTMLElement;
+  //   const imageElement = event.target as HTMLImageElement;
 
-    const { left, top, width, height } = imageElement.getBoundingClientRect();
+  //   const { left, top, width, height } = imageElement.getBoundingClientRect();
 
-    const x = (event.clientX - left) / width * 100;
-    const y = (event.clientY - top) / height * 100;
+  //   const x = (event.clientX - left) / width * 100;
+  //   const y = (event.clientY - top) / height * 100;
 
-    zoomElement.style.backgroundImage = `url(${imageElement.src})`;
-    zoomElement.style.backgroundSize = `${width * 2}px ${height * 2}px`;
-    zoomElement.style.backgroundPosition = `${x}% ${y}%`;
+  //   zoomElement.style.backgroundImage = `url(${imageElement.src})`;
+  //   zoomElement.style.backgroundSize = `${width * 2}px ${height * 2}px`;
+  //   zoomElement.style.backgroundPosition = `${x}% ${y}%`;
 
-    zoomElement.style.display = 'block';
-  }
+  //   zoomElement.style.display = 'block';
+  // }
 
-  onMouseLeave(): void {
-    const zoomElement = this.zoomedIn?.nativeElement as HTMLElement;
-    zoomElement.style.display = 'none';
-  }
+  // onMouseLeave(): void {
+  //   const zoomElement = this.zoomedIn?.nativeElement as HTMLElement;
+  //   zoomElement.style.display = 'none';
+  // }
 }

@@ -15,7 +15,6 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
     margin-bottom: 0;
-    /* border-top: 4px solid #007bff; */
 }
 
 /* Form Header */
@@ -24,8 +23,6 @@ body {
     text-align: center;
     margin-bottom: 30px;
     color: #000000;
-    /* border-bottom: 2px solid #007bff; */
-    /* padding-bottom: 10px; */
 }
 
 /* Input Form Styles */
@@ -37,18 +34,18 @@ body {
 }
 
 .left-container {
-    width: 48%; /* Left container takes up almost half of the width */
+    width: 48%;
     display: flex;
-    flex-direction: row; /* Align the image and input fields horizontally */
-    gap: 30px; /* Increased space between image and input fields */
+    flex-direction: row;
+    gap: 30px;
 }
 
 /* Image Container for Zoom Effect */
 .image-container {
     position: relative;
     text-align: center;
-    flex-shrink: 0; /* Prevent image from shrinking */
-    margin-right: 20px; /* Add space between image and input fields */
+    flex-shrink: 0;
+    margin-right: 20px;
     cursor: zoom-in; /* Indicating that the image can be zoomed */
 }
 
@@ -58,26 +55,17 @@ body {
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease; /* Smooth zoom effect */
 }
 
-/* The "eyeglass" or zoomed-in view */
-.zoomed-in {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100px; /* Set the size of the zoomed-in image */
-    height: 100px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
-    border: 2px solid #007bff;
-    pointer-events: none;
-    display: none;
+/* Apply zoom effect when hovered */
+.proof-image.enlarge {
+    transition: all 0.5s ease-in-out; /* Smooth transition */
 }
 
-/* Optional: adding a hover effect for the image container */
-.image-container:hover .proof-image {
-    transform: scale(1.1); /* Optional: scale image when hovered */
+.proof-image.enlarge:hover {
+    transform: scale(1.8); /* Increased zoom effect */
+    cursor: pointer; /* Indicate that the image can be zoomed */
 }
 
 /* Input Fields */
@@ -85,7 +73,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 15px;
-    flex-grow: 1; /* Allow the form to take remaining space */
+    flex-grow: 1;
 }
 
 .field {
@@ -117,15 +105,15 @@ input[type="number"]:focus, input[type="text"]:focus {
 
 /* Right container (Student Info) */
 .right-container {
-    width: 48%; /* Right container takes up almost half of the width */
-    margin-top: 20px; /* Add space between left and right container */
+    width: 48%;
+    margin-top: 20px;
 }
 
 .image-info-container {
     display: flex;
     flex-direction: column;
     padding-bottom: 20px;
-    margin-bottom: 20px; /* Adds space between the info section and button */
+    margin-bottom: 20px;
 }
 
 .info {
@@ -144,7 +132,7 @@ input[type="number"]:focus, input[type="text"]:focus {
 /* Button Styles */
 .button-container {
     text-align: center;
-    margin-top: 20px; /* Adds space above the button */
+    margin-top: 20px;
 }
 
 button {
@@ -175,13 +163,13 @@ button:active {
     }
 
     .left-container {
-        width: 100%; /* Full width for small screens */
-        flex-direction: column; /* Stack image and input fields vertically */
-        gap: 20px; /* Space between the image and input fields */
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
     }
 
     .right-container {
-        width: 100%; /* Full width for small screens */
+        width: 100%;
     }
 
     .image-container {

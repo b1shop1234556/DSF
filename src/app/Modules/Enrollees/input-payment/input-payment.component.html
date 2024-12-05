@@ -4,9 +4,9 @@
     <form class="input-form" [formGroup]="inputAmount" (submit)="saveFunct()">
         <!-- Left Side: Image and Form Fields -->
         <div class="left-container">
-            <div class="image-container" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
-                <img src="{{students.proof_payment}}" alt="Payment Proof" class="proof-image">
-                <div class="zoomed-in" #zoomedIn></div>
+            <div class="image-container">
+                <!-- Add the enlarge class here -->
+                <img src="{{students.proof_payment}}" alt="Payment Proof" class="proof-image enlarge">
             </div>
 
             <div class="input-fields">

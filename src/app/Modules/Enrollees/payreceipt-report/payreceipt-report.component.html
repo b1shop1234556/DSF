@@ -1,0 +1,56 @@
+<!-- <p>payreceipt-report works!</p> -->
+<div class="receipt-container" style="z-index: 100050;" id="print-section">
+    <div>
+        <h2>Payment Reports</h2>
+    </div>
+    
+    <p><strong>Statement of Account as of:</strong> {{currentDate}}</p>
+    <p><strong>Account Name:</strong> {{name}}</p>
+    
+    <div class="transaction-table">
+        <table style="width:100%; border-collapse: collapse; margin-top: 10px;">
+            <thead>
+                <tr style="background-color: #000000; color: white;"> 
+                    <th style="padding: 5px; border: 1px solid #ccc; text-align: left;">DATE</th>
+                    <th style="padding: 5px; border: 1px solid #ccc; text-align: left;">JRNL#</th>
+                    <th style="padding: 5px; border: 1px solid #ccc; text-align: left;">DESCRIPTION</th>
+                    <!-- <th style="padding: 5px; border: 1px solid #ccc; text-align: right;">CHARGES/DR</th> -->
+                    <th style="padding: 5px; border: 1px solid #ccc; text-align: right;">PAYMENTS/CR</th>
+                    <!-- <th style="padding: 5px; border: 1px solid #ccc; text-align: right;">BALANCE</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 1st Semester -->
+                <!-- <tr>
+                    <td colspan="6" style="padding: 5px; border: 1px solid #ccc; text-align: center; font-weight: bold;">******BEGINNING BALANCE - 003/2024</td>
+                </tr> -->
+                <tr>
+                    <!-- <td style="padding: 5px; border: 1px solid #ccc;">2024-01-09</td>
+                    <td style="padding: 5px; border: 1px solid #ccc;">OR-00000</td>
+                    <td style="padding: 5px; border: 1px solid #ccc;">Tuition & fee SY 2024-2025</td>
+                    <td style="padding: 5px; border: 1px solid #ccc; text-align: right;">{{tuition}}</td> -->
+                    <!-- <td style="padding: 5px; border: 1px solid #ccc; text-align: right;"></td>
+                    <td style="padding: 5px; border: 1px solid #ccc; text-align: right;">00.0</td> -->
+                </tr>
+                @for(s of students; track s.LRN){
+                <tr>
+                    <td style="padding: 5px; border: 1px solid #ccc;">{{s.date_of_payment}}</td>
+                    <td style="padding: 5px; border: 1px solid #ccc;">{{s.OR_number}}</td>
+                    <td style="padding: 5px; border: 1px solid #ccc;">{{s.description}}</td>
+                    <!-- <td style="padding: 5px; border: 1px solid #ccc; text-align: right;"></td> -->
+                    <td style="padding: 5px; border: 1px solid #ccc; text-align: right;">{{s.amount_paid | currency: 'PHP':'symbol'}}</td>
+                    <!-- <td style="padding: 5px; border: 1px solid #ccc; text-align: right;">{{ s.remaining_balance | currency: 'PHP':'symbol' }}</td> -->
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Net Balance Section -->
+    <div style="margin-top: 10px;">
+        <p style="font-weight: bold; text-align: center;">TOTALS OF PAYMENT: {{total_paid | currency: 'PHP':'symbol'}}</p>
+    </div>
+    
+</div>
+
+

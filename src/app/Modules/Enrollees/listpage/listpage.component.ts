@@ -14,6 +14,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { SearchFilterPipe } from '../../../search-filter.pipe';
 import { StatementComponent } from '../../Student-Account/statement/statement.component';
 import { MatDialog } from '@angular/material/dialog';
+import { PayreceiptReportComponent } from '../payreceipt-report/payreceipt-report.component';
 // import { PutpayComponent } from '../putpay/putpay.component';
 
 @Component({
@@ -46,13 +47,24 @@ export class ListpageComponent {
   
   
   constructor(
-    // private dialog: MatDialog,
+    private dialog: MatDialog,
     // private conn: PostService,
     private conn: ConnectService,
     // private route: Router
   ){}
 
  
+  OpenModal(id: any): void {
+    console.log(id);
+    localStorage.setItem('LRN', id);
+    // this.displaypending();
+    this.dialog.open(PayreceiptReportComponent, {
+        width: '500px',  // Fixed width
+        height: '500px', // Fixed height
+        maxWidth: '900px',
+        maxHeight: '900px',
+    });
+  }
 
 
   ngOnInit(): void {

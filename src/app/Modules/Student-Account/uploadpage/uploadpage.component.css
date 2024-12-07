@@ -227,14 +227,24 @@ tr:hover {
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-.icon-container {
-  text-align: right;
+
+/* icon */
+/* Make it easier to position elements inside the td */
+td {
+  position: relative;
 }
 
-.icon-container i {
-  margin-right: 10px;
+/* Position the icons relative to the <td> */
+td i {
+  position: absolute;
+  right: 40px; /* Move the icons further to the right */
+  margin-left: 10px; /* Optional: add spacing between the icons */
 }
 
-.icon-container i:last-child {
-  margin-right: 0; /* Removes the margin from the last icon */
+td i:first-child {
+  right: 80px; /* Increase this value to move the first icon further to the right */
+}
+
+td i:last-child {
+  right: 30px; /* This adjusts the second icon even further to the right */
 }

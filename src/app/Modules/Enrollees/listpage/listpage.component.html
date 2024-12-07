@@ -42,7 +42,7 @@
             @for(c of getFilteredEnrollments() | searchFilter: keyword; track c.LRN) {
             <tr>
                 <td>{{ c.LRN }}</td>
-                <td class="col-md-2 text-start">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                <td class="col-md-2 text-primary text-start text-hover" (click)="OpenModal(c.LRN)">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
                 <td class="text-start">{{ c.gender }}</td>
                 <td class="text-start">{{ c.contact_no }}</td>
                 <td>{{ c.grade_level }}</td>

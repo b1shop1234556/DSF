@@ -70,16 +70,12 @@ export class ApprovepageComponent {
   students: any;
   grade: any;
   currentDate: Date = new Date();
-  // intervalId: any;
 
 
   constructor(
     private dialog: MatDialog,
-    // private conn: PostService,
     private route: Router,
-    private conn: ConnectService,
     private connect: ConnectService,
-    // private route: Router,
     private http: HttpClient
   ) {}
 
@@ -113,7 +109,6 @@ export class ApprovepageComponent {
     // this.getFilteredEnrollments()
     console.log(this.user.admin_id)
     this.loadExistingImage();
-    this.startPolling(); 
     this.get();
   }
 
@@ -133,7 +128,7 @@ export class ApprovepageComponent {
 
 
   displaypending() {
-    this.conn.getData().subscribe((result: any) => {
+    this.connect.getData().subscribe((result: any) => {
       this.students = result;
       console.log(this.students);
 
@@ -239,14 +234,4 @@ export class ApprovepageComponent {
       this.message = 'No Admin admin_id found. Please log in again.';
     }
   }
-  startPolling() {
-    this.intervalId = setInterval(async () => {
-      const latestAdminId = localStorage.getItem('admin_id');
-      if (latestAdminId !== this.user.admin_id) {
-        this.user.admin_id = latestAdminId;
-        this.loadExistingImage();
-      }
-    }, 300); // Check every second
-  }
-
 }

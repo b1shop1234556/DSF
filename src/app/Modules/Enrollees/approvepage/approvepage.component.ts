@@ -155,6 +155,17 @@ export class ApprovepageComponent {
       }
     });
   }
+
+  getGreeting(): string {
+    const hours = new Date().getHours();
+    if (hours < 12) {
+      return 'Good Morning, ';
+    } else if (hours < 18) {
+      return 'Good Afternoon, ';
+    } else {
+      return 'Good Evening, ';
+    }
+  }
   
   get(){
     console.log("success")

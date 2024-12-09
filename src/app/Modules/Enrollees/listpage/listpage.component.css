@@ -34,6 +34,8 @@
   display: flex; /* Using flexbox to align items horizontally */
   justify-content: space-between; /* Align elements to the start and end */
   align-items: center; /* Center items vertically */
+  width: auto;
+  position: relative;
 }
 
 .filter-field {

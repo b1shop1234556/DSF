@@ -1,7 +1,7 @@
 <div class="banner">
   <div class="text-content">
     <div class="date">{{ currentDate | date: 'EEEE, MMMM d, y' }}</div>
-    <h1 class="welcome-message">Welcome back, {{acc?.fname}}!</h1>
+    <h1 class="welcome-message">{{ getGreeting() }} {{acc?.fname}}!</h1>
     <!-- <p class="subtext">Always stay updated in your student portal</p> -->
   </div>
   <div class="illustration">
@@ -56,13 +56,13 @@
               @for(c of students | searchFilter: keyword; track c.LRN) {
               <!-- @for(c of students; track c.LRN) { -->
                   <tr>
-                      <td>{{ c.LRN }}</td>
-                      <td class="col-md-2 text-start text-primary text-hover" (click)="Modal(c.LRN)">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
-                      <td>{{ c.contact_no }}</td>
+                      <td class="text-start">{{ c.LRN }}</td>
+                      <td class="col-md-2 text-start">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                      <td class="text-start">{{ c.contact_no }}</td>
                       <td>{{ c.grade_level }}</td>
                       <td >{{ c.date_register | date}}</td>
-                      <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
-                      <td>
+                      <td>{{ c.total_tuition | currency: 'PHP':'symbol' }}</td>
+                      <td class="text-start text-primary text-hover" (click)="Modal(c.LRN)">
                       {{ c.amount_paid | currency: 'PHP':'symbol' }}
                       <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->
                       </td>

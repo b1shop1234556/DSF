@@ -47,7 +47,7 @@
   justify-content: space-between; /* Space between the button row and the search bar */
   align-items: center; /* Vertically center the content */
   width: 100%; /* Ensure it takes up the full width */
-  gap: 20px; /* Optional: Space between the button row and the search bar */
+  gap: 160px; /* Optional: Space between the button row and the search bar */
 }
 
 /* Search bar styling */

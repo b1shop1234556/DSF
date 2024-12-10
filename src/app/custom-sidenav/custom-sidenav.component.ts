@@ -47,6 +47,9 @@ export class CustomSidenavComponent implements OnInit{
     this.sideNavCollapsed.set(val);
   }
 
+
+  adminPic: string | null = null;
+
   acc: any = {};
   user = { admin_id: localStorage.getItem('admin_id')};
   imagePreview: string | ArrayBuffer | null = null;

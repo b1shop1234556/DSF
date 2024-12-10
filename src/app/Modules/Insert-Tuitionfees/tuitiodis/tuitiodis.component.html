@@ -1,21 +1,22 @@
 <section>
-  <!-- Heading container using flexbox -->
-
-  <p class="pending-text">TUITION FEES</p>
-
-  <div class="heading-container">
-    <div class="heading-left">
-      <!-- Plus icon positioned beside the heading -->
-      <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']"></i>
+  <div class="row align-items-center">
+    <div class="col d-flex align-items-center">
+        <p class="pending-text">
+          TUITION FEES
+          <i class="fa-solid fa-circle-plus" [routerLink]="['/main-page/inserts/ins/inser']" style="cursor: pointer; color: blue;"></i>
+        </p>
     </div>
-    <div class="button-container">
-      <!-- Any other buttons can go here -->
+    <div class="col d-flex justify-content-end">
+      <!-- <div class="search-bar">
+        <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
+      </div>  -->
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input [(ngModel)]="keyword" matInput placeholder="Search by name..." />
+        </mat-form-field>
     </div>
   </div>
 
-  <!-- <section class="search-bar">
-    <input type="text" id="search-input" placeholder="Search by Grade Level..." [(ngModel)]="keyword">
-  </section> -->
   
   <div class="table-container">
     <table class="styled-table">

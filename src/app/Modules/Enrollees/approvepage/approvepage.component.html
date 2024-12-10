@@ -5,7 +5,6 @@
     <!-- <p class="subtext">Always stay updated in your student portal</p> -->
   </div>
   <div class="illustration">
-    <!-- Placeholder for the 3D illustration -->
     <img src="Coins-bro.png " alt="Illustration">
   </div>
 </div>
@@ -14,23 +13,21 @@
 <p class="pending-text">PENDING ENROLLEES</p>
 
 
-<!-- Wrap the "PENDING ENROLLEES" text and buttons in the same flex container -->
-<section>
-  <div class="example-flex-container">
-    <!-- Button container (to the left now) -->
-    <div class="example-button-row">
-      <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
-      <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
-    </div>
-
-    <!-- Search bar container (to the right now) -->
-    <div class="search-container">
-      <div class="search-bar">
-        <input type="text" id="search-input" placeholder="Search..." [(ngModel)]="keyword">
+<div class="row align-items-center">
+  <div class="col d-flex align-items-center">
+      <div class="example-button-row">
+        <button class="pending-button" [routerLink]="['/main-page/enrollees/homepage/pending']">PENDING</button>
+        <button class="approved-button" [routerLink]="['/main-page/enrollees/homepage/approve']">APPROVED</button>
       </div>
-    </div>
   </div>
-</section>
+
+  <div class="col d-flex justify-content-end">
+      <mat-form-field>
+          <mat-label>Search</mat-label>
+          <input [(ngModel)]="keyword" matInput placeholder="Search name..." />
+      </mat-form-field>
+  </div>
+</div>
 
 
 
@@ -40,7 +37,7 @@
               <tr>
                   <th>LRN</th>
                   <th class="col-md-2">NAME</th>
-                  <th>CONTACT NO.</th>
+                  <th>CONTACT #</th>
                   <th>GRADE LEVEL</th>
                   <th >ENROLLMENT DATE</th>
                   <th>TUITION FEE</th>

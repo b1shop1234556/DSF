@@ -96,7 +96,7 @@ export class ApprovepageComponent {
     this.displaypending();
     this.dialog.open(InputPaymentComponent, {
         width: '920px',  // Fixed width
-        height: '610px', // Fixed height
+        height: '580px', // Fixed height
         maxWidth: '2000px',
         maxHeight: '2000px',
     });

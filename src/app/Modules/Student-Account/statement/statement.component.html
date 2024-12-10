@@ -10,6 +10,9 @@
     <div class="button-container">
         <label>
             <input type="file" class="form-control" (change)="onFileSelected($event)" id="fileUpload" name="fileInput" #fileInput>
+            <!-- <input type="file" class="form-control" (change)="onFileSelected($event)" id="fileUpload" name="fileInput" #fileInput multiple> -->
+            <!-- <input type="file" class="form-control" (change)="onFileSelected($event)" multiple /> -->
+
             <div class="button-actions">
                 <!-- <button onclick="window.history.back();" class="btn btn-back">Back</button> -->
                 <button class="btn btn-upload" (click)="uploadFiles()">Upload</button>

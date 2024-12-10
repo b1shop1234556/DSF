@@ -103,7 +103,7 @@ export class ViewFinancialsComponent implements OnInit {
   }
 
   approveReceipt(id: any) {
-    // Validate that LRN.id and id are not undefined
+    // Check if LRN.id and id are defined before proceeding
     if (this.LRN.id && id) {
       this.conn.approveEnrollment(id).subscribe({
         next: (response) => {
@@ -114,7 +114,7 @@ export class ViewFinancialsComponent implements OnInit {
             title: 'Enrollment Approved Successfully',
             showConfirmButton: true,
           }).then(() => {
-            // Navigate only if LRN.id is defined
+            // Navigate only if LRN.id and id are valid
             this.route.navigate(['/main-page/enrollees/homepage/approve']);
             this.dialogRef.close();
           });
@@ -125,9 +125,11 @@ export class ViewFinancialsComponent implements OnInit {
       });
     } else {
       console.error('LRN.id or id is undefined, cannot navigate.');
-      // Optionally show an error message or handle the invalid case
+      // Optionally navigate to a default route or show an error message
+      this.route.navigate(['/main-page/error']);  // Example fallback route
     }
   }
+  
   
 
   onMouseMove(event: MouseEvent): void {

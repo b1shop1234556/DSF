@@ -31,13 +31,14 @@
         <div class="right-container">
             <div class="image-info-container">
                 <div class="info">
-                    <p><strong>JRNL#:</strong> {{students.OR_number}}</p>
+                    <p><strong>JRNL #:</strong> {{students.OR_number}}</p>
                     <p><strong>Date:</strong> {{students.date_of_payment | date}}</p>
                     <p><strong>LRN:</strong> {{students.LRN}}</p>
                     <p><strong>Sender From:</strong> {{students.lname}} {{students.fname}} {{students.mname}}</p>
                     <p><strong>Address:</strong> {{students.address}}</p>
+                    <p><strong>Contact #:</strong> {{students.contact_no}}</p>
                     <p><strong>Description:</strong> {{students.description}}</p>
-                    <p><strong>Total Amount Paid:</strong> ({{students.amount_paid}})</p>
+                    <p><strong>Total Amount Paid:</strong> {{students.amount_paid | currency: 'PHP':'symbol'}}</p>
                 </div>
             </div>
 

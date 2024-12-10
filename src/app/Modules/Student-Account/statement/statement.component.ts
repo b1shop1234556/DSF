@@ -91,8 +91,9 @@ export class StatementComponent implements OnInit{
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('filename', this.selectedFile, this.selectedFile.name);
-    
+      
       this.http.post(`http://localhost:8000/api/uploadfiles/${this.LRN.id}`, formData)
+      // this.http.post(`http://192.168.3.38:8000/api/uploadfiles/${this.LRN.id}`, formData)
         .subscribe(
           (response: any) => {
             Swal.fire({
@@ -104,7 +105,7 @@ export class StatementComponent implements OnInit{
               // this.loadExistingImage();
               // this.startPolling();
               // localStorage.removeItem('Admin_ID'); 
-              this.route.navigate(["/main-page/student/home-page/upload"]);
+              this.route.navigate(["/main-page/student/home-page"]);
               // location.reload(); // Reload the page after navigation
              
             });

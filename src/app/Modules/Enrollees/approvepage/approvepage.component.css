@@ -33,41 +33,6 @@
   background-color: #0056b3; /* Darker shade on hover */
 }
 
-/* Flex container to align search bar to the right */
-.search-container {
-  display: flex;
-  justify-content: flex-end;
-  flex-grow: 1;
-  padding-left: 580px; /* Add right padding to give some space */
-}
-
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between; /* Space between the button row and the search bar */
-  align-items: center; /* Vertically center the content */
-  width: 100%; /* Ensure it takes up the full width */
-  gap: 160px; /* Optional: Space between the button row and the search bar */
-}
-
-/* Search bar styling */
-.search-bar {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ddd;
-  padding: 6px;
-  border-radius: 3px;
-  max-width: 250px;
-}
-
-.search-bar input[type="text"] {
-  padding: 6px;
-  border: none;
-  box-sizing: border-box;
-  flex-grow: 1;
-  width: 100%;
-}
-
 
 .search-bar button {
   background-color: #007bff;

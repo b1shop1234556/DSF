@@ -11,7 +11,7 @@ export class ConnectService {
   }
    
   private url = 'http://localhost:8000/api/'; // Adjusted URL
-  // private url = 'http://10.0.64.95:8000/api/'; // Adjusted URL
+  // private url = 'http://192.168.3.38:8000/api/'; // Adjusted URL
 
   constructor(private http: HttpClient) {}
 

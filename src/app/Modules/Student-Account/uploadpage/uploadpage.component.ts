@@ -19,6 +19,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-uploadpage',
@@ -165,21 +166,65 @@ export class UploadpageComponent {
     this.myForm.patchValue({ files: fileArray });
   }
 
-  submit() {
+  submit(): void {
     console.log('clicked.');
     const files = this.myForm.get('files')?.value; // Get files from form control
   
     if (files && files.length > 0) {
+      // If files are selected, upload them
       this.conn.uploadImages(files).subscribe(
         response => {
-          console.log('Upload successful:', response);
+          // Success alert
+          Swal.fire({
+            title: 'Success!',
+            text: 'Images uploaded successfully!',
+            icon: 'success',
+            confirmButtonText: 'OK'
+          }).then(() => {
+            // Clear images array (remove previews)
+            this.images = [];
+  
+            // Reset the file input field
+            this.myForm.patchValue({ files: null });
+  
+            // After success, navigate or refresh as needed
+            this.route.navigate(["/main-page/student/home-page"]);
+          });
         },
         error => {
+          // Error alert if the upload fails
+          Swal.fire({
+            title: 'Error!',
+            text: 'Error uploading images. Please try again.',
+            icon: 'error',
+            confirmButtonText: 'OK'
+          });
           console.error('Upload failed:', error);
         }
       );
     } else {
-      console.log('No files selected.');
+      // Warning alert if no files are selected
+      Swal.fire({
+        title: 'Warning!',
+        text: 'Please select images first.',
+        icon: 'warning',
+        confirmButtonText: 'OK'
+      });
     }
   }
+  
+
+  enlargedImage: string | null = null;
+  showOverlay: boolean = false;
+
+  enlargeImage(img: string): void {
+    this.enlargedImage = img;
+    this.showOverlay = true;
+  }
+
+  closeEnlargedImage(): void {
+    this.enlargedImage = null;
+    this.showOverlay = false;
+  }
+
 }

@@ -27,7 +27,8 @@
 
     <!-- Profile Button with Dropdown -->
     <button mat-icon-button class="example-icon circle-btn ms-2" [matMenuTriggerFor]="profileMenu">
-        <img [src]="imagePreview" class="prof-image" />
+        <!-- <img [src]="imagePreview" class="prof-image" /> -->
+        <img [src]="'http://localhost:8000/profile_images/' + acc?.admin_pic"  class="prof-image">
     </button>
     
     <!-- Profile Dropdown Menu -->

@@ -181,7 +181,7 @@ export class EditInfoComponent implements OnInit{
       this.connect.getAccount(this.user.admin_id).subscribe(
         (response: any) => {
           if (response.admin_pic) {
-            this.existingImageUrl = `http://localhost/profile_images/${response.admin_pic}`;
+            this.existingImageUrl = `http://localhost:8000/profile_images/${response.admin_pic}`;
             this.imagePreview = this.existingImageUrl; // Set the preview to existing image
             console.log(this.existingImageUrl)
           } else {

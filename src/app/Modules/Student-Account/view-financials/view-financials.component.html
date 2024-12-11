@@ -1,8 +1,8 @@
 <div class="view-container">
     <div class="image-container" (mousemove)="onMouseMove($event)" (mouseleave)="onMouseLeave()">
-        <!-- <img [src]="'http://localhost:8000/'students.filename" alt="View Financials" class="proof-image"> -->
-        <!-- <img src="{{students.filename}}" alt="View Financials" class="proof-image"> -->
-        <img [src]="students.filename" alt="View Financials" class="proof-image">
+        <img [src]="'http://localhost:8000/SOA_PIC/' + students.filename" alt="View Financials" class="proof-image">
+        <!-- <img [src]="{{students.filename}}" alt="View Financials" class="proof-image"> -->
+        <!-- <img [src]="students.filename" alt="View Financials" class="proof-image"> -->
         <div class="zoomed-in" #zoomedIn></div>
     </div>
 </div>

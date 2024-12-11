@@ -27,20 +27,16 @@ import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ViewViewComponent,
-    RouterLink,
     RouterModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
     MatSidenavModule,
     MatInputModule,
-    CustomSidenavComponent,
     MatBadgeModule,
     MatMenuModule,
     MatDividerModule,
     MatListModule,
-    SearchFilterPipe,
     MatSelectModule,
     MatFormFieldModule,
     FormsModule
@@ -49,164 +45,161 @@ import { ViewViewComponent } from '../../Enrollees/view-view/view-view.component
   styleUrl: './edit-info.component.css'
 })
 export class EditInfoComponent implements OnInit{
-  // user: any;
-  acc: any = {};
-  user = { admin_id: localStorage.getItem('admin_id')};
-  imagePreview: string | ArrayBuffer | null = null;
-  errorMessage: string = ''; // To hold any error messages
-  file:  File | null = null;
-  selectedFile: File | null = null;
-  message: string = '';
-  existingImageUrl: string | null = null;
-  intervalId: any;
-  image: any;
+  user: any;
+  adminPic:any;
+  constructor(private adminService:ConnectService) {
 
-  isLoading: boolean = true;  // Flag to track loading status
+  }
 
-  constructor(
-    private connect: ConnectService,
-    private route: Router,
-    private http: HttpClient
-  ){}
+  profileForm = new FormGroup({
+    admin_id: new FormControl('',),
+    fname: new FormControl(''),
+    mname: new FormControl(''),
+    lname: new FormControl(''),
+    email: new FormControl(''),
+    address: new FormControl(''),
+    oldPassword: new FormControl(null),
+    newPassword: new FormControl(''),
+    newPassword_confirmation: new FormControl(''),
+    role: new FormControl(''),
 
-  accountupdate = new FormGroup({
-    fname: new FormControl(null),
-    mname: new FormControl(null),
-    lname: new FormControl(null),
-    currentPassword: new FormControl(null),
-    password: new FormControl(null),
-    confirmpassword: new FormControl(null),
-    email: new FormControl(null),
-    address: new FormControl(null),
   })
 
-  ngOnInit(): void {
-    // this.user = { id: localStorage.getItem('id')}
-    console.log(this.user.admin_id)
-    this.loadExistingImage();
-    this.startPolling(); 
-    this.get();
-    // console.log(this.accountupdate)
-    
+  ngOnInit() {
+    this.loadUserData();
+}
+
+loadUserData(): void {
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+  this.user = user; // Set the user object
+  console.log('Loaded user:', this.user);
+
+  if (user) {
+      // Patch the profile form with user details
+      this.profileForm.patchValue({
+          admin_id: user.admin_id,
+          fname: user.fname,
+          mname: user.mname,
+          lname: user.lname,
+          email: user.email,
+          address: user.address,
+          role: user.role,
+          oldPassword: user.oldPassword,
+
+      });
   }
-  save() {
-    const updateData = { admin_id: this.user.admin_id, ...this.accountupdate.value };
-    console.log(updateData);
+
+  // Set admin picture
+  this.adminPic = user.admin_pic || 'assets/mik.jpg';
+}
+
+  saveChanges(): void {
+    if (this.profileForm.valid) {
+      const formData = this.profileForm.value;
   
-    // Call your service to update the account
-    this.connect.updateAccount(updateData).subscribe(
-      (response) => {
-        // Success - show Swal success alert
+      const adminId = Number(formData.admin_id);
+      const oldPassword = formData.oldPassword ?? ''; // Ensure this is a string
+  
+      if (adminId <= 0 || !oldPassword) {
+        console.error('Invalid admin ID or missing old password');
         Swal.fire({
-          title: 'Success!',
-          text: 'Your account has been updated successfully.',
-          icon: 'success',
-          confirmButtonText: 'OK'
-        }).then(() => {
-          // Reload the page after success
-          location.reload();  // This will reload the current page
+          title: "Error",
+          text: "Enter Old Password to save changes.",
+          icon: "error"
         });
-      },
-      (error) => {
-        // Error - show Swal error alert
-        Swal.fire({
-          title: 'Error!',
-          text: 'There was an error updating your account. Please try again.',
-          icon: 'error',
-          confirmButtonText: 'OK'
-        });
-        console.error('Error updating account:', error);
+        return;
+        
       }
-    );
-  }
+      const adminPic = this.adminPic; //bago
+      this.adminService.update(adminId, oldPassword, {
+        fname: formData.fname,
+        mname: formData.mname,
+        lname: formData.lname,
+        email: formData.email,
+        address: formData.address,
+        admin_pic: adminPic, // bago
+        newPassword: formData.newPassword,
+        newPassword_confirmation: formData.newPassword_confirmation // Include confirmation if needed
+      }).subscribe(
+        (result) => {
+          Swal.fire({
+            title: "Success!",
+            text: "Profile updated successfully!",
+            icon: "success"
+          });
+          console.log('Profile updated successfully', result);
+
+          const updatedUser = {
+            ...this.user,            // Retain all existing properties from `this.user`
+            admin_pic: adminPic,     // Explicitly retain the old value of `admin_pic`
+            fname: formData.fname,
+            mname: formData.mname,
+            lname: formData.lname,
+            email: formData.email,
+            address: formData.address,
+        };
+        
   
-  
-  get(){
-    console.log("success")
-    this.connect.getAccount(this.user.admin_id).subscribe((result: any) => {
-      console.log(result)
-      this.acc = result;
-      this.isLoading = false;
-      this.accountupdate.controls['fname'].setValue(this.acc.fname)
-      this.accountupdate.controls['mname'].setValue(this.acc.mname)
-      this.accountupdate.controls['lname'].setValue(this.acc.lname)
-      this.accountupdate.controls['email'].setValue(this.acc.email)
-      this.accountupdate.controls['address'].setValue(this.acc.address)
-      this.accountupdate.controls['currentPassword'].setValue(this.acc.password)
-      
-    })
-  }
+          localStorage.setItem('user', JSON.stringify(updatedUser));
+          this.loadUserData();
 
-  onFileSelected(event: any){
-    this.selectedFile = event.target.files[0] as File;
-    this.previewImage();
-  }
-  previewImage(){
-    if (this.selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result; // Update image preview with selected file
-      };
-      reader.readAsDataURL(this.selectedFile);
-    }
-  }
+          this.profileForm.patchValue({
+            newPassword: '',
+            newPassword_confirmation: ''
 
-
-  onUpload() {
-    if (this.selectedFile) {
-      const formData = new FormData();
-      formData.append('admin_pic', this.selectedFile, this.selectedFile.name);
-      
-      this.http.post(`http://localhost:8000/api/profile-image/${this.user.admin_id}`, formData)
-        .subscribe(
-          (response: any) => {
-            // After successful image upload, reload the image preview
-            this.loadExistingImage();
-            // Optionally, you can reload the page or navigate to another route if necessary
-          },
-          (error: any) => {
-            console.error('Error uploading image:', error);
-            // You can handle the error silently or log it to the console
-          }
-        );
-    } else {
-      // Optionally, you can show a message in the console or just leave it empty
-      console.log('No file selected for upload.');
-    }
-  }
-  
-
-  loadExistingImage() {
-    if (this.user.admin_id) {
-      this.connect.getAccount(this.user.admin_id).subscribe(
-        (response: any) => {
-          if (response.admin_pic) {
-            this.existingImageUrl = `http://localhost:8000/profile_images/${response.admin_pic}`;
-            this.imagePreview = this.existingImageUrl; // Set the preview to existing image
-            console.log(this.existingImageUrl)
-          } else {
-            this.imagePreview = null; // Clear preview if no image exists
-            this.message = 'No existing image found.'; // Message if no image
-          }
+          });
         },
         (error) => {
-          console.error('Error loading existing image:', error);
-          this.message = 'Error loading existing image. Please try again.';
+          console.error('Error updating profile:', error);
+          console.error('Error details:', error);
+          Swal.fire({
+            icon: "error",
+            title: "Oopps! Validation Errors",
+            html: `
+              <p>The following issues need to be resolved:</p>
+              <ul style="text-align: left;">
+                <li>New password must be 8 characters long.</li>
+                <li>Incorrect old password</li>
+              </ul>
+            `,
+          });
         }
       );
     } else {
-      this.imagePreview = null; // Clear the preview if no admin_id
-      this.message = 'No Admin admin_id found. Please log in again.';
+      console.error('Form is invalid');
     }
   }
-  startPolling() {
-    this.intervalId = setInterval(async () => {
-      const latestAdminId = localStorage.getItem('admin_id');
-      if (latestAdminId !== this.user.admin_id) {
-        this.user.admin_id = latestAdminId;
-        this.loadExistingImage();
-      }
-    }, 300); // Check every second
-  }
+
+
+  onFileChange(event: any): void {
+    const file = event.target.files[0];
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+    if (file && user.admin_id) {
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('admin_id', user.admin_id);
+    
+      this.adminService.uploadImage(formData).subscribe(response => {
+        console.log(response); 
+        const newImageUrl = `http://localhost:8000/assets/adminPic/${response['image_url'].split('/').pop()}`;
+        
+        // Update adminPic variable and the service
+        this.adminPic = newImageUrl;
+        user.admin_pic = newImageUrl;
+        localStorage.setItem('user', JSON.stringify(user)); 
+        
+        // Notify other components by updating the service
+        this.adminService.updateAdminPic(newImageUrl); // Notify all subscribers
+        console.log('Admin Picture URL:', this.adminPic);
+      }, error => {
+        console.error('Error uploading image:', error);
+      });
+    
+    
+    } else {
+        console.error('No file selected or admin ID is missing');
+    }
+}
 
 }

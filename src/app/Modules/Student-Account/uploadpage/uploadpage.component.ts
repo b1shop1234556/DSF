@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,11 +13,32 @@ import { StatementComponent } from '../statement/statement.component';
 import { MatDialog } from '@angular/material/dialog';
 import { PrintSOAComponent } from '../print-soa/print-soa.component';
 import { ViewFinancialsComponent } from '../view-financials/view-financials.component';
+import { CommonModule } from '@angular/common';
+import { MatBadgeModule } from '@angular/material/badge';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'app-uploadpage',
   standalone: true,
-  imports: [MatIconModule, MatButtonModule, RouterModule, MatFormFieldModule, MatSelectModule, MatInputModule, FormsModule, MatListModule, SearchFilterPipe],
+  imports: [CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatInputModule,
+    MatBadgeModule,
+    MatMenuModule,
+    MatDividerModule,
+    MatListModule,
+    SearchFilterPipe,
+    MatSelectModule,
+    MatFormFieldModule,
+    FormsModule],
   templateUrl: './uploadpage.component.html',
   styleUrl: './uploadpage.component.css'
 })
@@ -97,12 +118,12 @@ export class UploadpageComponent {
   }
   
 
-  constructor(
-    private dialog: MatDialog,
-    // private conn: PostService,
-    private conn: ConnectService,
-    private route: Router
-  ){}
+  // constructor(
+  //   private dialog: MatDialog,
+  //   // private conn: PostService,
+  //   private conn: ConnectService,
+  //   private route: Router
+  // ){}
 
   // [routerLink]="['/main-page/enrollees/homepage/viewdetails']"
 
@@ -111,4 +132,54 @@ export class UploadpageComponent {
   //   localStorage.setItem('LRN', id);
   //   this.route.navigate(['/main-page/student/home-page/soa'])
   // }
+
+  images: any[] = [];
+  myForm: FormGroup;
+
+  constructor(
+    private dialog: MatDialog,
+    // private conn: PostService,
+    private conn: ConnectService,
+    private route: Router
+  ){
+    this.myForm = new FormGroup({
+      files: new FormControl(null) // Initialize the files control
+    });
+  }
+
+  onFileChange(event: any) {
+    const files = event.target.files;
+    this.images = []; // Clear previous images
+    const fileArray: File[] = []; // Array to hold File objects
+
+    for (let i = 0; i < files.length; i++) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.images.push(e.target.result);
+      };
+      reader.readAsDataURL(files[i]);
+      fileArray.push(files[i]); // Add each file to the array
+    }
+
+    // Set the files array to the form control
+    this.myForm.patchValue({ files: fileArray });
+  }
+
+  submit() {
+    console.log('clicked.');
+    const files = this.myForm.get('files')?.value; // Get files from form control
+  
+    if (files && files.length > 0) {
+      this.conn.uploadImages(files).subscribe(
+        response => {
+          console.log('Upload successful:', response);
+        },
+        error => {
+          console.error('Upload failed:', error);
+        }
+      );
+    } else {
+      console.log('No files selected.');
+    }
+  }
 }

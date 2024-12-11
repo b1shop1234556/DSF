@@ -16,6 +16,22 @@
 </div>
 <!-- <i class="fa-solid fa-upload" (click)="Modal()"></i> -->
 
+<form [formGroup]="myForm" (ngSubmit)="submit()">
+  <div class="form-group">
+    <label for="file">Choose images</label>
+    <input type="file" id="file" (change)="onFileChange($event)" multiple />
+  </div>
+
+  <div *ngIf="images.length" style="display: none;">
+    <h3>Image Previews:</h3>
+    <div *ngFor="let img of images">
+      <img [src]="img" height="150" width="200" style="margin: 3px;" />
+    </div>
+  </div>
+
+  <button type="submit" [disabled]="myForm.invalid">Upload</button>
+</form>
+
 <div class="table-container">
   <table class="styled-table">
       <thead>

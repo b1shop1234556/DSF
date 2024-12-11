@@ -13,72 +13,52 @@ import Swal from 'sweetalert2';
   styleUrls: ['./login.component.css'] // Fix for stylesUrl
 })
 export class LoginComponent {
-  constructor(
-    private conn: ConnectService,
-    private router: Router
-  ) {}
-
-  loginform = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl('')
-  });
-
-  login() {
-    if (this.loginform.valid) {
+    constructor(
+        private conn: ConnectService,
+        private router: Router
+      ) {}
+    
+      loginform = new FormGroup({
+        email: new FormControl(''),
+        password: new FormControl('')
+      });
+    
+      login() {
         this.conn.logins(this.loginform.value).subscribe(
-            (result: any) => {
-                console.log('Login result:', result); // Log the entire result for debugging
-                if (result.token != null) {
-                    if (typeof window !== 'undefined' && window.localStorage) {
-                      localStorage.setItem('token', result.token);
-                      localStorage.setItem('admin_id', result.admin.admin_id);
-                        // if (result.user && result.user.id) {
-                        //   localStorage.setItem('admin_id', result.admin.admin_id);                        } else {
-                        //     console.error('User object is undefined or does not have an id');
-                        // }
-                    }
-
-                    // Show success SweetAlert
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Login Successful',
-                        showConfirmButton: false,
-                        timer: 1500
-                    }).then(() => {
-                        this.router.navigate(['/main-page']); // Redirect to the main page
-                    });
-                } else {
-                    // Show error if login fails
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'error',
-                        title: 'Login Failed',
-                        text: 'Incorrect credentials, please try again.',
-                        showConfirmButton: true
-                    });
+          (result: any) => {
+            if (result.token != null) {
+              localStorage.setItem('token', result.token);
+              localStorage.setItem('admin_id', result.admin.admin_id);
+              // image get
+              const user = result.admin;
+              if (user && user.admin_pic) {
+                if (!user.admin_pic.startsWith('http://localhost:8000')) {
+                  user.admin_pic = `http://localhost:8000/assets/adminPic/${user.admin_pic}`;
                 }
-            },
-            (error) => {
-                console.error('Error during login:', error);
-                // Show error alert if there's an API error
-                Swal.fire({
-                    position: 'center',
-                    icon: 'error',
-                    title: 'Error',
-                    text: 'There was an issue with the login process. Please try again.',
-                    showConfirmButton: true
-                });
+              }
+              localStorage.setItem('user', JSON.stringify(user));
+              
+              console.log('Token stored:', result.token);
+              this.router.navigate(["/main-page"]);
             }
+            else{
+              Swal.fire({
+                icon: "error",
+                title: "Something went wrong!",
+                text: "Invalid Email or Password",  
+              });
+            }
+            
+            
+            console.log(result);
+          },
+          (error) => {
+            Swal.fire({
+              icon: "error",
+              title: "Something went wrong!",
+              text: "Invalid Email or Password",  
+            });
+          }
         );
-    } else {
-        Swal.fire({
-            position: 'center',
-            icon: 'warning',
-            title: 'Validation Failed',
-            text: 'Please fill in both fields before submitting.',
-            showConfirmButton: true
-        });
     }
-}
 }

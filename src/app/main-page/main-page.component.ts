@@ -69,93 +69,41 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MainPageComponent implements OnInit{
 
-  collapsed = signal(false)
+  adminPic: string | null = null;
 
-  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');  
-  acc: any;
-  user = { admin_id: localStorage.getItem('admin_id')};
-  imagePreview: string | ArrayBuffer | null = null;
-  errorMessage: string = ''; // To hold any error messages
-  file:  File | null = null;
-  selectedFile: File | null = null;
-  message: string = '';
-  existingImageUrl: string | null = null;
-  intervalId: any;
-  image: any;
+  collapsed = signal(true)
+  sidenavWidth = computed(() => this.collapsed() ? '65px' : '250px');
+  menunavWidth = computed(() => this.collapsed() ? '65px' : '450px');
+  constructor(private conn: ConnectService, private router: Router) {}
 
-  constructor(
-    private connect: ConnectService,
-    private route: Router,
-    private http: HttpClient
-  ){}
-  ngOnInit(): void {
-    this.get();
-    this.loadExistingImage();
-    this.startPolling();
-  }
+  ngOnInit() {
+    // Subscribe to the adminPic$ observable to get the image URL
+    this.conn.adminPic$.subscribe((newImageUrl) => {
+      if (newImageUrl) {
+        this.adminPic = newImageUrl; // Update the component's admin picture
+      }
+    });
 
-  logout(){
-    const header = localStorage.getItem('token')
-    console.log(header)
-
-    this.connect.logout().subscribe((results: any) => {
-      localStorage.removeItem('token');
-      this.route.navigate(['login']);
-    })
-  }
-  
-  get(){
-    this.connect.getAccount(this.user.admin_id).subscribe((result: any) => {
-      console.log(result)
-      this.acc = result
-      // this.accountupdate.controls['currentPassword'].setValue(this.acc.password)
-    })
-  }
-
-  onFileSelected(event: any){
-    this.selectedFile = event.target.files[0] as File;
-    this.previewImage();
-  }
-  previewImage(){
-    if (this.selectedFile) {
-      const reader = new FileReader();
-      reader.onload = () => {
-        this.imagePreview = reader.result; // Update image preview with selected file
-      };
-      reader.readAsDataURL(this.selectedFile);
+    // Optionally, initialize with the image from localStorage
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    if (user && user.admin_pic) {
+      this.adminPic = user.admin_pic;
     }
   }
 
-  loadExistingImage() {
-    if (this.user.admin_id) {
-      this.connect.getAccount(this.user.admin_id).subscribe(
-        (response: any) => {
-          if (response.admin_pic) {
-            this.existingImageUrl = `http://localhost/profile_images/${response.admin_pic}`;
-            this.imagePreview = this.existingImageUrl; // Set the preview to existing image
-            console.log(this.existingImageUrl)
-          } else {
-            this.imagePreview = null; // Clear preview if no image exists
-            this.message = 'No existing image found.'; // Message if no image
-          }
+  onLogout() {
+    this.conn.logout().subscribe(
+        (response) => {
+            console.log('Logout successful:', response);
+            localStorage.removeItem('token');
+            localStorage.removeItem('user'); 
+            localStorage.removeItem('admin_id');// Clear the token from localStorage
+            this.router.navigate(['/login']); // Navigate to the login page
         },
         (error) => {
-          console.error('Error loading existing image:', error);
-          this.message = 'Error loading existing image. Please try again.';
+            console.error('Logout error:', error);
+            // Optionally, handle specific error messages or status codes here
         }
-      );
-    } else {
-      this.imagePreview = null; // Clear the preview if no admin_id
-      this.message = 'No Admin admin_id found. Please log in again.';
-    }
-  }
-  startPolling() {
-    this.intervalId = setInterval(async () => {
-      const latestAdminId = localStorage.getItem('admin_id');
-      if (latestAdminId !== this.user.admin_id) {
-        this.user.admin_id = latestAdminId;
-        this.loadExistingImage();
-      }
-    }, 300); // Check every second
-  }
+    );
+}
 }

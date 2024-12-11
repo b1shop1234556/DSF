@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, Observable, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +13,9 @@ export class ConnectService {
   private url = 'http://localhost:8000/api/'; // Adjusted URL
   // private url = 'http://192.168.3.38:8000/api/'; // Adjusted URL
 
+  private adminPicSubject = new BehaviorSubject<string | null>(null); // This will store the admin image URL
+  adminPic$ = this.adminPicSubject.asObservable();
+
   constructor(private http: HttpClient) {}
 
   logins(data: any): Observable<any> {
@@ -23,6 +26,21 @@ export class ConnectService {
     const token = localStorage.getItem('token');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post(this.url + 'logout', {}, { headers });
+  }
+
+  //----editing profiles-----
+  update(adminId: number, oldPassword: string, newData: any): Observable<any> {
+    return this.http.put(`${this.url}update-password`, {
+      admin_id: adminId,
+      oldPassword: oldPassword,
+      ...newData
+    });
+  }
+  uploadImage(formData: FormData): Observable<any> {
+    return this.http.post('http://localhost:8000/api/upload-image', formData);
+  }
+  updateAdminPic(newImageUrl: string) {
+    this.adminPicSubject.next(newImageUrl); // Emit new image URL
   }
 
    //----editing profiles-----
@@ -132,4 +150,12 @@ export class ConnectService {
     return this.http.get(`${this.url}findfees/${id}`);
   }
   
+  uploadImages(images: File[]): Observable<any> {
+    const formData = new FormData();
+    images.forEach(image => {
+      formData.append('images[]', image);
+    });
+
+    return this.http.post(`${this.url}upload-images`, formData);
+  }
 }

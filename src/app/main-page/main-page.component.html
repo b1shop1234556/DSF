@@ -1,61 +1,39 @@
-  
-  <mat-toolbar class="mat-elevation-z3">
+<mat-toolbar class="mat-elevation-z3">
     <button mat-icon-button (click)="collapsed.set(!collapsed())">
         <mat-icon>menu</mat-icon>
     </button>
-    <img [width]="180" [height]="40" src="academy.png" alt=""/>
+    <img [width]="180" [height]="40" src="academy.png"/>
     <span class="example-spacer"></span>
-    
-    <!-- Notifications Button with Dropdown -->
-    <!-- <button mat-icon-button class="example-icon" [matMenuTriggerFor]="notificationsMenu" aria-label="Notifications">
-        <mat-icon matBadgeColor="accent" matBadge="3">notifications</mat-icon>
+
+  
+  <button mat-icon-button class="example-icon circle-btn ms-2" [matMenuTriggerFor]="profileMenu">
+    <!-- <img [src]="adminPic" class="prof-image" alt="Admin Profile Picture" /> -->
+    <img [src]="adminPic ? adminPic: '/assets/mik.jpg'" class="prof-image" alt="Admin Profile Picture" />
+  </button>
+  
+  <!-- Profile Dropdown Menu -->
+  <mat-menu #profileMenu="matMenu">
+      <button mat-menu-item [routerLink]="['/main-page/account/acc-homepage']">
+          <mat-icon>settings</mat-icon>
+          <span>Account Settings</span>
+      </button>
+      <button mat-menu-item (click)="onLogout()">
+        <mat-icon>exit_to_app</mat-icon>
+        <span>Logout</span>
     </button>
-
-    <mat-menu #notificationsMenu="matMenu">
-        <mat-list>
-            <mat-list-item>
-                <p matLine>No Classes on January 27</p>
-            </mat-list-item>
-            <mat-list-item>
-                <p matLine>Card Day on February 14</p>
-            </mat-list-item>
-            <mat-list-item>
-                <p matLine>May libreng kape</p>
-            </mat-list-item>
-        </mat-list>
-    </mat-menu> -->
-
-    <!-- Profile Button with Dropdown -->
-    <button mat-icon-button class="example-icon circle-btn ms-2" [matMenuTriggerFor]="profileMenu">
-        <!-- <img [src]="imagePreview" class="prof-image" /> -->
-        <img [src]="'http://localhost:8000/profile_images/' + acc?.admin_pic"  class="prof-image">
-    </button>
+  </mat-menu>
+  
+  </mat-toolbar> 
+  
+  <mat-sidenav-container>
     
-    <!-- Profile Dropdown Menu -->
-    <mat-menu #profileMenu="matMenu">
-        <button mat-menu-item >
-            <mat-icon>settings</mat-icon>
-            <span [routerLink]="['/main-page/account/acc-homepage']">Account Settings</span>
-        </button>
-        <button mat-menu-item >
-            <mat-icon>exit_to_app</mat-icon>
-            <span (click)="logout()">Logout</span>
-        </button>
-    </mat-menu>
-
-    <!-- [routerLink]="['login']" -->
-
-    <!-- [routerLink]="['/main-page/account/acc-homepage']" -->
-
-</mat-toolbar> 
-
-<mat-sidenav-container>
-    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()"> 
-        <app-custom-sidenav [collapsed]="collapsed()" />
+    <mat-sidenav opened mode="side" [style.width]="sidenavWidth()" autosize>
+      
+      <app-custom-sidenav [collapsed]="collapsed()"/>
     </mat-sidenav>
-
+  
     <mat-sidenav-content class="content" [style.margin-left]="sidenavWidth()">
-        <router-outlet></router-outlet>
+      <router-outlet></router-outlet>
     </mat-sidenav-content>
-
-</mat-sidenav-container>
+  
+  </mat-sidenav-container>

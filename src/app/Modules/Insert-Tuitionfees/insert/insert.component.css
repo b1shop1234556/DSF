@@ -19,7 +19,7 @@ form.tuition-form {
     width: 100%;
     max-width: 700px; /* Slightly larger max-width for a more spacious form */
     margin: 0 20px;
-    margin-left: 200px;
+    margin-left: 300px;
     display: flex;
     flex-direction: column;
 }

@@ -1,3 +1,10 @@
+/* General font settings */
+* {
+    font-family: "Poppins", sans-serif; /* Apply Poppins font to all elements */
+    font-weight: 300; /* Light font weight */
+    font-style: normal; /* Normal font style */
+}
+
 /* Styling for the form container */
 .tuition-form {
     width: 80%;
@@ -13,7 +20,8 @@
 .form-header {
     text-align: center;
     font-size: 2rem;
-    font-weight: bold;
+    font-weight: 300; /* Ensure font weight is set */
+    font-style: normal; /* Ensure font style is set */
     color: #333;
     margin-bottom: 20px;
 }
@@ -35,7 +43,8 @@
 .form-group label {
     display: block;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 300; /* Ensure font weight is set */
+    font-style: normal; /* Ensure font style is set */
     margin-bottom: 5px;
     color: #555;
 }
@@ -45,6 +54,8 @@
     width: 100%;
     padding: 10px;
     font-size: 1rem;
+    font-weight: 300; /* Ensure font weight is set */
+    font-style: normal; /* Ensure font style is set */
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
@@ -61,7 +72,8 @@
 .submit-btn {
     padding: 8px 20px; /* Reduce padding to make the button smaller */
     font-size: 1rem; /* Reduce font size */
-    font-weight: bold;
+    font-weight: 300; /* Ensure font weight is set */
+    font-style: normal; /* Ensure font style is set */
     color: white;
     background-color: #007bff;
     border: none;

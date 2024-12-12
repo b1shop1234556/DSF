@@ -1,6 +1,8 @@
 /* Global Styles */
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: "Poppins", sans-serif; /* Set font family */
+    font-weight: 300; /* Set font weight to 300 */
+    font-style: normal; /* Set font style to normal */
     background-color: #f4f7fa;
     margin: 0;
     padding: 0;
@@ -15,6 +17,9 @@ body {
     border-radius: 12px;
     box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
     margin-bottom: 0;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 /* Form Header */
@@ -23,6 +28,9 @@ body {
     text-align: center;
     margin-bottom: 30px;
     color: #000000;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 /* Input Form Styles */
@@ -31,6 +39,9 @@ body {
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 .left-container {
@@ -38,6 +49,9 @@ body {
     display: flex;
     flex-direction: row;
     gap: 30px;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 /* Image Container for Zoom Effect */
@@ -75,10 +89,16 @@ body {
     flex-direction: column;
     gap: 15px;
     flex-grow: 1;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 .field {
     margin-bottom: 20px;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 .mat-label {
@@ -87,6 +107,9 @@ body {
     color: #555;
     margin-bottom: 10px;
     display: block;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 input[type="number"], input[type="text"] {
@@ -96,6 +119,9 @@ input[type="number"], input[type="text"] {
     border-radius: 8px;
     border: 1px solid #ddd;
     background-color: #f9f9f9;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 input[type="number"]:focus, input[type="text"]:focus {
@@ -108,6 +134,9 @@ input[type="number"]:focus, input[type="text"]:focus {
 .right-container {
     width: 48%;
     margin-top: 20px;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 .image-info-container {
@@ -120,6 +149,9 @@ input[type="number"]:focus, input[type="text"]:focus {
 .info {
     font-size: 16px;
     color: #555;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 .info p {
@@ -128,6 +160,9 @@ input[type="number"]:focus, input[type="text"]:focus {
 
 .info strong {
     color: #007bff;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 /* Button Styles */
@@ -145,6 +180,9 @@ button {
     background-color: #007bff;
     color: white;
     transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    font-family: "Poppins", sans-serif; /* Consistent font family */
+    font-weight: 300; /* Consistent font weight */
+    font-style: normal; /* Consistent font style */
 }
 
 button:hover {

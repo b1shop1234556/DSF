@@ -1,5 +1,12 @@
 /* General body and font settings */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); /* Importing the custom font with weight 300 */
+
+/* Apply globally */
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
 
 /* Main container for the student account */
 .student-account {
@@ -17,6 +24,7 @@
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center items vertically */
   margin-bottom: 15px; /* Reduced space below the button section */
+  gap: 15px; /* Increased space between buttons */
 }
 
 .button-container button {
@@ -26,13 +34,13 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
-  margin-right: 8px; /* Reduced space between buttons */
+  font-family: "Poppins", sans-serif;
+  font-weight: 300; /* Ensuring consistency */
 }
 
 .button-container button:hover {
   background-color: #0056b3; /* Darker shade on hover */
 }
-
 
 .search-bar button {
   background-color: #007bff;
@@ -41,6 +49,8 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 /* Table styling */
@@ -60,7 +70,7 @@ th {
   text-align: center;
   border-bottom: 2px solid #255a92;
   font-family: 'Poppins', sans-serif; /* Custom font */
-  font-weight: 600;
+  font-weight: 300; /* Adjusted font-weight */
   text-transform: uppercase; /* Make the text uppercase */
   letter-spacing: 1px; /* Add space between letters */
   font-size: 14px;
@@ -71,6 +81,8 @@ td {
   padding: 8px 12px; /* Reduced padding */
   text-align: center;
   border-bottom: 1px solid #ddd;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300; /* Consistent font weight */
 }
 
 /* Fix for the scrolling behavior */
@@ -127,6 +139,8 @@ tr:hover {
 .styled-table td {
   padding: 8px 12px; /* Reduced padding */
   text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 .styled-table thead tr {
@@ -204,12 +218,14 @@ section {
   font-size: 14px;
   margin-left: 8px;
   min-width: 120px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 .example-button-row {
   display: flex;
   align-items: center;
-  gap: 5x; /* Reduced gap between the buttons */
+  gap: 15px; /* Increased gap between the buttons */
 }
 
 .example-flex-container {
@@ -233,8 +249,9 @@ section {
   border-radius: 8px; /* Increased border-radius for more rounded corners */
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   transition: background-color 0.3s; /* Smooth transition for hover effect */
-  
 }
 
 .pending-button:hover {
@@ -249,6 +266,8 @@ section {
   border-radius: 8px; /* Increased border-radius for more rounded corners */
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
   transition: background-color 0.3s; /* Smooth transition for hover effect */
   margin-bottom: 0; /* Removed margin-bottom to reduce space below */
 }
@@ -259,28 +278,17 @@ section {
 
 /* Style for the PENDING ENROLLEES text */
 .pending-text {
-  font-size: 18px;
-  font-weight: bold;
-  color: #030303; /* Matching the banner color */
+  font-size: 30px; /* Larger font size for better visibility */
+  font-weight: 300; /* Consistent font-weight */
+  color: #030303; /* Dark color for the text */
   margin-right: 20px; /* Space between text and buttons */
   align-self: center; /* Vertically center the text */
+  padding-top: 20px; /* Padding to create space above */
+  font-family: "Poppins", sans-serif; /* Clean and modern font */
+  text-transform: uppercase; /* Make text uppercase for impact */
+  letter-spacing: 3px; /* Spacing between letters for a sleek look */
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
-
-/* Adjust the flex container to align items properly */
-.example-button-row {
-  display: flex;
-  align-items: center; /* Vertically align text and buttons */
-  gap: 20px; /* Space between elements */
-}
-
-
-/* Disabled state for buttons */
-.disabled {
-  color: #ccc; /* Change text color to indicate disabled state */
-  pointer-events: none; /* Prevent any mouse events */
-  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
-}
-
 
 /* Banner Styles */
 .banner {
@@ -294,6 +302,8 @@ section {
   max-width: 100%;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   gap: 50px; /* Space between image and text */
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
 }
 
 .illustration {
@@ -314,18 +324,19 @@ section {
 .date {
   font-size: 20px;
   padding-bottom: 4rem;
-  font-weight: 400;
+  font-weight: 300; /* Consistent font-weight */
 }
 
 .welcome-message {
   font-size: 50px;
-  font-weight: 500;
+  font-weight: 300; /* Consistent font-weight */
 }
 
 .subtext {
   font-size: 16px;
   margin-top: 5px;
   opacity: 0.9;
+  font-weight: 300;
 }
 
 .text-content {
@@ -339,19 +350,3 @@ section {
 .inq-col {
   width: 33.33%; /* Equivalent to col-4 */
 }
-
-
-
-.pending-text {
-  font-size: 30px; /* Larger font size for better visibility */
-  font-weight: bold;
-  color: #030303; /* Dark color for the text */
-  margin-right: 20px; /* Space between text and buttons */
-  align-self: center; /* Vertically center the text */
-  padding-top: 20px; /* Padding to create space above */
-  font-family: 'Poppins', sans-serif; /* Clean and modern font */
-  text-transform: uppercase; /* Make text uppercase for impact */
-  letter-spacing: 3px; /* Spacing between letters for a sleek look */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-}
-

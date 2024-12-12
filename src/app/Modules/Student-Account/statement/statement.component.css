@@ -1,5 +1,11 @@
+/* Importing the Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+
+/* General body styling */
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     background-color: #f9f9f9;
     margin: 0;
     padding: 20px;
@@ -9,7 +15,11 @@ body {
     min-height: 100vh; /* Full viewport height */
 }
 
+/* Receipt container */
 .receipt-container {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 8px;
@@ -20,19 +30,31 @@ body {
     width: 100%;
 }
 
+/* Heading styling */
 h2 {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
+/* Paragraph styling */
 p {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     font-size: 16px;
     margin-bottom: 10px;
     color: #555;
 }
 
+/* Button styling */
 button {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -45,21 +67,24 @@ button:hover {
     opacity: 0.8;
 }
 
+/* Specific button classes */
 .btn-back {
     background-color: #ccc;
     margin-right: 15px;
 }
 
 .btn-upload {
-    background-color: #007bff; /* Green background for upload button */
+    background-color: #007bff; /* Blue background for upload button */
 }
 
+/* Button container styling */
 .button-container {
     display: flex;
     justify-content: center; /* Centering buttons horizontally */
     margin-top: 20px;
 }
 
+/* Button actions container */
 .button-actions {
     display: flex;
     justify-content: center;
@@ -67,7 +92,11 @@ button:hover {
     margin-top: 10px;
 }
 
+/* File input styling */
 input[type="file"] {
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+    font-style: normal;
     padding: 10px;
     font-size: 16px;
     margin-right: 15px;
@@ -75,11 +104,7 @@ input[type="file"] {
     border: 1px solid #ccc;
 }
 
-input[type="file"]:focus {
-    outline: none;
-    border-color: #4CAF50;
-}
-
+/* Print media query */
 @media print {
     @page {
         size: landscape;

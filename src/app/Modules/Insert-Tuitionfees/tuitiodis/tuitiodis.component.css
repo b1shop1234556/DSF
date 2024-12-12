@@ -1,5 +1,12 @@
 /* General body and font settings */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap'); /* Importing the custom font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap'); /* Importing the custom font */
+
+/* Apply font-family, font-weight, and font-style globally */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
 
 /* Main container for the student account */
 .student-account {
@@ -10,6 +17,9 @@
   border: 1px solid #ddd;
   max-width: 1200px; /* Max width for larger screens */
   margin: auto; /* Centering the container */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* Button container styles */
@@ -27,6 +37,9 @@
   border-radius: 3px;
   cursor: pointer;
   margin-right: 8px; /* Reduced space between buttons */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .button-container button:hover {
@@ -42,6 +55,9 @@
   border: 1px solid #ddd;
   padding: 8px; /* Reduced padding */
   border-radius: 3px;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .search-bar input[type="text"] {
@@ -50,6 +66,9 @@
   box-sizing: border-box;
   margin-right: 8px; /* Reduced space */
   flex-grow: 1;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .search-bar button {
@@ -59,6 +78,9 @@
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* Table styling */
@@ -69,6 +91,9 @@ table {
   border: 1px solid #ddd;
   border-radius: 3px;
   overflow: hidden; /* Prevents border-radius from being cut off */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 th {
@@ -77,8 +102,9 @@ th {
   padding: 8px 12px; /* Reduced padding */
   text-align: center;
   border-bottom: 2px solid #255a92;
-  font-family: 'Poppins', sans-serif; /* Custom font */
-  font-weight: 600;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
   text-transform: uppercase; /* Make the text uppercase */
   letter-spacing: 1px; /* Add space between letters */
   font-size: 14px;
@@ -89,36 +115,9 @@ td {
   padding: 8px 12px; /* Reduced padding */
   text-align: center;
   border-bottom: 1px solid #ddd;
-}
-
-/* Fix for the scrolling behavior */
-tbody {
-  display: table-row-group; /* Use default display for tbody */
-  max-height: none; /* Remove max height to avoid scrolling */
-  overflow-y: visible; /* Prevent overflow */
-  width: 100%;
-}
-
-/* Hide the scrollbar but keep scrolling */
-tbody::-webkit-scrollbar {
-  width: 0px; /* Hide scrollbar in WebKit browsers */
-  height: 0px; /* Hide horizontal scrollbar in WebKit browsers */
-}
-
-tbody {
-  scrollbar-width: thin; /* Firefox: make the scrollbar thin */
-  scrollbar-color: transparent transparent; /* Firefox: hide the scrollbar but keep it scrollable */
-}
-
-tr {
-  display: table; /* Make rows behave like table rows */
-  width: 100%;
-  table-layout: fixed; /* Prevents columns from resizing */
-  border-bottom: 1px solid #ddd; /* Add border to rows */
-}
-
-tr:hover {
-  background-color: #f5f5f5; /* Highlight on hover */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* Icon styles */
@@ -127,13 +126,18 @@ tr:hover {
   color: #007bff;
   cursor: pointer;
   margin-right: 8px; /* Reduced space */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 /* For styled table version */
 .styled-table {
   width: 100%;
   border-collapse: collapse;
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
   margin: 25px 0;
   font-size: 0.9em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -145,6 +149,9 @@ tr:hover {
 .styled-table td {
   padding: 8px 12px; /* Reduced padding */
   text-align: center;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .styled-table thead tr {
@@ -152,6 +159,9 @@ tr:hover {
   color: #ffffff;
   text-align: left;
   font-weight: bold;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .styled-table tbody tr {
@@ -212,39 +222,6 @@ tr:hover {
   }
 }
 
-/* Button row for pending and approved actions */
-section {
-  display: table;
-}
-
-.example-label {
-  display: table-cell;
-  font-size: 14px;
-  margin-left: 8px;
-  min-width: 120px;
-}
-
-.example-button-row {
-  display: table-cell;
-  max-width: 600px;
-}
-
-.example-button-row .mat-mdc-button-base {
-  margin: 8px 8px 8px 0;
-}
-
-.example-flex-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.example-button-container {
-  display: flex;
-  justify-content: center;
-  width: 120px;
-}
-
 /* Button styles for Pending and Approved states */
 .pending-button {
   background-color: #ddb028; /* Yellow for Pending */
@@ -256,6 +233,9 @@ section {
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
   margin-right: 10px; /* Reduced space between buttons */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .pending-button:hover {
@@ -271,6 +251,9 @@ section {
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
 .approved-button:hover {
@@ -282,46 +265,20 @@ section {
   color: #ccc; /* Change text color to indicate disabled state */
   pointer-events: none; /* Prevent any mouse events */
   cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  font-weight: 300;
+  font-style: normal;
 }
 
-/* Heading container alignment */
-.heading-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.heading-left {
-  display: flex;
-  align-items: center; /* Vertically align the icon with the text */
-}
-
-
-
-.heading-left i {
-  font-size: 40px; /* Adjust the icon size if needed */
-  cursor: pointer;
-  color: #007bff; /* Set icon color */
-  transition: color 0.3s ease;
-  margin-bottom: 12px;
-  margin-left: 8px;
-}
-
-.heading-left i:hover {
-  color: #0056b3; /* Change icon color on hover */
-}
-
-/* Other existing styles... */
-
-
+/* Pending text */
 .pending-text {
   font-size: 30px; /* Larger font size for better visibility */
-  font-weight: bold;
+  font-weight: 300;
   color: #030303; /* Dark color for the text */
   margin-right: 20px; /* Space between text and buttons */
   align-self: center; /* Vertically center the text */
   padding-top: 20px; /* Padding to create space above */
-  font-family: 'Poppins', sans-serif; /* Clean and modern font */
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
   text-transform: uppercase; /* Make text uppercase for impact */
   letter-spacing: 3px; /* Spacing between letters for a sleek look */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */

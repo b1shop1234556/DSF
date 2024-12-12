@@ -50,6 +50,7 @@ export class InputPaymentComponent implements OnInit {
   inputAmount = new FormGroup({
     OR_number: new FormControl(null),
     description: new FormControl(null),
+    old_account: new FormControl(null),
     amount_paid: new FormControl(0),
     LRN: new FormControl(this.LRN.id)
   });
@@ -70,6 +71,7 @@ export class InputPaymentComponent implements OnInit {
       this.inputAmount.patchValue({
         OR_number: this.students.OR_number,
         description: this.students.description,
+        old_account: this.students.old_account,
         amount_paid: this.students.amount_paid,
       });
     });

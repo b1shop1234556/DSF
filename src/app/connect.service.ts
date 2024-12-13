@@ -123,7 +123,7 @@ export class ConnectService {
   }
 
 
-  //inserting tuition
+  //tuition_fees
   addtuitionfee(data: any){
     return this.http.post(`${this.url}addtuitionfee`, data);
   }
@@ -134,6 +134,13 @@ export class ConnectService {
   updateTuitionFee(id: any, data: any) {
     return this.http.put(`${this.url}updateTuitionFee/${id}`, data);
 }
+
+deleteTuitionFee(fee_id: number) {
+  return this.http.post(`${this.url}deleteTuitionFee/${fee_id}`, {});
+}
+
+
+
 
 //   updateTuitionFee(id: number, data: any): Observable<any> {
 //     return this.http.put(`http://localhost:8000/api/updateTuitionFee/${id}`, data)
@@ -158,4 +165,7 @@ export class ConnectService {
 
     return this.http.post(`${this.url}upload-images`, formData);
   }
+  
 }
+
+

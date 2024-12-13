@@ -52,13 +52,13 @@
               <!-- @for(c of getFilteredEnrollment() | searchFilter: keyword; track c.LRN) { -->
               @for(c of students | searchFilter: keyword; track c.LRN) {
               <!-- @for(c of students; track c.LRN) { -->
-                  <tr>
+                  <tr (click)="Modal(c.LRN)">
                       <td class="text-start">{{ c.LRN }}</td>
-                      <td class="col-md-2 text-start text-primary text-hover" (click)="Modal(c.LRN)">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
+                      <td class="col-md-2 text-start">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
                       <td class="text-start">{{ c.contact_no }}</td>
                       <td>{{ c.grade_level }}</td>
                       <td >{{ c.date_register | date}}</td>
-                      <td>{{ c.total_tuition | currency: 'PHP':'symbol' }}</td>
+                      <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
                       <td class="">
                       {{ c.amount_paid | currency: 'PHP':'symbol' }}
                       <!-- <img style="width: 50px; height: 50px;" src="{{c.proof_payment}}" alt="image"> -->

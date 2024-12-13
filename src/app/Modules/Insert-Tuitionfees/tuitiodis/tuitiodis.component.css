@@ -283,3 +283,15 @@ td {
   letter-spacing: 3px; /* Spacing between letters for a sleek look */
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
+
+/* Add space between icons */
+td i {
+  font-size: 18px;
+  color: #009879;
+  cursor: pointer;
+  margin-right: 8px; /* Reduced space between icons */
+}
+
+td i.icon-space {
+  margin-left: 10px; /* Space between the pen icon and trash icon */
+}

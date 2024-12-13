@@ -42,11 +42,12 @@
             <td>{{ c.general | currency: 'PHP':'symbol' }}</td>
             <td>{{ c.esc | currency: 'PHP':'symbol' }}</td>
             <td>{{ c.subsidy }}</td>
-            <td>{{ c.req_Downpayment}}</td>
+            <td>{{ c.req_Downpayment}}%</td>
 
             <!-- Action buttons for Update and Delete -->
             <td>
               <i class="fa-solid fa-pen-to-square" (click)="Modal(c)"></i>
+              <i class="fa-solid fa-trash" (click)="onDelete(c.fee_id)" style="cursor: pointer; color: rgb(185, 44, 44);"></i>
             </td>  
           </tr>
         }

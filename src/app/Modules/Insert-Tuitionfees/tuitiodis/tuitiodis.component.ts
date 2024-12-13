@@ -20,6 +20,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConnectService } from '../../../connect.service';
 import { InsertComponent } from '../insert/insert.component';
 import { EditfeesComponent } from '../editfees/editfees.component';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-tuitiodis',
@@ -58,6 +59,7 @@ export class TuitiodisComponent implements OnInit{
   students: any;
   grade: any;
 
+  fee_id: any;
 
   constructor(
     private dialog: MatDialog,
@@ -145,6 +147,53 @@ Update(result: any): void {
         console.log(this.students);
     });
 }
+
+onDelete(fee_id: number): void {
+  // Show SweetAlert confirmation dialog
+  Swal.fire({
+    title: 'Are you sure?',
+    text: 'You are about to delete this tuition fee.',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Yes, delete it!',
+  }).then((result) => {
+    if (result.isConfirmed) {
+      // Call the delete function with the fee_id
+      this.conn.deleteTuitionFee(fee_id).subscribe(
+        (response: any) => {
+          // Handle successful deletion response
+          if (response.message === 'Tuition fee deleted successfully') {
+            console.log('Delete successful:', response);
+            Swal.fire(
+              'Deleted!',
+              'The tuition fee has been deleted.',
+              'success'
+            );
+            this.displaypending(); // Refresh the list of students/fees
+          } else {
+            console.error('Delete failed:', response);
+            Swal.fire(
+              'Failed!',
+              'There was an issue deleting the tuition fee. Please try again later.',
+              'error'
+            );
+          }
+        },
+        (error) => {
+          console.error('Delete failed:', error);
+          Swal.fire(
+            'Failed!',
+            'There was an issue deleting the tuition fee. Please try again later.',
+            'error'
+          );
+        }
+      );
+    }
+  });
+}
+
 
 
 }

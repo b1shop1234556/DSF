@@ -13,6 +13,7 @@
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   border: 1px solid #ddd;
+  font-family: "Poppins", sans-serif;
   max-width: 1200px; /* Max width for larger screens */
   margin: auto; /* Centering the container */
 }
@@ -20,6 +21,7 @@
 .button-container {
   display: flex; /* Use flexbox for alignment */
   align-items: center; /* Center items vertically */
+  font-family: "Poppins", sans-serif;
   margin-bottom: 10px; /* Reduced margin-bottom for less space between the button section and search bar */
 }
 
@@ -29,6 +31,7 @@
   padding: 10px 15px;
   border: none;
   border-radius: 3px;
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
   margin-right: 10px; /* Space between buttons */
 }
@@ -42,6 +45,7 @@
   justify-content: space-between; /* Align elements to the start and end */
   align-items: center; /* Center items vertically */
   width: auto;
+  font-family: "Poppins", sans-serif;
   position: relative;
 }
 
@@ -61,6 +65,7 @@
   display: flex;
   align-items: center;
   border: 1px solid #ddd;
+  font-family: "Poppins", sans-serif;
   padding: 6px;
   border-radius: 3px;
   max-width: 250px;
@@ -68,6 +73,7 @@
 
 .search-bar input[type="text"] {
   padding: 6px;
+  font-family: "Poppins", sans-serif;
   border: none;
   box-sizing: border-box;
   width: 200px; /* Adjust the width as necessary */
@@ -77,6 +83,7 @@
   background-color: #007bff;
   color: white;
   padding: 6px 12px;
+  font-family: "Poppins", sans-serif;
   border: none;
   border-radius: 3px;
   cursor: pointer;
@@ -88,6 +95,7 @@ table {
   border-collapse: collapse;
   background-color: #fff;
   border: 1px solid #ddd;
+  font-family: "Poppins", sans-serif;
   border-radius: 3px;
   overflow: hidden; /* Prevents border-radius from being cut off */
   margin-top: 0; /* Reduced margin-top for the table */
@@ -99,6 +107,7 @@ th {
   color: #ffffff;
   padding: 12px 15px;
   text-align: center;
+  font-family: "Poppins", sans-serif;
   border-bottom: 2px solid #255a92;
   text-transform: uppercase; /* Make the text uppercase */
   letter-spacing: 1px; /* Add space between letters */
@@ -108,6 +117,7 @@ th {
 
 td {
   padding: 12px 15px;
+  font-family: "Poppins", sans-serif;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
@@ -116,6 +126,7 @@ tbody {
   display: table-row-group; /* Use default display for tbody */
   max-height: none; /* Remove max height to avoid scrolling */
   overflow-y: visible; /* Prevent overflow */
+  font-family: "Poppins", sans-serif;
   width: 100%;
 }
 
@@ -135,6 +146,7 @@ tbody::-webkit-scrollbar-track {
 tr {
   display: table; /* Make rows behave like table rows */
   width: 100%;
+  font-family: "Poppins", sans-serif;
   table-layout: fixed; /* Prevents columns from resizing */
   border-bottom: 1px solid #ddd; /* Add border to rows */
 }
@@ -155,6 +167,7 @@ tr:hover {
   width: 100%;
   border-collapse: collapse;
   margin: 25px 0;
+  font-family: "Poppins", sans-serif;
   font-size: 0.9em;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   border-radius: 10px;
@@ -227,6 +240,7 @@ tr:hover {
     width: 50%;
     padding-left: 15px;
     font-weight: bold;
+    font-family: "Poppins", sans-serif;
     text-align: left;
   }
 }
@@ -238,12 +252,14 @@ p {
 section {
   margin-top: 0; /* Reduced margin to reduce the space */
   margin-bottom: 0;
+  font-family: "Poppins", sans-serif;
   display: table;
 }
 
 .example-label {
   display: table-cell;
   font-size: 14px;
+  font-family: "Poppins", sans-serif;
   margin-left: 8px;
   min-width: 120px;
 }
@@ -259,12 +275,14 @@ section {
 
 .example-flex-container {
   display: flex;
+  font-family: "Poppins", sans-serif;
   justify-content: space-between;
   flex-wrap: wrap;
 }
 
 .example-button-container {
   display: flex;
+  font-family: "Poppins", sans-serif;
   justify-content: center;
   width: 120px;
   margin-bottom: 5px;
@@ -280,6 +298,7 @@ section {
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
   margin-right: 20px; /* Reduced margin-right for less space between buttons */
+  font-family: "Poppins", sans-serif;
   margin-bottom: 0;
 }
 
@@ -293,6 +312,7 @@ section {
   padding: 12px 20px; /* Increased padding for more space */
   border: none;
   border-radius: 8px; /* Increased border-radius for more rounded corners */
+  font-family: "Poppins", sans-serif;
   cursor: pointer;
   font-size: 14px; /* Adjust font size if needed */
   transition: background-color 0.3s; /* Smooth transition for hover effect */
@@ -312,5 +332,6 @@ section {
   padding-bottom: 20px; /* Padding for space below */
   text-transform: uppercase; /* Make text uppercase for impact */
   letter-spacing: 3px; /* Spacing between letters for a sleek look */
+  font-family: "Poppins", sans-serif;
   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }

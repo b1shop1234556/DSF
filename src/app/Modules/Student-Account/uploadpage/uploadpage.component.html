@@ -20,21 +20,22 @@
 <!-- for all uploading -->
 <form [formGroup]="myForm" (ngSubmit)="submit()" class="file-upload-form">
   <div class="form-group">
-    <label for="file" class="file-label">Upload images</label>
+    <label for="file" class="file-label">Upload Images</label>
     <input type="file" id="file" (change)="onFileChange($event)" multiple class="file-input" />
   </div>
 
   <div *ngIf="images.length" class="image-preview-container">
     <h3 class="image-preview-title">Previews:</h3>
     <div class="image-previews">
-        <div *ngFor="let img of images" class="image-preview" (click)="enlargeImage(img)">
-            <img [src]="img" alt="Image preview" class="image-thumbnail" />
-        </div>
+      <div *ngFor="let img of images" class="image-preview" (click)="enlargeImage(img)">
+        <img [src]="img" alt="Image preview" class="image-thumbnail" />
+      </div>
     </div>
-</div>
+  </div>
 
   <button type="submit" class="upload-button" [disabled]="myForm.invalid">Upload</button>
 </form>
+
 
 
 

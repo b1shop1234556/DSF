@@ -35,10 +35,11 @@
       <table class="styled-table">
           <thead>
               <tr>
-                  <th>LRN</th>
+                  <th class="col-md-2">LRN</th>
                   <th class="col-md-2">NAME</th>
                   <th>CONTACT #</th>
                   <th>GRADE LEVEL</th>
+                  <th>STRAND</th>
                   <th >ENROLLMENT DATE</th>
                   <th>TUITION FEE</th>
                   <th>PAYMENT</th>
@@ -53,10 +54,11 @@
               @for(c of students | searchFilter: keyword; track c.LRN) {
               <!-- @for(c of students; track c.LRN) { -->
                   <tr (click)="Modal(c.LRN)">
-                      <td class="text-start">{{ c.LRN }}</td>
+                      <td class="col-md-2 text-start">{{ c.LRN }}</td>
                       <td class="col-md-2 text-start">{{ c.lname}}, {{ c.fname}} {{ c.mname}} {{ c.suffix}}</td>
                       <td class="text-start">{{ c.contact_no }}</td>
                       <td>{{ c.grade_level }}</td>
+                      <td>{{ c.strand }}</td>
                       <td >{{ c.date_register | date}}</td>
                       <td>{{ c.tuition | currency: 'PHP':'symbol' }}</td>
                       <td class="">

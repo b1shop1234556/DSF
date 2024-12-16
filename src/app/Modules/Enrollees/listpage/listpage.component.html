@@ -50,6 +50,7 @@
                 <th>GENDER</th>
                 <th>CONTACT #</th>
                 <th>GRADE LEVEL</th>
+                <th>STRAND</th>
                 <th class="col-md-2">ADDRESS</th>
                 <th>APPROVAL DATE</th>
             </tr>
@@ -63,7 +64,8 @@
                 <td class="">{{ c.gender }}</td>
                 <td class="">{{ c.contact_no }}</td>
                 <td>{{ c.grade_level }}</td>
-                <td class="text-start">{{ c.address }}</td>
+                <td>{{ c.strand }}</td>
+                <td class=" col-md-2 text-start">{{ c.address }}</td>
                 <td class="">{{ c.payment_approval | date}}</td>
             </tr>
             }

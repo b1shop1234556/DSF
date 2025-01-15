@@ -96,16 +96,9 @@ export class InputPaymentComponent implements OnInit {
       this.conn.approveEnrollment(id).subscribe({
         next: (response) => {
           console.log('Update Successful');
-          Swal.fire({
-            position: 'center',
-            icon: 'success',
-            title: 'Enrollment Approved Successfully',
-            showConfirmButton: true,
-          }).then(() => {
-            // Navigate only if LRN.id is defined
-            this.route.navigate(['/main-page/enrollees/homepage/approve']);
-            this.dialogRef.close();
-          });
+          // Navigate only if LRN.id is defined
+          this.route.navigate(['/main-page/enrollees/homepage/approve']);
+          this.dialogRef.close();
         },
         error: (error) => {
           console.error('Update failed', error);
@@ -116,6 +109,7 @@ export class InputPaymentComponent implements OnInit {
       // Optionally show an error message or handle the invalid case
     }
   }
+  
   
 
   // onMouseMove(event: MouseEvent): void {

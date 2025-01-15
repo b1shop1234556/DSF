@@ -91,45 +91,31 @@ export class StatementComponent implements OnInit{
     if (this.selectedFile) {
       const formData = new FormData();
       formData.append('filename', this.selectedFile, this.selectedFile.name);
-      
+  
       this.http.post(`http://localhost:8000/api/uploadfiles/${this.LRN.id}`, formData)
-      // this.http.post(`http://192.168.3.38:8000/api/uploadfiles/${this.LRN.id}`, formData)
         .subscribe(
           (response: any) => {
-            Swal.fire({
-              title: 'Success!',
-              text: 'Image uploaded successfully!',
-              icon: 'success',
-              confirmButtonText: 'OK'
-            }).then(() => {
-              // this.loadExistingImage();
-              // this.startPolling();
-              // localStorage.removeItem('Admin_ID'); 
-              this.route.navigate(["/main-page/student/home-page"]);
-              // location.reload(); // Reload the page after navigation
-             
-            });
+            console.log('Success:', response);  // Log success response
+  
+            // Close the modal after successful upload
+            this.dialogRef.close();
+  
+            // Navigate to the next page or refresh data
+            this.route.navigate(["/main-page/student/home-page"]);
           },
           (error: any) => {
-            Swal.fire({
-              title: 'Error!',
-              text: 'Error uploading image. Please try again.',
-              icon: 'error',
-              confirmButtonText: 'OK'
-            });
-            console.error('Error:', error);
+            console.error('Error:', error);  // Log error
+  
+            // Optionally, display a message in the UI about the error
+            alert('Error uploading image. Please try again.');
           }
         );
     } else {
-      Swal.fire({
-        title: 'Warning!',
-        text: 'Please select an image first.',
-        icon: 'warning',
-        confirmButtonText: 'OK'
-      });
+      alert('Please select an image first.');  // Alert if no file is selected
     }
-
   }
+    
+  
 
   private refreshDataList(): void {
     this.conn.getDatalist().subscribe((result: any) => {

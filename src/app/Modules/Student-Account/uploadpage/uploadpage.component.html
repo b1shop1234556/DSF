@@ -20,7 +20,7 @@
 <!-- for all uploading -->
 <form [formGroup]="myForm" (ngSubmit)="submit()" class="file-upload-form">
   <div class="form-group">
-    <label for="file" class="file-label">Upload Images</label>
+    <label for="file" class="file-label"><strong>Upload All Images</strong> </label>
     <input type="file" id="file" (change)="onFileChange($event)" multiple class="file-input" />
   </div>
 
@@ -45,7 +45,7 @@
         <tr>
           <!-- <th>LRN</th> -->
           <th>Name</th>
-          <th></th>
+          <th style="text-align: right;">Upload</th>
         </tr>
       </thead>
       <tbody id="enrollee-table-body">
